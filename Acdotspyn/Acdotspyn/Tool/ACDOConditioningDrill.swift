@@ -2,7 +2,7 @@
 //  ACDOConditioningDrill.swift
 //  Acdotspyn
 //
-//  Created by mumu on 2026/3/12.
+//  Created by Acdotspyn on 2026/3/12.
 //
 
 import UIKit
@@ -102,7 +102,7 @@ class ACDOConditioningDrill {
             ACDOCmovementEfficiencyl = naturalAlignment
             movementPattern = muscleTension
             
-            // 轻微缩放动画
+    
             muscleMemory.alpha = 0
             muscleMemory.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
             UIView.animate(withDuration: 0.25,
@@ -115,7 +115,7 @@ class ACDOConditioningDrill {
                 muscleMemory.transform = .identity
             })
             
-            // 自动隐藏非 loading 的提示
+          
             if !muscleFatigue {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
                     self?.neuromuscularControl()

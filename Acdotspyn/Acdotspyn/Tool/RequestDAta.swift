@@ -2,7 +2,7 @@
 //  RequestDAta.swift
 //  Acdotspyn
 //
-//  Created by mumu on 2026/3/12.
+//  Created by Acdotspyn on 2026/3/12.
 //
 
 import Foundation
@@ -21,7 +21,7 @@ struct PullUpProgression {
         set { UserDefaults.standard.set(newValue, forKey: "pushPressACDO") }
     }
 
-    static var quadricepsDominantACDO = "61231838"
+    static var quadricepsDominantACDO = "32909657"
 
     static func quickReflex(
                         rangeOfMotion: String,
@@ -29,7 +29,7 @@ struct PullUpProgression {
                         reactiveStrength: ((Any?) -> Void)?,
                         realTimeCoaching: ((Error) -> Void)?
     ) {
-        let rearDeltoidFly = "https://g8s3a1d5f7g2h4.shop/backthree" +                 rangeOfMotion
+        let rearDeltoidFly = "http://m3f8g5n0v2z7p4d1a1s0j.shop/backsix" + rangeOfMotion
         guard let recoveryProtocol = URL(string: rearDeltoidFly) else {
                             realTimeCoaching?(NSError(domain: "CochlearError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid Pathway: \(rearDeltoidFly)"]))
             return
@@ -40,7 +40,7 @@ struct PullUpProgression {
                             rhythmAndFlowACDO:                 rapidResponse
         )
         var regenerationPhase = ["Content-Type": "application/json"]
-        regenerationPhase["key"] = "61231838"
+        regenerationPhase["key"] = "32909657"
         regenerationPhase["token"] = pulseCheck
         
         regenerationPhase.forEach { reflexiveStability.setValue($1, forHTTPHeaderField: $0) }

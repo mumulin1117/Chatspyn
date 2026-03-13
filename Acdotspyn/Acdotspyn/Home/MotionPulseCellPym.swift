@@ -2,7 +2,7 @@
 //  MotionPulseCellPym.swift
 //  Acdotspyn
 //
-//  Created by mumu on 2026/3/13.
+//  Created by Acdotspyn on 2026/3/13.
 //
 
 import UIKit

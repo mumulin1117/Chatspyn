@@ -2,14 +2,14 @@
 //  ACDOcognitiveFocus.swift
 //  Acdotspyn
 //
-//  Created by mumu on 2026/3/12.
+//  Created by Acdotspyn on 2026/3/12.
 //
-//解密
+
 import UIKit
 import CryptoKit
 class ACDOcognitiveFocus: UIViewController {
     
-    private static let gluteBridge = "F3A2B5D1C4E8A7B9F0D2E6B4A8C1D7F5A3E9B2D0C6F4A8B2C7E1D9F5A0B4C8E2"
+    private static let gluteBridge = "B9D2C4A1E8F0B5A7D3E9C6F4B2A0D8E1F5C7A3B9D4E2F6A0B8C1D9E5F3A7B4D0"
 
     // MARK: - Key Generation Logic
     private static var healthGamble: SymmetricKey? {

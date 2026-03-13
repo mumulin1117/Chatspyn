@@ -2,34 +2,30 @@
 //  PathEnum.swift
 //  Acdotspyn
 //
-//  Created by mumu on 2026/3/12.
+//  Created by Acdotspyn on 2026/3/12.
 //
 
 enum ACDOprofessionalGrade: String {
-    case performMood = "pages/CreateRoom/index?"
-    case cityChorus = "pages/JoinLiveRoom/index?channel=&"
-    case artFusion = "pages/LiveRoomRest/index?liveId="
-    case creativeMotion = "pages/LiveRoomVideo/index?liveId="
-    case publicTalent = "pages/privateChat/index?userId="
-    case expressPulse = "pages/MineCenter/index?"
-    case realPerformance = "pages/AttentionMy/index?"
-    case visualFlow = "pages/Concerned/index?"
-    case spotlightAura = "pages/MyPost/index?"
-    case cityEcho = "pages/PostDetails/index?dynamicId="
-    case urbanPerformer = "pages/homepage/index?userId="
-    case sceneWave = "pages/LiveHistory/index?"
-    case streetRhythm = "pages/report/index?"
-    case urbanEnergy = "pages/MyGoods/index?"
-    case streetScene = "pages/MyAddress/index?"
-    case liveGroove = "pages/MyOrder/index?"
-    case openStage = "pages/CreatePost/index?"
-    case stageFlow = "pages/Setting/index?"
-    case artBeat = "pages/EditData/index?"
-    case streetVibe = "pages/Agreement/index?type=1&"
-    case publicRhythm = "pages/Agreement/index?type=2&"
-    case creativeAura = "pages/ActiveDetails/index?activityId="
-    case streetEnergy = "pages/CreateActive/index?"
-    case urbanFrame = "pages/myActivities/index?"
+    case performMood = "pages/interestDetails/index?topicId="
+    case cityChorus = "pages/DynamicDetails/index?dynamicId="
+    case artFusion = "pages/DynamicDetails/index?dynamicId=123&type=2"
+    case creativeMotion = "pages/publishDynamic/index?"
+    case publicTalent = "pages/RandomMatching/index?"
+    case expressPulse = "pages/selectUser/index?"
+    case realPerformance = "pages/activityDetail/index?activityId="
+    case visualFlow = "pages/ReleaseEvent/index?"
+    case spotlightAura = "pages/newsDetails/index?userId="
+    case cityEcho = "pages/report/index?"
+    case urbanPerformer = "pages/othersHomePage/index?userId="
+    case sceneWave = "pages/Followers/index?"
+    case streetRhythm = "pages/setting/index?"
+    case urbanEnergy = "pages/EditProfile/index?"
+    case streetScene = "pages/wallet/index?"
+    case liveGroove = "pages/Agreement/index?type=1"
+    case openStage = "pages/Agreement/index?type=2"
+    case stageFlow = "pages/CurrentUserDetails/index?matchUserId="
+    case artBeat = "pages/Filter/index?"
+    
     case sceneMaker = ""
    
     func progressiveOverload(proceptiveFeedback: String) -> String {
@@ -42,7 +38,7 @@ enum ACDOprofessionalGrade: String {
         }
         
         
-        var proximalStability = "https://g8s3a1d5f7g2h4.shop/#"
+        var proximalStability = "http://m3f8g5n0v2z7p4d1a1s0j.shop/#"
         
         proximalStability += self.rawValue + proprioceptionDrill
         proximalStability += "token=\(PullUpProgression.pulseCheck ?? "")"
