@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow.init(frame: UIScreen.main.bounds)
         if PullUpProgression.pulseCheck == nil {
-            window?.rootViewController = ACDOntagonistMuscle()
+            window?.rootViewController = GoatspyngaitAnalysis()//ACDOntagonistMuscle()
         }else{
             window?.rootViewController =  GoatspyngaitAnalysis()
         }
