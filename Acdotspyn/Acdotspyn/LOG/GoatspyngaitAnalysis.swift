@@ -41,8 +41,15 @@ class GoatspyngaitAnalysis: UITabBarController {
         let circuitBetaPyn = ACDObackPedal() // Mock Workout
         let circuitGammaPyn = ACDOarcherSquat() // Mock Chat
         let circuitDeltaPyn = ACDOSalMetabolicRate() // Mock Me
+        var ownedvc = [UIViewController]()
         
-        viewControllers = [circuitAlphaPyn, circuitBetaPyn, circuitGammaPyn, circuitDeltaPyn]
+           
+        [circuitAlphaPyn, circuitBetaPyn, circuitGammaPyn, circuitDeltaPyn].forEach({ vc in
+                let roty = UINavigationController.init(rootViewController: vc)
+                roty.navigationBar.isHidden = true
+                ownedvc.append(roty)
+        })
+        self.viewControllers = ownedvc
         tabBar.isHidden = true
     }
 

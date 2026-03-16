@@ -14,7 +14,7 @@ final class MomentumPulseCellPyn: UITableViewCell {
     private let mediaCanvasPyn = UIImageView()
     private let playTriggerPyn = UIImageView()
     private let captionPyn = UILabel()
-    private let alertNodePyn = UIImageView()
+     let alertNodePyn = UIButton()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -52,16 +52,27 @@ final class MomentumPulseCellPyn: UITableViewCell {
         baseBoardPyn.addSubview(captionPyn)
         
         alertNodePyn.frame = CGRect(x: boardWidthPyn - 40, y: mediaCanvasPyn.frame.maxY + 15, width: 22, height: 22)
-        alertNodePyn.image = UIImage(systemName: "exclamationmark.circle.fill")
+        alertNodePyn.setImage(UIImage(systemName: "exclamationmark.circle.fill"), for: .normal)//.image = 
         alertNodePyn.tintColor = .darkGray
         baseBoardPyn.addSubview(alertNodePyn)
     }
     
-    func configureFramePyn(_ dataPyn: MomentumEntityPyn) {
-        athleteNamePyn.text = dataPyn.userPyn
-        captionPyn.text = dataPyn.isVideoPyn ? "I think that..." : "Nothing like deep breat..."
-        playTriggerPyn.isHidden = !dataPyn.isVideoPyn
-        mediaCanvasPyn.image = UIImage(named: dataPyn.isVideoPyn ? "tennis_pro_pyn" : "stretch_guy_pyn")
+    func configureFramePyn(_ dataPyn: Dictionary<String,Any>) {
+        athleteNamePyn.text = dataPyn["cardioBlast"] as? String
+        captionPyn.text = dataPyn["calfRaise"] as? String
+        
+        let videoImgUrl = dataPyn["deadliftForm"] as? String
+        
+        let coverImgUrl = (dataPyn["closedKineticChain"] as? Array<String>)?.first
+        
+        playTriggerPyn.isHidden = (videoImgUrl == nil)
+        
+        if (videoImgUrl == nil) {
+            mediaCanvasPyn.warmUpProtocol(weightBearing: coverImgUrl)
+        }else{
+            mediaCanvasPyn.warmUpProtocol(weightBearing: videoImgUrl)
+        }
+        
     }
     
     required init?(coder: NSCoder) { fatalError() }

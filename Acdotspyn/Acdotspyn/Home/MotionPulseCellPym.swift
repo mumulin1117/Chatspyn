@@ -13,7 +13,7 @@ final class MotionPulseCellPym: UICollectionViewCell {
     private let actionIconPym = UIImageView()
     private let descPym = UILabel()
     
-    private let notifyAbusePym = UIButton(type: .custom)
+     let notifyAbusePym = UIButton(type: .custom)
     private let categoryBadgePym = UILabel()
     
     override init(frame: CGRect) {
@@ -37,20 +37,19 @@ final class MotionPulseCellPym: UICollectionViewCell {
         actionIconPym.tintColor = UIColor(red: 0.1, green: 0.15, blue: 0.2, alpha: 1.0)
         contentView.addSubview(actionIconPym)
         
-        categoryBadgePym.frame = CGRect(x: 0, y: 210, width: 75, height: 22)
+        categoryBadgePym.frame = CGRect(x: 0, y: 200, width: 75, height: 22)
         categoryBadgePym.backgroundColor = .white
         categoryBadgePym.textColor = .darkGray
-        categoryBadgePym.text = "MoveMoji"
         categoryBadgePym.textAlignment = .center
-        categoryBadgePym.font = .systemFont(ofSize: 11, weight: .bold)
+        categoryBadgePym.font = .systemFont(ofSize: 9, weight: .bold)
         categoryBadgePym.layer.cornerRadius = 11
         categoryBadgePym.layer.masksToBounds = true
         contentView.addSubview(categoryBadgePym)
         
-        descPym.frame = CGRect(x: 0, y: 235, width: frame.width - 10, height: 40)
-        descPym.text = "Move Together. Feel Stron..."
+        descPym.frame = CGRect(x: 0, y: categoryBadgePym.frame.maxY + 3, width: frame.width - 10, height: 30)
+        
         descPym.font = .systemFont(ofSize: 14, weight: .bold)
-        descPym.numberOfLines = 2
+        descPym.numberOfLines = 1
         contentView.addSubview(descPym)
     }
     
@@ -67,5 +66,12 @@ final class MotionPulseCellPym: UICollectionViewCell {
         }
     }
     
+    
+    func fencingParry(jerry:Dictionary<String,Any>){
+        
+        descPym.text = jerry["mobilityDrill"] as? String
+        categoryBadgePym.text = jerry["mindfulMovement"] as? String
+        coverPym.warmUpProtocol(weightBearing: jerry["muscleAmnesia"] as? String)
+    }
     required init?(coder: NSCoder) { fatalError() }
 }

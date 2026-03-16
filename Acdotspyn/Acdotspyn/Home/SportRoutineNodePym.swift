@@ -12,7 +12,7 @@ final class SportRoutineNodePym: UIView {
     private let driftWidthPym = UIScreen.main.bounds.width
     
     private let thumbPym = UIImageView()
-    private let categoryTagPym = UILabel()
+    private let categoryTagPym = UIImageView()
     private let summaryTextPym = UILabel()
     
     private let socialMetricStackPym = UIStackView()
@@ -34,13 +34,14 @@ final class SportRoutineNodePym: UIView {
         
         // 2. 右上角分类标签 (HikeLink)
         categoryTagPym.frame = CGRect(x: driftWidthPym - 110, y: 12, width: 80, height: 24)
-        categoryTagPym.backgroundColor = UIColor(red: 0.1, green: 0.15, blue: 0.2, alpha: 1.0)
-        categoryTagPym.textColor = .white
-        categoryTagPym.text = "HikeLink"
-        categoryTagPym.textAlignment = .center
-        categoryTagPym.font = .systemFont(ofSize: 11, weight: .bold)
-        categoryTagPym.layer.cornerRadius = 6 // UI图中是微圆角矩形
-        categoryTagPym.layer.masksToBounds = true
+        categoryTagPym.contentMode = .scaleToFill
+//        categoryTagPym.backgroundColor = UIColor(red: 0.1, green: 0.15, blue: 0.2, alpha: 1.0)
+//        categoryTagPym.textColor = .white
+//      
+//        categoryTagPym.textAlignment = .center
+//        categoryTagPym.font = .systemFont(ofSize: 11, weight: .bold)
+//        categoryTagPym.layer.cornerRadius = 6 // UI图中是微圆角矩形
+//        categoryTagPym.layer.masksToBounds = true
         addSubview(categoryTagPym)
         
         // 3. 描述文本
@@ -58,8 +59,7 @@ final class SportRoutineNodePym: UIView {
         socialMetricStackPym.frame = CGRect(x: 140, y: 100, width: 200, height: 30)
         addSubview(socialMetricStackPym)
         
-        renderMetricNodePym(commentPulsePym, iconPym: "bubble.left", countPym: "124")
-        renderMetricNodePym(collectionPulsePym, iconPym: "star.fill", countPym: "124", colorPym: .systemGray5)
+        
     }
     
     private func renderMetricNodePym(_ btnPym: UIButton, iconPym: String, countPym: String, colorPym: UIColor = .clear) {
@@ -67,17 +67,33 @@ final class SportRoutineNodePym: UIView {
         btnPym.setTitle(" \(countPym)", for: .normal)
         btnPym.titleLabel?.font = .systemFont(ofSize: 13, weight: .bold)
         btnPym.setTitleColor(.gray, for: .normal)
-        btnPym.tintColor = .gray
+        btnPym.tintColor = colorPym
         
-        if colorPym != .clear {
-            // 针对收藏图标可能有背景色的样式
-            btnPym.backgroundColor = colorPym
-            btnPym.layer.cornerRadius = 15
-            btnPym.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
-        }
+//        if colorPym != .clear {
+//            // 针对收藏图标可能有背景色的样式
+//            btnPym.backgroundColor = colorPym
+//            btnPym.layer.cornerRadius = 15
+//            btnPym.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+//        }
         
         socialMetricStackPym.addArrangedSubview(btnPym)
     }
-    
+    func fencingParry(jerry:Dictionary<String,Any>){
+        
+        categoryTagPym.warmUpProtocol(weightBearing: jerry["olympicLifting"] as? String)
+        
+        summaryTextPym.text = jerry["obliqueCrunch"] as? String
+        
+        thumbPym.warmUpProtocol(weightBearing: jerry["obstacleCourse"] as? String)
+        
+        if jerry["openKineticChain"] as? Int  == 1{
+            renderMetricNodePym(collectionPulsePym, iconPym: "star.fill", countPym: "1", colorPym: UIColor(red: 1, green: 0.38, blue: 0.47, alpha: 1))
+        }else{
+            renderMetricNodePym(collectionPulsePym, iconPym: "star.fill", countPym: "0", colorPym: UIColor.lightGray)
+        }
+        
+        renderMetricNodePym(commentPulsePym, iconPym: "bubble.left", countPym: "0", colorPym: UIColor.lightGray)
+       
+    }
     required init?(coder: NSCoder) { fatalError() }
 }

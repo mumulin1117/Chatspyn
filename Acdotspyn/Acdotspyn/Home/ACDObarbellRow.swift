@@ -3,8 +3,6 @@
 //  Acdotspyn
 //
 //  Created by Acdotspyn on 2026/3/12.
-//
-
 
 import UIKit
 
@@ -29,14 +27,18 @@ final class ACDObarbellRow: UIViewController {
     
     private let sportPickTitlePym = UIImageView()
     private let verticalFeedPym = UIStackView()
+    //活动
+    private var athleteDataPym: [Dictionary<String,Any>] = Array<Dictionary<String,Any>>()
     
-    private var athleteDataPym: [AthleticFeedPym] = []
+    //topic
+    private var executePosDataPym: [Dictionary<String,Any>] = Array<Dictionary<String,Any>>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(white: 0.98, alpha: 1.0)
         igniteStagePym()
-        triggerDataFetchPym()
+        mindfulMovement()
+        
     }
     
     private func igniteStagePym() {
@@ -61,7 +63,7 @@ final class ACDObarbellRow: UIViewController {
         greetingBannerPym.contentMode = .left
         renderNodePym(greetingBannerPym, heightPym: 49, insetPym: 20)
         
-       
+        matchingPortalPym.addTarget(self, action: #selector(taptomatchMomentPym), for: .touchUpInside)
         matchingPortalPym.setBackgroundImage(UIImage(named: "tapingRimatngin"), for: .normal)
         
       
@@ -124,44 +126,38 @@ final class ACDObarbellRow: UIViewController {
         kineticStackPym.addArrangedSubview(wrapperPym)
     }
     
-    private func triggerDataFetchPym() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.athleteDataPym = Array(repeating: AthleticFeedPym(), count: 6)
-            self.horizontalFieldPym.reloadData()
-            self.populateVerticalFeedPym()
-        }
-    }
-    
-    private func populateVerticalFeedPym() {
-        verticalFeedPym.arrangedSubviews.forEach { $0.removeFromSuperview() }
-        for _ in 0...5 {
-            let rowPym = SportRoutineNodePym()
-            rowPym.translatesAutoresizingMaskIntoConstraints = false
-            rowPym.heightAnchor.constraint(equalToConstant: 140).isActive = true
-            let tapPym = UITapGestureRecognizer(target: self, action: #selector(pushEnergyDetailPym))
-            rowPym.addGestureRecognizer(tapPym)
-            verticalFeedPym.addArrangedSubview(rowPym)
-        }
-    }
-    
-    @objc private func pushEnergyDetailPym() {
-        let detailPym = UIViewController()
-        detailPym.view.backgroundColor = .white
+   
+    @objc private func pushEnergyDetailPym(pageid:String) {
+        
+        let detailPym = ACDOdepthJump.init(olympicLifting: .realPerformance,offSeasonTraining:pageid)
+        detailPym.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailPym, animated: true)
     }
     
     @objc private func initiateNewMomentPym() {
-        let postEnginePym = UIViewController() // 这里替换为你真实的发布页面
-        postEnginePym.view.backgroundColor = .white
-        postEnginePym.title = "Post Moment"
-        let navPym = UINavigationController(rootViewController: postEnginePym)
-        present(navPym, animated: true, completion: nil)
         
-        // 模拟震动反馈，增加运动感
+        let detailPym = ACDOdepthJump.init(olympicLifting: .visualFlow)
+        detailPym.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(detailPym, animated: true)
+        
+    
+       
         let impactPym = UIImpactFeedbackGenerator(style: .medium)
         impactPym.impactOccurred()
     }
     
+    
+    @objc private func taptomatchMomentPym() {
+        
+        let detailPym = ACDOdepthJump.init(olympicLifting: .publicTalent)
+        detailPym.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(detailPym, animated: true)
+        
+    
+       
+        let impactPym = UIImpactFeedbackGenerator(style: .medium)
+        impactPym.impactOccurred()
+    }
 }
 
 extension ACDObarbellRow: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -170,7 +166,14 @@ extension ACDObarbellRow: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: "PulseCellPym", for: indexPath)
+        let aser = collectionView.dequeueReusableCell(withReuseIdentifier: "PulseCellPym", for: indexPath) as! MotionPulseCellPym
+        
+        aser.notifyAbusePym.addTarget(self, action: #selector(muscleMemory), for: .touchUpInside)
+        aser.fencingParry(jerry: athleteDataPym[indexPath.row])
+        return aser
+    }
+    @objc private func muscleMemory(_ sender: UIButton) {
+        self.navigationController?.pushViewController(ACDOdepthJump.init(olympicLifting: .cityEcho), animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -182,7 +185,73 @@ extension ACDObarbellRow: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        pushEnergyDetailPym()
+         
+        pushEnergyDetailPym(pageid: "\(athleteDataPym[indexPath.row]["mindBodyConnection"] as? Int ?? 0)")
+    }
+    
+    private func mindfulMovement()  {
+        
+        DispatchQueue.main.async {
+            ACDOConditioningDrill.ACDOCshow(neutralSpine: "Load in....")
+            
+        }
+        
+        PullUpProgression.quickReflex(rangeOfMotion: "/stdbhz/rkjvnlbvpbw", rapidResponse: ["measurementMetric":"32909657"]) { pulsePyn in
+            
+            ACDOConditioningDrill.ACDOCdismiss()
+            guard let secure = pulsePyn as? [String: Any],
+                  let igniteApproval = secure["data"] as? Array<Dictionary<String,Any>>
+            else {
+                return
+            }
+            self.athleteDataPym = igniteApproval
+            self.horizontalFieldPym.reloadData()
+          
+            
+        } realTimeCoaching: { igniteApproval in
+            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: igniteApproval.localizedDescription)
+        }
+        
+        
+        PullUpProgression.quickReflex(rangeOfMotion: "/jlfcxjzapflz/hxwyzvvlj", rapidResponse: ["nutrientDensity":"32909657"]) { pulsePyn in
+            
+            ACDOConditioningDrill.ACDOCdismiss()
+            guard let secure = pulsePyn as? [String: Any],
+                  let igniteApproval = secure["data"] as? Array<Dictionary<String,Any>>
+            else {
+                return
+            }
+            self.executePosDataPym = igniteApproval
+            self.populateVerticalFeedPym()
+            
+        } realTimeCoaching: { igniteApproval in
+            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: igniteApproval.localizedDescription)
+        }
+    }
+    
+    //topic
+    private func populateVerticalFeedPym() {
+        verticalFeedPym.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        for (zz,itert) in executePosDataPym.enumerated() {
+            let rowPym = SportRoutineNodePym()
+            rowPym.tag = zz
+            rowPym.fencingParry(jerry: itert)
+            rowPym.translatesAutoresizingMaskIntoConstraints = false
+            rowPym.heightAnchor.constraint(equalToConstant: 140).isActive = true
+            let tapPym = UITapGestureRecognizer(target: self, action: #selector(pushEnergyDetailPym))
+            rowPym.addGestureRecognizer(tapPym)
+            verticalFeedPym.addArrangedSubview(rowPym)
+        }
+    }
+    
+    @objc func pushEnergyTpicID(topr:UITapGestureRecognizer)  {
+       if let giceout = topr.view?.tag,
+          let zoom =  executePosDataPym[giceout]["objectiveFeedback"] as? Int{
+           let detailPym = ACDOdepthJump.init(olympicLifting: .performMood,offSeasonTraining:"\(zoom)")
+           detailPym.hidesBottomBarWhenPushed = true
+           self.navigationController?.pushViewController(detailPym, animated: true)
+       }
+        
     }
 }
 

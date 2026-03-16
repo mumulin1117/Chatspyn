@@ -72,7 +72,38 @@ final class ChatspynCredentialEntryPyn: UIViewController {
     }
     
     @objc private func finishHeatPyn() {
-        guard let cadencePyn = fieldEmailPyn.text, !cadencePyn.isEmpty else { return }
-        print("Authenticating motion sequence...")
+        guard let cadencePyn = fieldEmailPyn.text,
+              !cadencePyn.isEmpty else {
+            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: "Email cannot be empty")
+            return
+        }
+        
+        guard let passwordPyn = fieldSecretPyn.text,
+              !passwordPyn.isEmpty else {
+            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: "password cannot be empty")
+            return
+        }
+       
+        ACDOConditioningDrill.ACDOCshow(neutralSpine: "Login....")
+        
+        PullUpProgression.quickReflex(rangeOfMotion: "/zaqcrmcz/dmtcqom", rapidResponse: ["injuryPrevention":passwordPyn,"indoorCycling":cadencePyn,"innerStrength":"32909657"]) { pulsePyn in
+            
+            ACDOConditioningDrill.ACDOCdismiss()
+            guard let secure = pulsePyn as? [String: Any],
+                  let igniteApproval = secure["data"] as? Dictionary<String,Any>
+            else {
+                ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: "Log in failed!")
+                return
+            }
+            PullUpProgression.pulseCheck =  igniteApproval["iceBreaker"] as? String
+            PullUpProgression.pushPressACDO =  igniteApproval["heavyLifting"] as? Int
+            
+            let tagonistMuscle = GoatspyngaitAnalysis()
+            (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController = tagonistMuscle
+            
+        } realTimeCoaching: { igniteApproval in
+            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: igniteApproval.localizedDescription)
+        }
+
     }
 }

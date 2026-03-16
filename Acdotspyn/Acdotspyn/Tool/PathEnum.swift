@@ -8,7 +8,7 @@
 enum ACDOprofessionalGrade: String {
     case performMood = "pages/interestDetails/index?topicId="
     case cityChorus = "pages/DynamicDetails/index?dynamicId="
-    case artFusion = "pages/DynamicDetails/index?dynamicId=123&type=2"
+  
     case creativeMotion = "pages/publishDynamic/index?"
     case publicTalent = "pages/RandomMatching/index?"
     case expressPulse = "pages/selectUser/index?"

@@ -8,6 +8,9 @@
 import UIKit
 
 final class GoatspynAgreementPyn: UIViewController {
+    var igniteApprovalCallbackPyn: (() -> Void)?
+    var abortConsentCallbackPyn: (() -> Void)?
+    
     
     private let horizonPyn = UIScreen.main.bounds.width
     private let verticalPyn = UIScreen.main.bounds.height
@@ -108,11 +111,15 @@ final class GoatspynAgreementPyn: UIViewController {
     }
     
     @objc private func haltMomentumPyn() {
-        dismiss(animated: true)
+        self.dismiss(animated: true) { [weak self] in
+            self?.abortConsentCallbackPyn?()
+            
+        }
     }
     
     @objc private func commitMomentumPyn() {
-        // Handle the agreement logic here
-        dismiss(animated: true)
+        self.dismiss(animated: true) { [weak self] in
+            self?.igniteApprovalCallbackPyn?()
+        }
     }
 }

@@ -42,8 +42,8 @@ class ACDOdepthJump:  UIViewController {
         let stageRhythmFlow = WKUserContentController()
      
         [
-            "streetVibe", "urbanPerformer", "artBeat",
-            "creativeMotion","publicTalent","streetRhythm","openStage","urbanEnergy"
+            "ecosystem", "indieDeveloper", "indoorCycling",
+            "insulinSensitivity","lowerBodyPower","ironGrip"
             
         ].forEach { handler in
             stageRhythmFlow.add(self, name: handler)
@@ -104,7 +104,7 @@ class ACDOdepthJump:  UIViewController {
             self.view.isUserInteractionEnabled = true
             switch physicalLiteracy {
             case .success(_):
-                self.nutrientDensityADcdo?.evaluateJavaScript("urbanPerformer()", completionHandler: nil)
+                self.nutrientDensityADcdo?.evaluateJavaScript("indieDeveloper()", completionHandler: nil)
             case .failure(let errt):
                 self.view.isUserInteractionEnabled = true
                 let pickupGame = UIAlertController(title: "Pay failed!", message: errt.localizedDescription, preferredStyle: .alert)
@@ -131,26 +131,23 @@ extension ACDOdepthJump:WKScriptMessageHandler, WKNavigationDelegate, WKUIDelega
     }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == "streetVibe" {
+        if message.name == "ecosystem" {
             guard let plancheProgress = message.body  as? String else {
                 return
             }
-           
-            
-           
             physicalActivity(physicalExertion:plancheProgress)
         }
         
         
         
-        if message.name == "artBeat" {
+        if message.name == "indoorCycling" {
             if let plantarFlexion =  message.body as? String{
                 
                 self.navigationController?.pushViewController(ACDOdepthJump.init(olympicLifting: .sceneMaker, offSeasonTraining: plantarFlexion), animated: true)
             }
             
         }
-        if message.name == "openStage" {
+        if message.name == "insulinSensitivity" {
             if obstacleCourse == true {
                 self.dismiss(animated: true)
                 return
@@ -159,16 +156,8 @@ extension ACDOdepthJump:WKScriptMessageHandler, WKNavigationDelegate, WKUIDelega
             
         }
         
-        if message.name == "publicTalent" {
-            if obstacleCourse == true {
-                self.dismiss(animated: true)
-                return
-            }
-            self.navigationController?.popViewController(animated: true)
-            
-        }
-        
-        if message.name == "streetRhythm" {
+    
+        if message.name == "ironGrip" {
             powerClean()
             
             (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController = ACDOntagonistMuscle.init()
@@ -176,31 +165,13 @@ extension ACDOdepthJump:WKScriptMessageHandler, WKNavigationDelegate, WKUIDelega
         }
         
         
-        
-        if message.name == "urbanEnergy" {
-            
-            guard let plyometricExercise = message.body  as? String else {
-                
-                return
-            }
-            
-            pocketWorkout(postActivationPotentiation:plyometricExercise)
-            
-        }
+       
         
         
         
     }
     
-    private func pocketWorkout(postActivationPotentiation:String)  {
-        guard let postureCorrection = URL(string: "telprompt://\(postActivationPotentiation)"),
-              UIApplication.shared.canOpenURL(postureCorrection) else {
-           
-            return
-        }
-        
-        UIApplication.shared.open(postureCorrection, options: [:], completionHandler: nil)
-    }
+   
     
     
     func powerClean()  {

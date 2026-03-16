@@ -93,13 +93,23 @@ final class ACDOntagonistMuscle: UIViewController {
         view.addSubview(legalSpanPyn)
         view.addSubview(termPyn)
         view.addSubview(policyPyn)
-        // 在 igniteLayoutPyn 方法中添加
+       
         eulaBadgePyn.addTarget(self, action: #selector(launchLegalSheetPyn), for: .touchUpInside)
+        
+        policyPyn.addTarget(self, action: #selector(muscleMemory), for: .touchUpInside)
+        
+        termPyn.addTarget(self, action: #selector(muscleQuickMemory), for: .touchUpInside)
     }
-        // 添加触发方法
+     
     @objc private func launchLegalSheetPyn() {
         let consensusPyn = GoatspynAgreementPyn()
-        // 使用 OverCurrentContext 配合透明背景实现半屏效果
+        consensusPyn.igniteApprovalCallbackPyn = {
+            self.policyTogglePyn.isSelected = true
+        }
+        
+        consensusPyn.abortConsentCallbackPyn = {
+            self.policyTogglePyn.isSelected = false
+        }
         consensusPyn.modalPresentationStyle = .overCurrentContext
         consensusPyn.modalTransitionStyle = .crossDissolve
         present(consensusPyn, animated: true)
@@ -107,6 +117,14 @@ final class ACDOntagonistMuscle: UIViewController {
     }
     
     @objc private func triggerMomentumPyn() {
+        
+        if self.policyTogglePyn.isSelected == false {
+            
+            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: "Please read and agree to our user agreement and terms of use first")
+            return
+        }
+        
+        
         let sprintPyn = ChatspynCredentialEntryPyn()
         sprintPyn.modalPresentationStyle = .fullScreen
         present(sprintPyn, animated: true)
@@ -116,5 +134,15 @@ final class ACDOntagonistMuscle: UIViewController {
         sender.isSelected.toggle()
         sender.backgroundColor = sender.isSelected ? .systemPink : .clear
     }
+    
+    
+    @objc private func muscleMemory(_ sender: UIButton) {
+        self.navigationController?.pushViewController(ACDOdepthJump.init(olympicLifting: .liveGroove), animated: true)
+    }
+    
+    @objc private func muscleQuickMemory(_ sender: UIButton) {
+        self.navigationController?.pushViewController(ACDOdepthJump.init(olympicLifting: .openStage), animated: true)
+    }
+    
 }
 

@@ -139,7 +139,7 @@ final class ACDOarcherSquat: UIViewController {
             
             let portraitSizePyn: CGFloat = 64
             let portraitPyn = UIImageView(frame: CGRect(x: sideMarginPyn, y: (cardHeightPyn - portraitSizePyn)/2, width: portraitSizePyn, height: portraitSizePyn))
-            portraitPyn.image = UIImage(named: "avatar_mock_pyn") // 替换为实际头像名
+            portraitPyn.image = UIImage(named: "avatar_mock_pyn")
             portraitPyn.layer.cornerRadius = portraitSizePyn / 2
             portraitPyn.clipsToBounds = true
             portraitPyn.contentMode = .scaleAspectFill
