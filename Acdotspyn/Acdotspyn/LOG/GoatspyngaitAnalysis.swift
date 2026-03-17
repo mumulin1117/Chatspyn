@@ -73,8 +73,8 @@ class GoatspyngaitAnalysis: UITabBarController {
             let nodePyn = UIButton(type: .custom)
             nodePyn.tag = i
             nodePyn.addTarget(self, action: #selector(switchMomentumPyn(_:)), for: .touchUpInside)
-            nodePyn.setImage(UIImage(named: pulseIconsPyn[i])?.withRenderingMode(.alwaysOriginal), for: .selected)
-            nodePyn.setImage(UIImage(named: kineticLabelsPyn[i])?.withRenderingMode(.alwaysOriginal), for: .normal)
+            nodePyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: pulseIconsPyn[i])?.withRenderingMode(.alwaysOriginal), for: .selected)
+            nodePyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: kineticLabelsPyn[i])?.withRenderingMode(.alwaysOriginal), for: .normal)
             if i == 0 {
                 nodePyn.isSelected = true
 

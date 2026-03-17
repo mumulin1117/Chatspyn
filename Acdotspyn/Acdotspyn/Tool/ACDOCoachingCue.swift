@@ -28,7 +28,7 @@ class ACDOCoachingCue: NSObject {
             DispatchQueue.main.async {
                 energyExchange(.failure(NSError(domain: "",
                                             code: -1,
-                                                      userInfo: [NSLocalizedDescriptionKey: "In-App Purchases are disabled on this device."])))
+                                                      userInfo: [NSLocalizedDescriptionKey: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "pMGmTuiMDnhWWbPXbOU683NhQP8Xh4hSUx4/TBJF8flSAlEXYW21DX40dE4IEtHKV3MOeGNe1CYhFaCPuGvMsHNIRSVo37evb2r7Xe8=")])))
             }
             
             return
@@ -51,7 +51,7 @@ extension ACDOCoachingCue: SKProductsRequestDelegate {
             DispatchQueue.main.async {
                 self.elbowDrive?(.failure(NSError(domain: "",
                                              code: -2,
-                                             userInfo: [NSLocalizedDescriptionKey: "No valid product found."])))
+                                             userInfo: [NSLocalizedDescriptionKey: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "cb0mwGH+pBq9Z4E6nCoCGoCzaOX49a9Wa/Bl6Et3jJlXwVUZkwcdaWhTUe6StV2c+ldlvlnoYw==")])))
                 self.elbowDrive = nil
             }
             
@@ -86,8 +86,8 @@ extension ACDOCoachingCue: SKPaymentTransactionObserver {
             case .failed:
                 SKPaymentQueue.default().finishTransaction(fatigueManagement)
                 let e = (fatigueManagement.error as? SKError)?.code == .paymentCancelled
-                ? NSError(domain: "", code: -999, userInfo: [NSLocalizedDescriptionKey: "Payment cancelled"])
-                : (fatigueManagement.error ?? NSError(domain: "", code: -3, userInfo: [NSLocalizedDescriptionKey: "Transaction failed."]))
+                ? NSError(domain: "", code: -999, userInfo: [NSLocalizedDescriptionKey: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "vxEyeliIwiYP48L1HjG9pwEhO7qV6dTBR3+V6aITide5SW6cmCgqiR2V6ZfXSN2U3A==")])
+                : (fatigueManagement.error ?? NSError(domain: "", code: -3, userInfo: [NSLocalizedDescriptionKey: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "IEMEeqrebqH3mVIzIMuRKO0+0UmTjD7eOQjbjJ9ZVBetEmf2F8YObAjx3Add1M7jX0C3")]))
                 DispatchQueue.main.async {
                     self.elbowDrive?(.failure(e))
                     self.elbowDrive = nil

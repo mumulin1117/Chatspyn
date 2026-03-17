@@ -32,7 +32,7 @@ class ACDOSalMetabolicRate:  UIViewController {
     
     private func igniteCoreLayoutPyn() {
         view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
-        editBadgePyn.setImage(UIImage.init(named: "Mesversation"), for: .normal)
+        editBadgePyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: "Mesversation"), for: .normal)
         
         
         kineticScrollerPyn.frame = view.bounds
@@ -46,13 +46,13 @@ class ACDOSalMetabolicRate:  UIViewController {
         kineticScrollerPyn.addSubview(profileHeaderPyn)
         
         let titlePyn = UILabel(frame: CGRect(x: 20, y: 50, width: 120, height: 40))
-        titlePyn.text = "Profile"
+        titlePyn.text = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "nmtzZZZMy2nnonluSpECXZYExzKp7mdNKyiBDj49yqq4uXeI+jW4")
         titlePyn.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         titlePyn.textColor = .black
         profileHeaderPyn.addSubview(titlePyn)
         
         let gearPyn = UIButton(frame: CGRect(x: driftWidthPyn - 50, y: 55, width: 30, height: 30))
-        gearPyn.setImage(UIImage(named: "gearshapeop"), for: .normal)
+        gearPyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: "gearshapeop"), for: .normal)
         gearPyn.tintColor = .black
         gearPyn.tag = 235
         gearPyn.addTarget(self, action: #selector(SeventLightship(eado:)), for: .touchUpInside)
@@ -65,7 +65,7 @@ class ACDOSalMetabolicRate:  UIViewController {
         avatarOrbitPyn.layer.borderWidth = 3
         avatarOrbitPyn.layer.borderColor = UIColor.lightGray.cgColor
         avatarOrbitPyn.contentMode = .scaleAspectFill
-        avatarOrbitPyn.image = UIImage(named: "sherry_portrait_pyn")
+        avatarOrbitPyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "sherry_portrait_pyn")
         profileHeaderPyn.addSubview(avatarOrbitPyn)
         
         aliasLabelPyn.frame = CGRect(x: (driftWidthPyn - 150)/2, y: avatarOrbitPyn.frame.maxY + 10, width: 150, height: 25)
@@ -83,24 +83,24 @@ class ACDOSalMetabolicRate:  UIViewController {
         metricsStackPyn.distribution = .fillEqually
         profileHeaderPyn.addSubview(metricsStackPyn)
         
-        assembleMetricsPyn(valPyn: "My", tagPyn: "Following", viewtag: 237)
-        assembleMetricsPyn(valPyn: "My", tagPyn: "Followers", viewtag: 238)
+        assembleMetricsPyn(valPyn: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "5q0EJl+PAIkqtjL+vuByH8fOPip3tofTzqY2SiRnBd1jEQ=="), tagPyn: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "kerZJUf1GEHvaTa7c9SM/hJG3BeeXZTGINjmFFt8halhbKkrs0+BdZY="), viewtag: 237)
+        assembleMetricsPyn(valPyn: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "5q0EJl+PAIkqtjL+vuByH8fOPip3tofTzqY2SiRnBd1jEQ=="), tagPyn: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "cZK5ZvW21317fM+rVws9UAcgtGaVsPv3vp5eF3I2/kI9ex22lYagOeA="), viewtag: 238)
 //        assembleMetricsPyn(valPyn: "My", tagPyn: "Like", viewtag: 239)
         
         vaultBannerPyn.frame = CGRect(x: 20, y: metricsStackPyn.frame.maxY + 15, width: driftWidthPyn - 40, height: 50)
         vaultBannerPyn.layer.cornerRadius = 25
         vaultBannerPyn.clipsToBounds = true
         vaultBannerPyn.setBackgroundImage(createGradientPyn(), for: .normal)
-        vaultBannerPyn.setTitle("   My Blance", for: .normal)
-        vaultBannerPyn.setImage(UIImage.init(named: "ComDiosp"), for: .normal)
+        vaultBannerPyn.setTitle(ACDOcognitiveFocus.kettlebellSwing(kineticChain: "WCCant+/F8lwol5+1nIDzYM9b3jNKHj6ugGn4EEpfniguGK8QXFAw2R424s="), for: .normal)
+        vaultBannerPyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: "ComDiosp"), for: .normal)
         vaultBannerPyn.tag = 234
         
         vaultBannerPyn.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         vaultBannerPyn.addTarget(self, action: #selector(triggerVaultPyn), for: .touchUpInside)
         profileHeaderPyn.addSubview(vaultBannerPyn)
         
-        renderSectionPyn(titlePyn: "Meet Up & Move", yAxisPyn: profileHeaderPyn.frame.maxY + 20, isEmptyPyn: true)
-        renderSectionPyn(titlePyn: "Dynamic", yAxisPyn: profileHeaderPyn.frame.maxY + 160, isEmptyPyn: true)
+        renderSectionPyn(titlePyn: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "WAHVz870uidOkDimSnIm5jUyQiqAnxXyrVUAPYZUNcqqld8X8WFDYcC68+4XSg=="), yAxisPyn: profileHeaderPyn.frame.maxY + 20, isEmptyPyn: true)
+        renderSectionPyn(titlePyn: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "NeOgvf4pEvWh9qCp0cAgBzmQ2+iws7W6aOqPFYdOn+3TxZo8MUm4"), yAxisPyn: profileHeaderPyn.frame.maxY + 160, isEmptyPyn: true)
         
         kineticScrollerPyn.contentSize = CGSize(width: driftWidthPyn, height: profileHeaderPyn.frame.maxY + 400)
     }
@@ -137,7 +137,7 @@ class ACDOSalMetabolicRate:  UIViewController {
             emptyHostPyn.layer.cornerRadius = 15
             
             let hintPyn = UILabel(frame: emptyHostPyn.bounds)
-            hintPyn.text = "No data available"
+            hintPyn.text = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "TrVBcaB7z8yhEzgFmdJu8Vwhkcs7nnZ8Yky9siMeLRbTF52ZSCm+MYsSUUQPm5JkUw==")
             hintPyn.textAlignment = .center
             hintPyn.textColor = .lightGray
             hintPyn.font = .systemFont(ofSize: 14)
@@ -161,14 +161,14 @@ class ACDOSalMetabolicRate:  UIViewController {
     
     private func syncRemoteMockDataPyn() {
         DispatchQueue.main.async {
-            ACDOConditioningDrill.ACDOCshow(neutralSpine: "Load in....")
+            ACDOConditioningDrill.ACDOCshow(neutralSpine: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "qLqjXB9lB6TITjzg5XgLj4nhHfG8EvigFj/yU6FK4PidQF1qoF6CZn9s3g=="))
         }
         
         PullUpProgression.quickReflex(rangeOfMotion: "/cvroviz/fssvv", rapidResponse: ["fastTwitchFiber":PullUpProgression.pushPressACDO ?? 0]) { pulsePyn in
             
             ACDOConditioningDrill.ACDOCdismiss()
             guard let secure = pulsePyn as? [String: Any],
-                  let igniteApproval = secure["data"] as? Dictionary<String,Any>
+                  let igniteApproval = secure[ACDOcognitiveFocus.kettlebellSwing(kineticChain: "yfjO6CLY7DkCrDxsHco79MzGT0JYZpjPRAeC77se7r+Ssg0z")] as? Dictionary<String,Any>
             else {
                 return
             }

@@ -43,7 +43,7 @@ final class MomentumPulseCellPyn: UITableViewCell {
         baseBoardPyn.addSubview(mediaCanvasPyn)
         
         playTriggerPyn.frame = CGRect(x: (mediaCanvasPyn.frame.width - 60) / 2, y: (mediaCanvasPyn.frame.height - 60) / 2, width: 60, height: 60)
-        playTriggerPyn.image = UIImage(named: "PlayerPYUI")
+        playTriggerPyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "PlayerPYUI")
         playTriggerPyn.tintColor = .white.withAlphaComponent(0.9)
         mediaCanvasPyn.addSubview(playTriggerPyn)
         

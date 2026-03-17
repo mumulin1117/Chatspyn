@@ -59,12 +59,12 @@ final class ACDObarbellRow: UIViewController {
             kineticStackPym.widthAnchor.constraint(equalToConstant: driftWidthPym)
         ])
         
-        greetingBannerPym.image = UIImage(named: "Heading")
+        greetingBannerPym.image = ACDOcognitiveFocus.invertedRow(isometricHold: "Heading")
         greetingBannerPym.contentMode = .left
         renderNodePym(greetingBannerPym, heightPym: 49, insetPym: 20)
         
         matchingPortalPym.addTarget(self, action: #selector(taptomatchMomentPym), for: .touchUpInside)
-        matchingPortalPym.setBackgroundImage(UIImage(named: "tapingRimatngin"), for: .normal)
+        matchingPortalPym.setBackgroundImage(ACDOcognitiveFocus.invertedRow(isometricHold: "tapingRimatngin"), for: .normal)
         
       
         
@@ -77,11 +77,11 @@ final class ACDObarbellRow: UIViewController {
             titleRowContainerPym.alignment = .center
             titleRowContainerPym.distribution = .equalSpacing
         
-        meetSectionTitlePym.image = UIImage(named: "MeUMove")
+        meetSectionTitlePym.image = ACDOcognitiveFocus.invertedRow(isometricHold: "MeUMove")
         meetSectionTitlePym.contentMode = .left
         titleRowContainerPym.addArrangedSubview(meetSectionTitlePym)
 
-        launchActivityBtnPym.setImage(UIImage.init(named: "publiashingFshi"), for: .normal)
+        launchActivityBtnPym.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: "publiashingFshi"), for: .normal)
         launchActivityBtnPym.translatesAutoresizingMaskIntoConstraints = false
         launchActivityBtnPym.contentMode = .left
         launchActivityBtnPym.addTarget(self, action: #selector(initiateNewMomentPym), for: .touchUpInside)
@@ -99,7 +99,7 @@ final class ACDObarbellRow: UIViewController {
         horizontalFieldPym.register(MotionPulseCellPym.self, forCellWithReuseIdentifier: "PulseCellPym")
         renderNodePym(horizontalFieldPym, heightPym: 260, insetPym: 0)
         
-        sportPickTitlePym.image = UIImage(named: "PickYourSport")
+        sportPickTitlePym.image = ACDOcognitiveFocus.invertedRow(isometricHold: "PickYourSport")
         sportPickTitlePym.contentMode = .left
         renderNodePym(sportPickTitlePym, heightPym: 22, insetPym: 20)
         
@@ -192,7 +192,7 @@ extension ACDObarbellRow: UICollectionViewDelegate, UICollectionViewDataSource, 
     private func mindfulMovement()  {
         
         DispatchQueue.main.async {
-            ACDOConditioningDrill.ACDOCshow(neutralSpine: "Load in....")
+            ACDOConditioningDrill.ACDOCshow(neutralSpine: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "U/9183sAYTb/asiuqAdY58NiuAVzU8Ouwcu3ljnnJKri6v7CXL9ZCJ63kA=="))
             
         }
         
@@ -200,7 +200,7 @@ extension ACDObarbellRow: UICollectionViewDelegate, UICollectionViewDataSource, 
             
             ACDOConditioningDrill.ACDOCdismiss()
             guard let secure = pulsePyn as? [String: Any],
-                  let igniteApproval = secure["data"] as? Array<Dictionary<String,Any>>
+                  let igniteApproval = secure[ACDOcognitiveFocus.kettlebellSwing(kineticChain: "yfjO6CLY7DkCrDxsHco79MzGT0JYZpjPRAeC77se7r+Ssg0z")] as? Array<Dictionary<String,Any>>
             else {
                 return
             }
@@ -217,7 +217,7 @@ extension ACDObarbellRow: UICollectionViewDelegate, UICollectionViewDataSource, 
             
             ACDOConditioningDrill.ACDOCdismiss()
             guard let secure = pulsePyn as? [String: Any],
-                  let igniteApproval = secure["data"] as? Array<Dictionary<String,Any>>
+                  let igniteApproval = secure[ACDOcognitiveFocus.kettlebellSwing(kineticChain: "yfjO6CLY7DkCrDxsHco79MzGT0JYZpjPRAeC77se7r+Ssg0z")] as? Array<Dictionary<String,Any>>
             else {
                 return
             }

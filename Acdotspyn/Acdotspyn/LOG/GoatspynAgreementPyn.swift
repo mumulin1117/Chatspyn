@@ -22,7 +22,7 @@ final class GoatspynAgreementPyn: UIViewController {
         let ity = UILabel()
         ity.textColor = .black
         ity.frame = CGRect(x: 0, y:  20, width: horizonPyn, height: 40)
-        ity.text = "EULA"
+        ity.text = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "9PwMC+1Xm8q78v6+3M16z+mEjXBoOYj7ikEoaSiwz9nNk1nx")
         ity.textAlignment = .center
         ity.font = .systemFont(ofSize: 24, weight: .bold)
         return ity
@@ -95,7 +95,7 @@ final class GoatspynAgreementPyn: UIViewController {
      
         rejectMotionPyn.frame = CGRect(x: 20, y: legalTitlePyn.frame.maxY + 10, width: btnWidthPyn, height: 58)
         rejectMotionPyn.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
-        rejectMotionPyn.setTitle("Cancel", for: .normal)
+        rejectMotionPyn.setTitle(ACDOcognitiveFocus.kettlebellSwing(kineticChain: "taNPrBnPDPZuNCAiJUudK6OQj4Ya3zlg5+LO4oRyTJliXummEPE="), for: .normal)
         rejectMotionPyn.setTitleColor(.black, for: .normal)
         rejectMotionPyn.layer.cornerRadius = 30
         rejectMotionPyn.addTarget(self, action: #selector(haltMomentumPyn), for: .touchUpInside)
@@ -103,7 +103,7 @@ final class GoatspynAgreementPyn: UIViewController {
         
         acceptMotionPyn.frame = CGRect(x: rejectMotionPyn.frame.maxX + 20, y: legalTitlePyn.frame.maxY + 10, width: btnWidthPyn, height: 58)
         acceptMotionPyn.backgroundColor = UIColor(red: 1.0, green: 0.38, blue: 0.45, alpha: 1.0)
-        acceptMotionPyn.setTitle("Agree", for: .normal)
+        acceptMotionPyn.setTitle(ACDOcognitiveFocus.kettlebellSwing(kineticChain: "9notSZlupJ0lIK/cTgX3ZA6gRB+D7Vp325YRpEJXETc7UROntA=="), for: .normal)
         acceptMotionPyn.setTitleColor(.white, for: .normal)
         acceptMotionPyn.layer.cornerRadius = 30
         acceptMotionPyn.addTarget(self, action: #selector(commitMomentumPyn), for: .touchUpInside)

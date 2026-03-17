@@ -16,7 +16,7 @@ final class ChatspynTimeClockPyn {
         
         let pynFormatter = DateFormatter()
      
-        pynFormatter.dateFormat = "hh:mm a"
+        pynFormatter.dateFormat = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "su7oKf8/7at6+laQuqdREUIsr7CqdmCJeUvI60lSPAY4eI0X93RD")
         pynFormatter.amSymbol = "AM"
         pynFormatter.pmSymbol = "PM"
         pynFormatter.locale = Locale(identifier: "en_US")

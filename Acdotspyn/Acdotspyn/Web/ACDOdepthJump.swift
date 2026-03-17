@@ -57,7 +57,7 @@ class ACDOdepthJump:  UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = .black
-        ACDOConditioningDrill.ACDOCshow(neutralSpine: "Loading...")
+        ACDOConditioningDrill.ACDOCshow(neutralSpine: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "i8kbYpFizQ2ibLO4Zcqoxov4jpZkFpviBTJOAajy/YcgLZBd2ZOJnlKU"))
         parasympatheticActivation()
        
         
@@ -97,7 +97,7 @@ class ACDOdepthJump:  UIViewController {
     
     
     private func physicalActivity(physicalExertion:String)  {
-        ACDOConditioningDrill.ACDOCshow(neutralSpine: "Paying...")
+        ACDOConditioningDrill.ACDOCshow(neutralSpine: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "lX19RmR+AyM2QuXpe6+7ajsMKK8urnqY1eOnaX3cfcuxkXcdr/yr2w4="))
         self.view.isUserInteractionEnabled = false
         ACDOCoachingCue.shared.eliteAthleticism(enduranceTraining: physicalExertion, energyExchange: { physicalLiteracy in
             ACDOConditioningDrill.ACDOCdismiss()
@@ -107,8 +107,8 @@ class ACDOdepthJump:  UIViewController {
                 self.nutrientDensityADcdo?.evaluateJavaScript("indieDeveloper()", completionHandler: nil)
             case .failure(let errt):
                 self.view.isUserInteractionEnabled = true
-                let pickupGame = UIAlertController(title: "Pay failed!", message: errt.localizedDescription, preferredStyle: .alert)
-                pickupGame.addAction(UIAlertAction(title: "Know", style: .default))
+                let pickupGame = UIAlertController(title: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "//RqELPtW7io1qs5hkStdvrnvk/ekruGuA74WSLMoYztLTg7YzjXrkSOSw=="), message: errt.localizedDescription, preferredStyle: .alert)
+                pickupGame.addAction(UIAlertAction(title: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "mFK7y03fLV9miFN3HxjqNlkBHRf14B6jifExDYyKdLyzQtfA"), style: .default))
                 self.present(pickupGame, animated: true)
            
             }

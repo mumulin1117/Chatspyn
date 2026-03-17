@@ -31,7 +31,7 @@ final class ACDObackPedal: UIViewController {
         let titleBoxPyn = UIView(frame: CGRect(x: 0, y: 0, width: driftWidthPyn, height: 100))
         
         headerVisualPyn.frame = CGRect(x: 20, y: 50, width: 220, height: 35)
-        headerVisualPyn.image = UIImage(named: "active_moments_title_pyn")
+        headerVisualPyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "active_moments_title_pyn")
         headerVisualPyn.contentMode = .scaleAspectFit
         titleBoxPyn.addSubview(headerVisualPyn)
         composeActionPyn.addTarget(self, action: #selector(composeartActionPyn), for: .touchUpInside)
@@ -97,7 +97,7 @@ extension ACDObackPedal: UITableViewDelegate, UITableViewDataSource {
     private func syncAthleticDataPyn()  {
         
         DispatchQueue.main.async {
-            ACDOConditioningDrill.ACDOCshow(neutralSpine: "Load in....")
+            ACDOConditioningDrill.ACDOCshow(neutralSpine: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "U/9183sAYTb/asiuqAdY58NiuAVzU8Ouwcu3ljnnJKri6v7CXL9ZCJ63kA=="))
             
         }
         
@@ -105,7 +105,7 @@ extension ACDObackPedal: UITableViewDelegate, UITableViewDataSource {
             
             ACDOConditioningDrill.ACDOCdismiss()
             guard let secure = pulsePyn as? [String: Any],
-                  let igniteApproval = secure["data"] as? Array<Dictionary<String,Any>>
+                  let igniteApproval = secure[ACDOcognitiveFocus.kettlebellSwing(kineticChain: "yfjO6CLY7DkCrDxsHco79MzGT0JYZpjPRAeC77se7r+Ssg0z")] as? Array<Dictionary<String,Any>>
             else {
                 return
             }

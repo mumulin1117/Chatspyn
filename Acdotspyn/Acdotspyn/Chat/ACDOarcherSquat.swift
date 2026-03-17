@@ -39,7 +39,7 @@ final class ACDOarcherSquat: UIViewController {
     
     
     lazy var someonefert: UIImageView = {
-        let askill = UIImageView.init(image: UIImage.init(named: "someonesay"))
+        let askill = UIImageView.init(image: ACDOcognitiveFocus.invertedRow(isometricHold: "someonesay"))
         askill.contentMode = .scaleAspectFit
         return askill
     }()
@@ -60,14 +60,14 @@ final class ACDOarcherSquat: UIViewController {
             
            
             ghostHintLabelPyn.frame = CGRect(x: 20, y: 150, width: driftWidthPyn - 40, height: 40)
-            ghostHintLabelPyn.text = "No messages yet, start linking!"
+            ghostHintLabelPyn.text = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "TXrAj0Jjh4s0SI05UOKMdPFr1ZhdVaXdUptNKSUbrE0KSroOOZ7/cyh/W7XgMJ3XhgCqvRnqW5cz/zOXZIew")
             ghostHintLabelPyn.textAlignment = .center
             ghostHintLabelPyn.textColor = .lightGray
             ghostHintLabelPyn.font = .systemFont(ofSize: 15, weight: .medium)
             
            
             let decoIconPyn = UIImageView(frame: CGRect(x: (driftWidthPyn - 60)/2, y: 80, width: 60, height: 60))
-            decoIconPyn.image = UIImage(named: "empty_chat_orbit_pyn")
+            decoIconPyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "empty_chat_orbit_pyn")
             decoIconPyn.tintColor = UIColor(white: 0.9, alpha: 1.0)
             
             ghostEmptySlatePyn.addSubview(decoIconPyn)
@@ -86,33 +86,33 @@ final class ACDOarcherSquat: UIViewController {
         view.addSubview(pulseNavEnginePyn)
         
        
-        pauiedBtnPyn.setBackgroundImage(UIImage.init(named: "pauiedBtnPyn"), for: .normal)
+        pauiedBtnPyn.setBackgroundImage(ACDOcognitiveFocus.invertedRow(isometricHold: "pauiedBtnPyn"), for: .normal)
         pauiedBtnPyn.frame = CGRect(x: 20, y: 50 + 30 + 16, width: 107, height: 34)
         pauiedBtnPyn.addTarget(self, action: #selector(SeventLightship), for: .touchUpInside)
-        pauiedBtnPyn.setTitle("   My Blance", for: .normal)
+        pauiedBtnPyn.setTitle(ACDOcognitiveFocus.kettlebellSwing(kineticChain: "VU4crvxheHL6YR+WBjAcZCvxhfvBY8Fdk65CgPtjt+8LNL7inV6LSyoxuAQ="), for: .normal)
         pauiedBtnPyn.setTitleColor(.white, for: .normal)
         pauiedBtnPyn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         pulseNavEnginePyn.addSubview(pauiedBtnPyn)
         
        
         chatTriggerPyn.frame = CGRect(x: 20, y: 55, width: 55, height: 30)
-        chatTriggerPyn.setImage(UIImage(named: "chat_title_pyn"), for: .normal)
-        chatTriggerPyn.setImage(UIImage(named: "chat_title_pynpick"), for: .selected)
+        chatTriggerPyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: "chat_title_pyn"), for: .normal)
+        chatTriggerPyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: "chat_title_pynpick"), for: .selected)
         
         chatTriggerPyn.addTarget(self, action: #selector(switchToChatPyn), for: .touchUpInside)
         pulseNavEnginePyn.addSubview(chatTriggerPyn)
         
         
         linkTriggerPyn.frame = CGRect(x: 20 + 55  + 10, y: 50, width: 137, height: 30)
-        linkTriggerPyn.setImage(UIImage(named: "interest_link_btn_pyn"), for: .normal)
-        linkTriggerPyn.setImage(UIImage(named: "interest_link_btn_pynsel"), for: .selected)
+        linkTriggerPyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: "interest_link_btn_pyn"), for: .normal)
+        linkTriggerPyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: "interest_link_btn_pynsel"), for: .selected)
         linkTriggerPyn.addTarget(self, action: #selector(switchToLinkPyn), for: .touchUpInside)
         linkTriggerPyn.isSelected = true
         pulseNavEnginePyn.addSubview(linkTriggerPyn)
         
         
         configActionPyn.frame = CGRect(x: driftWidthPyn - 50, y: 55, width: 30, height: 30)
-        configActionPyn.setImage(UIImage(named: "bolTuning"), for: .normal)
+        configActionPyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: "bolTuning"), for: .normal)
         configActionPyn.addTarget(self, action: #selector(tiggwership), for: .touchUpInside)
         
        
@@ -121,18 +121,18 @@ final class ACDOarcherSquat: UIViewController {
        
         matchmakingCanvasPyn.frame = CGRect(x: 0, y: 0, width: driftWidthPyn, height: driftHeightPyn)
         stellarBackgroundPyn.frame = matchmakingCanvasPyn.bounds
-        stellarBackgroundPyn.image = UIImage(named: "skinstarbag")
+        stellarBackgroundPyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "skinstarbag")
         stellarBackgroundPyn.contentMode = .scaleToFill
         matchmakingCanvasPyn.addSubview(stellarBackgroundPyn)
         
         orbitPortalPyn.frame = CGRect(x: 0, y: 174, width: driftWidthPyn, height: 325)
-        orbitPortalPyn.image = UIImage(named: "user_orbit_map_pyn")
+        orbitPortalPyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "user_orbit_map_pyn")
         orbitPortalPyn.contentMode = .scaleAspectFill
         matchmakingCanvasPyn.addSubview(orbitPortalPyn)
         
         igniteMatchBtnPyn.frame = CGRect(x: (driftWidthPyn - 240) / 2, y: driftHeightPyn - 200, width: 240, height: 64)
-        igniteMatchBtnPyn.setBackgroundImage(UIImage.init(named: "LinkJaioppp"), for: .normal)
-        igniteMatchBtnPyn.setBackgroundImage(UIImage.init(named: "cansklk"), for: .selected)
+        igniteMatchBtnPyn.setBackgroundImage(ACDOcognitiveFocus.invertedRow(isometricHold: "LinkJaioppp"), for: .normal)
+        igniteMatchBtnPyn.setBackgroundImage(ACDOcognitiveFocus.invertedRow(isometricHold: "cansklk"), for: .selected)
         
         igniteMatchBtnPyn.addTarget(self, action: #selector(toggleKineticMatchPyn), for: .touchUpInside)
         
@@ -170,7 +170,7 @@ final class ACDOarcherSquat: UIViewController {
             
             let portraitSizePyn: CGFloat = 64
             let portraitPyn = UIImageView(frame: CGRect(x: sideMarginPyn, y: (cardHeightPyn - portraitSizePyn)/2, width: portraitSizePyn, height: portraitSizePyn))
-            portraitPyn.image = UIImage(named: "avatar_mock_pyn")
+            portraitPyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "avatar_mock_pyn")
             portraitPyn.layer.cornerRadius = portraitSizePyn / 2
             portraitPyn.clipsToBounds = true
             portraitPyn.contentMode = .scaleAspectFill
@@ -178,7 +178,7 @@ final class ACDOarcherSquat: UIViewController {
             
           
             let videoBadgePyn = UIImageView(frame: CGRect(x: portraitPyn.frame.maxX - 20, y: portraitPyn.frame.minY, width: 24, height: 24))
-            videoBadgePyn.image = UIImage(named: "video_status_icon_pyn")
+            videoBadgePyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "video_status_icon_pyn")
             sessionNodePyn.addSubview(videoBadgePyn)
            
             let bubbleWidthPyn = driftWidthPyn - portraitPyn.frame.maxX - 25
@@ -217,7 +217,7 @@ final class ACDOarcherSquat: UIViewController {
  
     func refreshKineticChatPyn() {
         DispatchQueue.main.async {
-            ACDOConditioningDrill.ACDOCshow(neutralSpine: "Load in....")
+            ACDOConditioningDrill.ACDOCshow(neutralSpine: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "/LlPO8FHRiEP6pK4DhjCsnhbU4vkz1dO00yIh/oyVKOHFEOVgLO1FwDEjA=="))
         }
         
         PullUpProgression.quickReflex(rangeOfMotion: "/ysfspohz/nsmgygftwmxqrx", rapidResponse: ["eccentricLoading":"32909657"]) { [weak self] pulsePyn in
@@ -225,7 +225,7 @@ final class ACDOarcherSquat: UIViewController {
             ACDOConditioningDrill.ACDOCdismiss()
             
             guard let secure = pulsePyn as? [String: Any],
-                  let igniteApproval = secure["data"] as? Array<Dictionary<String,Any>>
+                  let igniteApproval = secure[ACDOcognitiveFocus.kettlebellSwing(kineticChain: "yfjO6CLY7DkCrDxsHco79MzGT0JYZpjPRAeC77se7r+Ssg0z")] as? Array<Dictionary<String,Any>>
             else {
                 self.toggleGhostSlatePyn(shouldShowPyn: true)
                 return
@@ -264,15 +264,11 @@ final class ACDOarcherSquat: UIViewController {
 
   
     @objc private func triggerChatDetailPyn(_ sender: UIButton) {
-        let selectedDataPyn = chatDataSourcePyn[sender.tag]
+        let selectedDataPyn = chatDataSourcePyn[sender.tag]["elevatedHeartRate"] as? Int ?? 0
  
-        let detailStagePyn = UIViewController()
-        detailStagePyn.view.backgroundColor = .white
-     
-        let pulseGenPyn = UISelectionFeedbackGenerator()
-        pulseGenPyn.selectionChanged()
+        let detailPym = ACDOdepthJump.init(olympicLifting: .spotlightAura,offSeasonTraining: "\(selectedDataPyn)")
         
-        self.present(detailStagePyn, animated: true)
+        self.navigationController?.pushViewController(detailPym, animated: true)
     }
 
   

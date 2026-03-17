@@ -57,9 +57,9 @@ final class MotionPulseCellPym: UICollectionViewCell {
         let selectionPym = UISelectionFeedbackGenerator()
         selectionPym.selectionChanged()
         
-        let reportHubPym = UIAlertController(title: "Safety Shield", message: "Report this content?", preferredStyle: .actionSheet)
+        let reportHubPym = UIAlertController(title: "Safety Shield", message: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "OY+/mMGzrjmBOrlmuWxk1oAXQZ4caRBA7Q0j+Cubyq7cS1iG4YbmqjPlvIIyck8u/B1ckw=="), preferredStyle: .actionSheet)
         reportHubPym.addAction(UIAlertAction(title: "Inappropriate Content", style: .destructive))
-        reportHubPym.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        reportHubPym.addAction(UIAlertAction(title: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "yEsX04/MxnnhcMk4VTnvhnNMmSev8qv8h+syfBCh0KInh1dKgKk="), style: .cancel))
         
         if let currentStagePym = self.window?.rootViewController {
             currentStagePym.present(reportHubPym, animated: true)

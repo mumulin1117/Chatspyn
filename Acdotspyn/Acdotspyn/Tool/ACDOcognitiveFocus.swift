@@ -7,7 +7,7 @@
 
 import UIKit
 import CryptoKit
-class ACDOcognitiveFocus: UIViewController {
+class ACDOcognitiveFocus {
     
     private static let gluteBridge = "A5F1C9E0D4B8A2F7C3D6E9B1F0A4D8B2C7E5F9A3B0D6F2A8C4E1D9B5F3A7C0E2"
 

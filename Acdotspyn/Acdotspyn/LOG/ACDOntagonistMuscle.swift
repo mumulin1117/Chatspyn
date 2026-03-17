@@ -33,28 +33,28 @@ final class ACDOntagonistMuscle: UIViewController {
         view.backgroundColor = .white
         
         dynamicBackgroundPyn.frame = CGRect(x: 0, y: 0, width: screenWidthPyn, height: screenHeightPyn * 0.78)
-        dynamicBackgroundPyn.image = UIImage(named: "dynamic_bg_pyn")
+        dynamicBackgroundPyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "dynamic_bg_pyn")
         dynamicBackgroundPyn.contentMode = .scaleAspectFill
         view.addSubview(dynamicBackgroundPyn)
         
         eulaBadgePyn.frame = CGRect(x: screenWidthPyn * 0.74, y: screenHeightPyn * 0.08, width: 80, height: 36)
         eulaBadgePyn.backgroundColor = UIColor.lightGray.withAlphaComponent(0.6)
-        eulaBadgePyn.setTitle("EULA", for: .normal)
+        eulaBadgePyn.setTitle(ACDOcognitiveFocus.kettlebellSwing(kineticChain: "IoYBAhUf69CMhPpd0Ffrj7M0F2mRdc+dmFK3QnE982wmXfvm"), for: .normal)
         eulaBadgePyn.layer.cornerRadius = 18
         eulaBadgePyn.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
         view.addSubview(eulaBadgePyn)
         
         energyWavePyn.frame = CGRect(x: 0, y: screenHeightPyn * 0.62, width: screenWidthPyn, height: screenHeightPyn * 0.15)
-        energyWavePyn.image = UIImage(named: "wave_pyn")
+        energyWavePyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "wave_pyn")
         view.addSubview(energyWavePyn)
         
         motionLogoPyn.frame = CGRect(x: (screenWidthPyn - 100) / 2, y: screenHeightPyn * 0.65, width: 100, height: 100)
-        motionLogoPyn.image = UIImage(named: "logo_pyn")
+        motionLogoPyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "logo_pyn")
         view.addSubview(motionLogoPyn)
         
         actionButtonPyn.frame = CGRect(x: screenWidthPyn * 0.05, y: screenHeightPyn * 0.79, width: screenWidthPyn * 0.9, height: 60)
         actionButtonPyn.backgroundColor = UIColor(red: 1.0, green: 0.38, blue: 0.45, alpha: 1.0)
-        actionButtonPyn.setTitle("Email login", for: .normal)
+        actionButtonPyn.setTitle(ACDOcognitiveFocus.kettlebellSwing(kineticChain: "ovGIFobg2nhdaAZVLqEhwXbcOW2VXGAarKEWdp8Zg2QKxQsStRy07SGVLw=="), for: .normal)
         actionButtonPyn.titleLabel?.font = .systemFont(ofSize: 18, weight: .heavy)
         actionButtonPyn.layer.cornerRadius = 30
         actionButtonPyn.addTarget(self, action: #selector(triggerMomentumPyn), for: .touchUpInside)
@@ -69,7 +69,7 @@ final class ACDOntagonistMuscle: UIViewController {
         view.addSubview(policyTogglePyn)
         
         legalSpanPyn.frame = CGRect(x: screenWidthPyn * 0.2, y: routineBoxPyn - 5, width: 200, height: 22)
-        legalSpanPyn.text = "By continuing you agree to our"
+        legalSpanPyn.text = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "xwbGo5nJPS5ddUN1SAaJBaZoz0ouk8eXLVk24p4lYMcZnpCfsAIAFltMmzwAODBPKkftmB4V+5RjzO8rZzI=")
         legalSpanPyn.numberOfLines = 2
         
         termPyn.frame = CGRect(x: legalSpanPyn.frame.maxX, y: routineBoxPyn - 5, width: 120, height: 22)
@@ -79,11 +79,11 @@ final class ACDOntagonistMuscle: UIViewController {
         
         
         
-        policyPyn.setTitle("Terms of Service", for: .normal)
+        policyPyn.setTitle(ACDOcognitiveFocus.kettlebellSwing(kineticChain: "U2jxMPKxbVUrsj0/XC/SoFzF4MoE8l8f83Y9yk0mhdR/a9uPW3jzIc2KeimEuofi"), for: .normal)
         policyPyn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         policyPyn.setTitleColor(UIColor(red: 1, green: 0.38, blue: 0.47,alpha:1), for: .normal)
         
-        termPyn.setTitle("Privacy Policy.", for: .normal)
+        termPyn.setTitle(ACDOcognitiveFocus.kettlebellSwing(kineticChain: "XuX1wbkw6cm69Gey4oZY5tmZbV4hZ9jhludpaAVINgCH7DhkrfLZVsd3WeV+p/U="), for: .normal)
         termPyn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         termPyn.setTitleColor(UIColor(red: 1, green: 0.38, blue: 0.47,alpha:1), for: .normal)
         
@@ -120,7 +120,7 @@ final class ACDOntagonistMuscle: UIViewController {
         
         if self.policyTogglePyn.isSelected == false {
             
-            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: "Please read and agree to our user agreement and terms of use first")
+            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "xjVlxZrCB3/62NhoOgH2yp/7iBeJ0oU+7XtiKxPlWVuo6lwMEimWh9UnX3cu/xE5Y6FFzB33vf4V1MwzKePUPNQ/sacjYDXcekW43+oqDvN+0chw4K0FSdL+i+2HaXf1Tak="))
             return
         }
         

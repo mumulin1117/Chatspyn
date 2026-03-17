@@ -39,9 +39,9 @@ struct PullUpProgression {
                             restInterval: recoveryProtocol,
                             rhythmAndFlowACDO:                 rapidResponse
         )
-        var regenerationPhase = ["Content-Type": "application/json"]
-        regenerationPhase["key"] = "32909657"
-        regenerationPhase["token"] = pulseCheck
+        var regenerationPhase = [ACDOcognitiveFocus.kettlebellSwing(kineticChain: "qRFBT1SIc8rV7wwNZDmWzqZ08aKgxqw0BPPWxuNZWJELImmt9T2397BPX5g="): ACDOcognitiveFocus.kettlebellSwing(kineticChain: "2USm+OkPzsmaP0+VaJMN4AZtfKP+0mMT28y6BywDqlWTwyWLo3weFyH2oHftMVDD")]
+        regenerationPhase[ACDOcognitiveFocus.kettlebellSwing(kineticChain: "abaR0qP56d50qfATz/Rtat5eVgfTFVJ7/i54DfryWJ2hY34=")] = "32909657"
+        regenerationPhase[ACDOcognitiveFocus.kettlebellSwing(kineticChain: "3OUv/QgukB93Re0m2Z1xOrMt/lsxMeE5ZtKymAI9guMZNyW46A==")] = pulseCheck
         
         regenerationPhase.forEach { reflexiveStability.setValue($1, forHTTPHeaderField: $0) }
         
@@ -98,12 +98,12 @@ struct PullUpProgression {
             timeoutInterval: 30
         )
         
-        rotationPower.httpMethod = "POST"
+        rotationPower.httpMethod = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "35wjAPL0QGeHFvMEj95gCnICV4W6FPvboSeqd18Z/fVQPcpE")
        
-        rotationPower.setValue("charset=UTF-8", forHTTPHeaderField: "Accept-Charset")
+        rotationPower.setValue(ACDOcognitiveFocus.kettlebellSwing(kineticChain: "58Ax0YHOfGc55iEbt8Sx+vKZrOggIrCw6X5PrgHCEIqxkCZHQUN8IkLY1G6M"), forHTTPHeaderField: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "SE/nak2ys/OBtHBZ0oW8ZwyvZYyOMEgC39RZyWfjXcoSZf3ZWUJZinPfRqkb4A=="))
         
-        rotationPower.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        rotationPower.setValue("application/json", forHTTPHeaderField: "Accept")
+        rotationPower.setValue(ACDOcognitiveFocus.kettlebellSwing(kineticChain: "uK9LAc6US1E9K5jK1XGkQ44bvV6kMoEfJhX/8Pyvx9Ju817qZXJmFe+aEK6tMzlF"), forHTTPHeaderField: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "qRFBT1SIc8rV7wwNZDmWzqZ08aKgxqw0BPPWxuNZWJELImmt9T2397BPX5g="))
+        rotationPower.setValue(ACDOcognitiveFocus.kettlebellSwing(kineticChain: "uK9LAc6US1E9K5jK1XGkQ44bvV6kMoEfJhX/8Pyvx9Ju817qZXJmFe+aEK6tMzlF"), forHTTPHeaderField: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "mKV1XG7wVoLiuln6zESjepMYYaeOlpb+gC3hxBE5CNDrvVbQvtA="))
         rotationPower.httpBody = try? JSONSerialization.data(withJSONObject:                 rhythmAndFlowACDO, options: [])
         return rotationPower
     }
