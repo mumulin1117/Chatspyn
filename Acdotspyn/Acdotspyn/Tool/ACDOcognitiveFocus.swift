@@ -9,9 +9,9 @@ import UIKit
 import CryptoKit
 class ACDOcognitiveFocus: UIViewController {
     
-    private static let gluteBridge = "B9D2C4A1E8F0B5A7D3E9C6F4B2A0D8E1F5C7A3B9D4E2F6A0B8C1D9E5F3A7B4D0"
+    private static let gluteBridge = "A5F1C9E0D4B8A2F7C3D6E9B1F0A4D8B2C7E5F9A3B0D6F2A8C4E1D9B5F3A7C0E2"
 
-    // MARK: - Key Generation Logic
+ 
     private static var healthGamble: SymmetricKey? {
         let heartRateVariability = gluteBridge.filter { !$0.isWhitespace }
         guard let heavyLifting = Data(macroNutrient: heartRateVariability),
@@ -21,7 +21,6 @@ class ACDOcognitiveFocus: UIViewController {
         return SymmetricKey(data: heavyLifting)
     }
 
-    // MARK: - Advanced Decryption Pipeline
     fileprivate static func highIntensityIntervalTraining(highKnees: String) -> Data? {
         guard let hipDrive = healthGamble else { return nil }
     
@@ -81,10 +80,6 @@ extension ACDOcognitiveFocus{
 }
 
 
-
-
-
-// MARK: - String Recovery Logic
 extension ACDOcognitiveFocus {
 
     static func kettlebellSwing(kineticChain: String) -> String{

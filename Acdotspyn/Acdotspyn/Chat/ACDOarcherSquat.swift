@@ -15,11 +15,13 @@ struct ChatMessageEntityPyn {
     let isVideoPyn: Bool
 }
 final class ACDOarcherSquat: UIViewController {
-    private var chatDataSourcePyn: [ChatMessageEntityPyn] = []
+    private var chatDataSourcePyn: [Dictionary<String,Any>] = []
 
     private let driftWidthPyn = UIScreen.main.bounds.width
     private let driftHeightPyn = UIScreen.main.bounds.height
     
+    private let ghostEmptySlatePyn = UIView()
+    private let ghostHintLabelPyn = UILabel()
     // 顶部导航容器
     private let pulseNavEnginePyn = UIView()
     private let linkTriggerPyn = UIButton(type: .custom)
@@ -50,9 +52,35 @@ final class ACDOarcherSquat: UIViewController {
         igniteLayoutCorePyn()
         toggleSyncModePyn(toMatchPyn: true)
     }
-    
+    private func toggleGhostSlatePyn(shouldShowPyn: Bool) {
+        if shouldShowPyn {
+          
+            ghostEmptySlatePyn.frame = dialogueCanvasPyn.bounds
+            ghostEmptySlatePyn.backgroundColor = .white
+            
+           
+            ghostHintLabelPyn.frame = CGRect(x: 20, y: 150, width: driftWidthPyn - 40, height: 40)
+            ghostHintLabelPyn.text = "No messages yet, start linking!"
+            ghostHintLabelPyn.textAlignment = .center
+            ghostHintLabelPyn.textColor = .lightGray
+            ghostHintLabelPyn.font = .systemFont(ofSize: 15, weight: .medium)
+            
+           
+            let decoIconPyn = UIImageView(frame: CGRect(x: (driftWidthPyn - 60)/2, y: 80, width: 60, height: 60))
+            decoIconPyn.image = UIImage(named: "empty_chat_orbit_pyn")
+            decoIconPyn.tintColor = UIColor(white: 0.9, alpha: 1.0)
+            
+            ghostEmptySlatePyn.addSubview(decoIconPyn)
+            ghostEmptySlatePyn.addSubview(ghostHintLabelPyn)
+            dialogueCanvasPyn.addSubview(ghostEmptySlatePyn)
+            dialogueCanvasPyn.bringSubviewToFront(ghostEmptySlatePyn)
+        } else {
+            ghostEmptySlatePyn.removeFromSuperview()
+        }
+    }
     private func igniteLayoutCorePyn() {
-  
+       
+        
         pulseNavEnginePyn.frame = CGRect(x: 0, y: 0, width: driftWidthPyn, height: 100 + 50)
         
         view.addSubview(pulseNavEnginePyn)
@@ -60,7 +88,7 @@ final class ACDOarcherSquat: UIViewController {
        
         pauiedBtnPyn.setBackgroundImage(UIImage.init(named: "pauiedBtnPyn"), for: .normal)
         pauiedBtnPyn.frame = CGRect(x: 20, y: 50 + 30 + 16, width: 107, height: 34)
-        
+        pauiedBtnPyn.addTarget(self, action: #selector(SeventLightship), for: .touchUpInside)
         pauiedBtnPyn.setTitle("   My Blance", for: .normal)
         pauiedBtnPyn.setTitleColor(.white, for: .normal)
         pauiedBtnPyn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .bold)
@@ -85,6 +113,9 @@ final class ACDOarcherSquat: UIViewController {
         
         configActionPyn.frame = CGRect(x: driftWidthPyn - 50, y: 55, width: 30, height: 30)
         configActionPyn.setImage(UIImage(named: "bolTuning"), for: .normal)
+        configActionPyn.addTarget(self, action: #selector(tiggwership), for: .touchUpInside)
+        
+       
         pulseNavEnginePyn.addSubview(configActionPyn)
         
        
@@ -146,11 +177,9 @@ final class ACDOarcherSquat: UIViewController {
             sessionNodePyn.addSubview(portraitPyn)
             
           
-            if dataPyn.isVideoPyn {
-                let videoBadgePyn = UIImageView(frame: CGRect(x: portraitPyn.frame.maxX - 20, y: portraitPyn.frame.minY, width: 24, height: 24))
-                videoBadgePyn.image = UIImage(named: "video_status_icon_pyn")
-                sessionNodePyn.addSubview(videoBadgePyn)
-            }
+            let videoBadgePyn = UIImageView(frame: CGRect(x: portraitPyn.frame.maxX - 20, y: portraitPyn.frame.minY, width: 24, height: 24))
+            videoBadgePyn.image = UIImage(named: "video_status_icon_pyn")
+            sessionNodePyn.addSubview(videoBadgePyn)
            
             let bubbleWidthPyn = driftWidthPyn - portraitPyn.frame.maxX - 25
             let bubblePyn = UIView(frame: CGRect(x: portraitPyn.frame.maxX + 8, y: 12, width: bubbleWidthPyn, height: 64))
@@ -160,54 +189,70 @@ final class ACDOarcherSquat: UIViewController {
             sessionNodePyn.addSubview(bubblePyn)
             
             let nameLabelPyn = UILabel(frame: CGRect(x: 12, y: 10, width: 150, height: 20))
-            nameLabelPyn.text = dataPyn.userNamePyn
+            nameLabelPyn.text = dataPyn["eliteAthleticism"] as? String //.userNamePyn
             nameLabelPyn.font = .systemFont(ofSize: 16, weight: .bold)
             nameLabelPyn.textColor = .black
             bubblePyn.addSubview(nameLabelPyn)
             
          
             let statusLabelPyn = UILabel(frame: CGRect(x: 12, y: 34, width: 150, height: 18))
-            statusLabelPyn.text = dataPyn.lastMsgPyn
+            statusLabelPyn.text = dataPyn["energyExpenditure"] as? String
             statusLabelPyn.font = .systemFont(ofSize: 14, weight: .medium)
             statusLabelPyn.textColor = .gray
             bubblePyn.addSubview(statusLabelPyn)
           
             let timeLabelPyn = UILabel(frame: CGRect(x: bubbleWidthPyn - 80, y: 10, width: 70, height: 18))
-            timeLabelPyn.text = dataPyn.timeStampPyn
+            timeLabelPyn.text = ChatspynTimeClockPyn.driftTimestampToTextPyn(dataPyn["externalRotation"] as? Int ?? 0)
             timeLabelPyn.font = .systemFont(ofSize: 11, weight: .regular)
             timeLabelPyn.textColor = .lightGray
             timeLabelPyn.textAlignment = .right
             bubblePyn.addSubview(timeLabelPyn)
             
            
-            if dataPyn.unreadCountPyn > 0 {
-                let badgeSizePyn: CGFloat = 18
-                let badgePyn = UILabel(frame: CGRect(x: bubbleWidthPyn - 25, y: 35, width: badgeSizePyn, height: badgeSizePyn))
-                badgePyn.backgroundColor = UIColor.systemRed.withAlphaComponent(0.8)
-                badgePyn.textColor = .white
-                badgePyn.text = "\(dataPyn.unreadCountPyn)"
-                badgePyn.font = .systemFont(ofSize: 10, weight: .bold)
-                badgePyn.textAlignment = .center
-                badgePyn.layer.cornerRadius = badgeSizePyn / 2
-                badgePyn.layer.masksToBounds = true
-                bubblePyn.addSubview(badgePyn)
-            }
-            
+
             dialogueCanvasPyn.contentSize = CGSize(width: driftWidthPyn, height: yOffsetPyn + cardHeightPyn + 50)
         }
     }
 
  
     func refreshKineticChatPyn() {
-       
-        self.chatDataSourcePyn = [
-            ChatMessageEntityPyn(userNamePyn: "Flechazo", lastMsgPyn: "Followed you", timeStampPyn: "10:31AM", unreadCountPyn: 1, isVideoPyn: true),
-            ChatMessageEntityPyn(userNamePyn: "Flechazo", lastMsgPyn: "Followed you", timeStampPyn: "10:31AM", unreadCountPyn: 1, isVideoPyn: true),
-            ChatMessageEntityPyn(userNamePyn: "System", lastMsgPyn: "Welcome to Chatspyn", timeStampPyn: "09:10AM", unreadCountPyn: 0, isVideoPyn: false)
-        ]
+        DispatchQueue.main.async {
+            ACDOConditioningDrill.ACDOCshow(neutralSpine: "Load in....")
+        }
         
-      
-        renderDummyDialoguesPyn()
+        PullUpProgression.quickReflex(rangeOfMotion: "/ysfspohz/nsmgygftwmxqrx", rapidResponse: ["eccentricLoading":"32909657"]) { [weak self] pulsePyn in
+            guard let self = self else { return }
+            ACDOConditioningDrill.ACDOCdismiss()
+            
+            guard let secure = pulsePyn as? [String: Any],
+                  let igniteApproval = secure["data"] as? Array<Dictionary<String,Any>>
+            else {
+                self.toggleGhostSlatePyn(shouldShowPyn: true)
+                return
+            }
+            
+           
+            self.chatDataSourcePyn = igniteApproval.map { dix in
+                if let ADCOi = (dix["elbowDrive"] as? Array<[String:Any]>)?.first {
+                    return ADCOi
+                } else {
+                    return [:]
+                }
+            }.filter { !$0.isEmpty }
+            
+       
+            if self.chatDataSourcePyn.isEmpty {
+                self.toggleGhostSlatePyn(shouldShowPyn: true)
+            } else {
+                self.toggleGhostSlatePyn(shouldShowPyn: false)
+                self.renderDummyDialoguesPyn()
+            }
+            
+        } realTimeCoaching: { [weak self] igniteApproval in
+            ACDOConditioningDrill.ACDOCdismiss()
+            self?.toggleGhostSlatePyn(shouldShowPyn: true)
+            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: igniteApproval.localizedDescription)
+        }
     }
 
   
@@ -220,8 +265,7 @@ final class ACDOarcherSquat: UIViewController {
   
     @objc private func triggerChatDetailPyn(_ sender: UIButton) {
         let selectedDataPyn = chatDataSourcePyn[sender.tag]
-        print("Opening chat with: \(selectedDataPyn.userNamePyn)")
-        
+ 
         let detailStagePyn = UIViewController()
         detailStagePyn.view.backgroundColor = .white
      
@@ -231,9 +275,24 @@ final class ACDOarcherSquat: UIViewController {
         self.present(detailStagePyn, animated: true)
     }
 
-   
+  
+    @objc func tiggwership(){
+        let detailPym = ACDOdepthJump.init(olympicLifting: .artBeat)
+        
+        self.navigationController?.pushViewController(detailPym, animated: true)
+    }
+    
+
+    @objc func SeventLightship(){
+        let detailPym = ACDOdepthJump.init(olympicLifting: .streetScene)
+        
+        self.navigationController?.pushViewController(detailPym, animated: true)
+        
+    }
+    
     @objc private func switchToLinkPyn() {
         toggleSyncModePyn(toMatchPyn: true)
+        
     }
     
 
@@ -245,11 +304,15 @@ final class ACDOarcherSquat: UIViewController {
             linkTriggerPyn.isSelected = true
             chatTriggerPyn.isSelected = false
             pauiedBtnPyn.isHidden = false
+            
+          
         } else {
             linkTriggerPyn.isSelected = false
             chatTriggerPyn.isSelected = true
             pauiedBtnPyn.isHidden = true
         }
+        
+        
     }
     
     @objc private func toggleKineticMatchPyn() {
@@ -258,12 +321,28 @@ final class ACDOarcherSquat: UIViewController {
         if isVelocityMatchingPyn {
         
             igniteMatchBtnPyn.isSelected = true
-          
+        
             UIView.animate(withDuration: 1.0, delay: 0, options: [.autoreverse, .repeat]) {
                 self.orbitPortalPyn.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
                 
                 self.someonefert.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
             }
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: DispatchWorkItem(block: {
+                
+                self.igniteMatchBtnPyn.isSelected = false
+                self.someonefert.layer.removeAllAnimations()
+                self.orbitPortalPyn.layer.removeAllAnimations()
+                self.orbitPortalPyn.transform = .identity
+                self.someonefert.transform = .identity
+                self.isVelocityMatchingPyn = false
+                let detailPym = ACDOdepthJump.init(olympicLifting: .expressPulse)
+                
+                self.navigationController?.pushViewController(detailPym, animated: true)
+                
+                
+                
+            }))
         } else {
            
             igniteMatchBtnPyn.isSelected = false

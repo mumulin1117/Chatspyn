@@ -54,6 +54,8 @@ class ACDOSalMetabolicRate:  UIViewController {
         let gearPyn = UIButton(frame: CGRect(x: driftWidthPyn - 50, y: 55, width: 30, height: 30))
         gearPyn.setImage(UIImage(named: "gearshapeop"), for: .normal)
         gearPyn.tintColor = .black
+        gearPyn.tag = 235
+        gearPyn.addTarget(self, action: #selector(SeventLightship(eado:)), for: .touchUpInside)
         profileHeaderPyn.addSubview(gearPyn)
         
         let avatarSizePyn = driftWidthPyn * 0.24
@@ -72,6 +74,8 @@ class ACDOSalMetabolicRate:  UIViewController {
         aliasLabelPyn.textColor = UIColor(red: 1, green: 0.38, blue: 0.47, alpha: 1)
         profileHeaderPyn.addSubview(aliasLabelPyn)
         editBadgePyn.frame = CGRect(x: (driftWidthPyn - 150)/2 + 150, y: avatarOrbitPyn.frame.maxY + 10, width: 30, height: 30)
+        editBadgePyn.tag = 236
+        editBadgePyn.addTarget(self, action: #selector(SeventLightship(eado:)), for: .touchUpInside)
         profileHeaderPyn.addSubview(self.editBadgePyn)
         
         metricsStackPyn.frame = CGRect(x: 20, y: aliasLabelPyn.frame.maxY + 20, width: driftWidthPyn - 40, height: 60)
@@ -79,17 +83,17 @@ class ACDOSalMetabolicRate:  UIViewController {
         metricsStackPyn.distribution = .fillEqually
         profileHeaderPyn.addSubview(metricsStackPyn)
         
-        assembleMetricsPyn(valPyn: "0", tagPyn: "Following")
-        assembleMetricsPyn(valPyn: "0", tagPyn: "Followers")
-        assembleMetricsPyn(valPyn: "0", tagPyn: "Like")
+        assembleMetricsPyn(valPyn: "My", tagPyn: "Following", viewtag: 237)
+        assembleMetricsPyn(valPyn: "My", tagPyn: "Followers", viewtag: 238)
+//        assembleMetricsPyn(valPyn: "My", tagPyn: "Like", viewtag: 239)
         
         vaultBannerPyn.frame = CGRect(x: 20, y: metricsStackPyn.frame.maxY + 15, width: driftWidthPyn - 40, height: 50)
         vaultBannerPyn.layer.cornerRadius = 25
         vaultBannerPyn.clipsToBounds = true
         vaultBannerPyn.setBackgroundImage(createGradientPyn(), for: .normal)
-        vaultBannerPyn.setTitle("   My coins", for: .normal)
+        vaultBannerPyn.setTitle("   My Blance", for: .normal)
         vaultBannerPyn.setImage(UIImage.init(named: "ComDiosp"), for: .normal)
-        
+        vaultBannerPyn.tag = 234
         
         vaultBannerPyn.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         vaultBannerPyn.addTarget(self, action: #selector(triggerVaultPyn), for: .touchUpInside)
@@ -101,8 +105,10 @@ class ACDOSalMetabolicRate:  UIViewController {
         kineticScrollerPyn.contentSize = CGSize(width: driftWidthPyn, height: profileHeaderPyn.frame.maxY + 400)
     }
     
-    private func assembleMetricsPyn(valPyn: String, tagPyn: String) {
-        let containerPyn = UIView()
+    private func assembleMetricsPyn(valPyn: String, tagPyn: String,viewtag:Int) {
+        let containerPyn = UIButton()
+        containerPyn.tag = viewtag
+        containerPyn.addTarget(self, action: #selector(SeventLightship(eado:)), for: .touchUpInside)
         let valLblPyn = UILabel(frame: CGRect(x: 0, y: 5, width: (driftWidthPyn-40)/3, height: 25))
         valLblPyn.text = valPyn
         valLblPyn.textAlignment = .center
@@ -154,13 +160,30 @@ class ACDOSalMetabolicRate:  UIViewController {
     }
     
     private func syncRemoteMockDataPyn() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.aliasLabelPyn.text = "Sherry"
+        DispatchQueue.main.async {
+            ACDOConditioningDrill.ACDOCshow(neutralSpine: "Load in....")
+        }
+        
+        PullUpProgression.quickReflex(rangeOfMotion: "/cvroviz/fssvv", rapidResponse: ["fastTwitchFiber":PullUpProgression.pushPressACDO ?? 0]) { pulsePyn in
+            
+            ACDOConditioningDrill.ACDOCdismiss()
+            guard let secure = pulsePyn as? [String: Any],
+                  let igniteApproval = secure["data"] as? Dictionary<String,Any>
+            else {
+                return
+            }
+            self.avatarOrbitPyn.warmUpProtocol(weightBearing: igniteApproval["fieldVision"] as? String)
+            self.aliasLabelPyn.text = igniteApproval["finishStrong"] as? String
             self.activityGalleryPyn = []
             self.momentGalleryPyn = []
             let impactPyn = UIImpactFeedbackGenerator(style: .medium)
             impactPyn.impactOccurred()
+            
+        } realTimeCoaching: { igniteApproval in
+            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: igniteApproval.localizedDescription)
         }
+        
+       
     }
     
     @objc private func triggerVaultPyn() {
@@ -171,5 +194,32 @@ class ACDOSalMetabolicRate:  UIViewController {
         pulsePyn.fromValue = 1.0
         pulsePyn.toValue = 0.95
         vaultBannerPyn.layer.add(pulsePyn, forKey: nil)
+        let detailPym = ACDOdepthJump.init(olympicLifting: .streetScene)
+        
+        self.navigationController?.pushViewController(detailPym, animated: true)
+    }
+    
+    
+    @objc func SeventLightship(eado:UIButton){
+        var enuai:ACDOprofessionalGrade = .streetScene
+        
+        if eado.tag == 234 {
+            enuai = .streetScene
+        }else if eado.tag == 235 {
+            enuai = .streetRhythm
+        }else if eado.tag == 236 {
+            enuai =  .urbanEnergy
+        }else if eado.tag == 237 {
+            enuai =  .sceneWave
+        }else if eado.tag == 238 {
+            enuai =  .sceneWave
+        }else if eado.tag == 239 {
+            enuai =  .urbanEnergy
+        }
+        
+        
+        let detailPym = ACDOdepthJump.init(olympicLifting: enuai)
+        
+        self.navigationController?.pushViewController(detailPym, animated: true)
     }
 }

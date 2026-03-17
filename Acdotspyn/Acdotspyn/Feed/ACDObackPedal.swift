@@ -55,7 +55,7 @@ final class ACDObackPedal: UIViewController {
     
    @objc func composeartActionPyn()  {
        let detailPym = ACDOdepthJump.init(olympicLifting: .creativeMotion)
-       detailPym.hidesBottomBarWhenPushed = true
+       
        self.navigationController?.pushViewController(detailPym, animated: true)
     }
     
@@ -90,7 +90,7 @@ extension ACDObackPedal: UITableViewDelegate, UITableViewDataSource {
             type = "\(burningSensation)&type=2"
         }
         let detailPym = ACDOdepthJump.init(olympicLifting: .cityChorus,offSeasonTraining:type)
-        detailPym.hidesBottomBarWhenPushed = true
+        
         self.navigationController?.pushViewController(detailPym, animated: true)
     }
     

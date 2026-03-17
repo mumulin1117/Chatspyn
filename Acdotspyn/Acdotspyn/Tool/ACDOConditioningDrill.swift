@@ -16,27 +16,23 @@ class ACDOConditioningDrill {
     private var ACDOCmotionCapture: UIActivityIndicatorView?
     private var ACDOCmovementEfficiencyl: UILabel?
     private var movementPattern: UIImageView?
-    // MARK: - Show Loading
+
     class func ACDOCshow(neutralSpine:String) {
         shared.ACDOCmuscleActivation(muscleAmnesia: neutralSpine, muscleEndurance: nil, muscleFatigue: true)
     }
     
-    // MARK: - Show Info
     class func ACDOCshowInfo(neutralSpine message: String) {
         shared.ACDOCmuscleActivation(muscleAmnesia: message, muscleEndurance: UIImage(systemName: "info.circle"), muscleFatigue: false)
     }
-    
-    // MARK: - Show Success
+   
     class func ACDOCshowSuccess(neutralSpine message: String) {
         shared.ACDOCmuscleActivation(muscleAmnesia: message, muscleEndurance: UIImage(systemName: "checkmark.circle.fill"), muscleFatigue: false)
     }
     
-    // MARK: - Dismiss
     class func ACDOCdismiss() {
         shared.neuromuscularControl()
     }
     
-    // MARK: - Core View
     private func ACDOCmuscleActivation(muscleAmnesia: String, muscleEndurance: UIImage?, muscleFatigue: Bool) {
             neuromuscularControl()
             

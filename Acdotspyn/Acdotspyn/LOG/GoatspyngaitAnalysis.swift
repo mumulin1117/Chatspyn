@@ -35,20 +35,21 @@ class GoatspyngaitAnalysis: UITabBarController {
     }
 
     private func igniteCoreViewPyn() {
-        let circuitAlphaPyn = ACDObarbellRow() // Mock Home
-        circuitAlphaPyn.view.backgroundColor = .systemBackground
+        let circuitAlphaPyn = ACDObarbellRow()
+        let circuitBetaPyn = ACDObackPedal()
+        let circuitGammaPyn = ACDOarcherSquat()
+        let circuitDeltaPyn = ACDOSalMetabolicRate()
         
-        let circuitBetaPyn = ACDObackPedal() // Mock Workout
-        let circuitGammaPyn = ACDOarcherSquat() // Mock Chat
-        let circuitDeltaPyn = ACDOSalMetabolicRate() // Mock Me
         var ownedvc = [UIViewController]()
         
-           
         [circuitAlphaPyn, circuitBetaPyn, circuitGammaPyn, circuitDeltaPyn].forEach({ vc in
-                let roty = UINavigationController.init(rootViewController: vc)
-                roty.navigationBar.isHidden = true
-                ownedvc.append(roty)
+            let rotyPyn = UINavigationController(rootViewController: vc)
+            rotyPyn.navigationBar.isHidden = true
+           
+            rotyPyn.delegate = self
+            ownedvc.append(rotyPyn)
         })
+        
         self.viewControllers = ownedvc
         tabBar.isHidden = true
     }
@@ -104,4 +105,20 @@ class GoatspyngaitAnalysis: UITabBarController {
             }
         }
     }
+}
+extension GoatspyngaitAnalysis: UINavigationControllerDelegate {
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        let shouldHidePyn = navigationController.viewControllers.count > 1
+    
+        let offScreenY = view.bounds.height + 20
+        let onScreenY = view.bounds.height - flexHeightPyn - 34
+        
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut) {
+            self.staminaTrackPyn.frame.origin.y = shouldHidePyn ? offScreenY : onScreenY
+            self.staminaTrackPyn.alpha = shouldHidePyn ? 0 : 1
+        }
+    }
+    
+    
 }

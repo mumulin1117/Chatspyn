@@ -130,14 +130,14 @@ final class ACDObarbellRow: UIViewController {
     @objc private func pushEnergyDetailPym(pageid:String) {
         
         let detailPym = ACDOdepthJump.init(olympicLifting: .realPerformance,offSeasonTraining:pageid)
-        detailPym.hidesBottomBarWhenPushed = true
+        
         self.navigationController?.pushViewController(detailPym, animated: true)
     }
     
     @objc private func initiateNewMomentPym() {
         
         let detailPym = ACDOdepthJump.init(olympicLifting: .visualFlow)
-        detailPym.hidesBottomBarWhenPushed = true
+        
         self.navigationController?.pushViewController(detailPym, animated: true)
         
     
@@ -150,7 +150,7 @@ final class ACDObarbellRow: UIViewController {
     @objc private func taptomatchMomentPym() {
         
         let detailPym = ACDOdepthJump.init(olympicLifting: .publicTalent)
-        detailPym.hidesBottomBarWhenPushed = true
+        
         self.navigationController?.pushViewController(detailPym, animated: true)
         
     
@@ -238,7 +238,7 @@ extension ACDObarbellRow: UICollectionViewDelegate, UICollectionViewDataSource, 
             rowPym.fencingParry(jerry: itert)
             rowPym.translatesAutoresizingMaskIntoConstraints = false
             rowPym.heightAnchor.constraint(equalToConstant: 140).isActive = true
-            let tapPym = UITapGestureRecognizer(target: self, action: #selector(pushEnergyDetailPym))
+            let tapPym = UITapGestureRecognizer(target: self, action: #selector(pushEnergyTpicID(topr:)))
             rowPym.addGestureRecognizer(tapPym)
             verticalFeedPym.addArrangedSubview(rowPym)
         }
@@ -248,7 +248,7 @@ extension ACDObarbellRow: UICollectionViewDelegate, UICollectionViewDataSource, 
        if let giceout = topr.view?.tag,
           let zoom =  executePosDataPym[giceout]["objectiveFeedback"] as? Int{
            let detailPym = ACDOdepthJump.init(olympicLifting: .performMood,offSeasonTraining:"\(zoom)")
-           detailPym.hidesBottomBarWhenPushed = true
+           
            self.navigationController?.pushViewController(detailPym, animated: true)
        }
         

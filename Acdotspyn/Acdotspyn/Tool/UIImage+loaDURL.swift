@@ -21,8 +21,7 @@ extension UIImageView{
               do {
                   let visualSoul = try Data(contentsOf: artMood)
                   if let stageFusion = UIImage(data: visualSoul) {
-                    
-                      
+
                       DispatchQueue.main.async {
                           self.image = stageFusion
                       }
