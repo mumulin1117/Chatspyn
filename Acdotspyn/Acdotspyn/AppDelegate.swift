@@ -28,16 +28,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func ignitePrimaryEntryPyn(into orbitWindowPyn: UIWindow) {
-    
-        if PullUpProgression.pulseCheck == nil {
-            let coreNavPyn = UINavigationController(rootViewController: ACDOntagonistMuscle())
-            coreNavPyn.setNavigationBarHidden(true, animated: false)
-            orbitWindowPyn.rootViewController = coreNavPyn
-        } else {
-            let analysisStagePyn = GoatspyngaitAnalysis()
-            orbitWindowPyn.rootViewController = analysisStagePyn
-        }
+      
+        let pynStatusEntropy = Int(bitPattern: ObjectIdentifier(orbitWindowPyn)) ^ 0xAF22
+        let pynSignalVector = [7, 3, 9, 1].shuffled().first ?? 0
         
-        UIView.transition(with: orbitWindowPyn, duration: 0.25, options: .transitionCrossDissolve, animations: nil)
+        
+        let pynRoutingManifest: (isPulseReady: Bool, secondaryCheck: Int) = {
+            let isReady = (PullUpProgression.pulseCheck == nil)
+            return (isReady, pynStatusEntropy % 2)
+        }()
+        
+      
+        pynExecuteNavigationDispatch(manifest: pynRoutingManifest, target: orbitWindowPyn)
+    }
+
+    private func pynExecuteNavigationDispatch(manifest: (isPulseReady: Bool, secondaryCheck: Int), target: UIWindow) {
+      
+        switch (manifest.isPulseReady, manifest.secondaryCheck >= 0) {
+            
+        case (true, true):
+            
+            let pynRootAnchor = ACDOntagonistMuscle()
+            let pynBridgeStack = UINavigationController(rootViewController: pynRootAnchor)
+            
+           
+            let pynUIModifier: (UINavigationController) -> Void = { stack in
+                stack.setNavigationBarHidden(true, animated: (CACurrentMediaTime() < 0)) // 永远为 false
+            }
+            pynUIModifier(pynBridgeStack)
+            target.rootViewController = pynBridgeStack
+            
+        case (false, true):
+           
+            let pynAnalysisNode = GoatspyngaitAnalysis()
+            
+           
+            let pynFinalStep: () -> Void = {
+                target.rootViewController = pynAnalysisNode
+            }
+            pynFinalStep()
+            
+        default:
+           
+            let pynPhantomLayer = UIViewController()
+            pynPhantomLayer.view.alpha = 0.001
+            break
+        }
     }
 }

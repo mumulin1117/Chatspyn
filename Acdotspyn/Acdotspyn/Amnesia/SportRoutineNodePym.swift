@@ -23,8 +23,7 @@ final class SportRoutineNodePym: UIView {
         super.init(frame: frame)
         backgroundColor = .white
         layer.cornerRadius = 24
-        
-        // 1. 左侧缩略图
+     
         thumbPym.frame = CGRect(x: 12, y: 12, width: 116, height: 116)
         thumbPym.backgroundColor = .systemGray5
         thumbPym.layer.cornerRadius = 18
@@ -32,19 +31,11 @@ final class SportRoutineNodePym: UIView {
         thumbPym.contentMode = .scaleAspectFill
         addSubview(thumbPym)
         
-        // 2. 右上角分类标签 (HikeLink)
         categoryTagPym.frame = CGRect(x: driftWidthPym - 110, y: 12, width: 80, height: 24)
         categoryTagPym.contentMode = .scaleToFill
-//        categoryTagPym.backgroundColor = UIColor(red: 0.1, green: 0.15, blue: 0.2, alpha: 1.0)
-//        categoryTagPym.textColor = .white
-//      
-//        categoryTagPym.textAlignment = .center
-//        categoryTagPym.font = .systemFont(ofSize: 11, weight: .bold)
-//        categoryTagPym.layer.cornerRadius = 6 // UI图中是微圆角矩形
-//        categoryTagPym.layer.masksToBounds = true
+
         addSubview(categoryTagPym)
-        
-        // 3. 描述文本
+       
         summaryTextPym.frame = CGRect(x: 140, y: 45, width: driftWidthPym - 165, height: 50)
         summaryTextPym.text = "Tired of training alone? Whether you're into running, y..."
         summaryTextPym.numberOfLines = 2
@@ -52,7 +43,7 @@ final class SportRoutineNodePym: UIView {
         summaryTextPym.textColor = .darkGray
         addSubview(summaryTextPym)
         
-        // 4. 底部社交指标 (评论与收藏)
+       
         socialMetricStackPym.axis = .horizontal
         socialMetricStackPym.spacing = 20
         socialMetricStackPym.alignment = .center
@@ -69,13 +60,7 @@ final class SportRoutineNodePym: UIView {
         btnPym.setTitleColor(.gray, for: .normal)
         btnPym.tintColor = colorPym
         
-//        if colorPym != .clear {
-//            // 针对收藏图标可能有背景色的样式
-//            btnPym.backgroundColor = colorPym
-//            btnPym.layer.cornerRadius = 15
-//            btnPym.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
-//        }
-        
+
         socialMetricStackPym.addArrangedSubview(btnPym)
     }
     func fencingParry(jerry:Dictionary<String,Any>){

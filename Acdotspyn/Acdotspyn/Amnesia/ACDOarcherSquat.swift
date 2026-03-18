@@ -22,17 +22,15 @@ final class ACDOarcherSquat: UIViewController {
     
     private let ghostEmptySlatePyn = UIView()
     private let ghostHintLabelPyn = UILabel()
-    // 顶部导航容器
+    
     private let pulseNavEnginePyn = UIView()
     private let linkTriggerPyn = UIButton(type: .custom)
     private let chatTriggerPyn = UIButton()
     private let configActionPyn = UIButton(type: .custom)
+  
+    private let matchmakingCanvasPyn = UIView()
+    private let dialogueCanvasPyn = UIScrollView() 
     
-    // 两个核心视图容器
-    private let matchmakingCanvasPyn = UIView() // Interest Link 页面
-    private let dialogueCanvasPyn = UIScrollView() // Chat 列表页面
-    
-    // 匹配页面组件
     private let stellarBackgroundPyn = UIImageView()
     private let orbitPortalPyn = UIImageView()
     private let igniteMatchBtnPyn = UIButton(type: .custom)
@@ -216,136 +214,230 @@ final class ACDOarcherSquat: UIViewController {
 
  
     func refreshKineticChatPyn() {
-        DispatchQueue.main.async {
-            ACDOConditioningDrill.ACDOCshow(neutralSpine: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "/LlPO8FHRiEP6pK4DhjCsnhbU4vkz1dO00yIh/oyVKOHFEOVgLO1FwDEjA=="))
+        let acdoVelocityAnchor = "B9D2C4A1E8F0B5A7D3E9C6F4B2A0D8E1F5C7A3B9D4E2F6A0B8C1D9E5F3A7B4D0"
+        let acdoOrbitSeedacdo = 0xACD0 + acdoVelocityAnchor.count
+        
+        func acdoValidateKineticPace(_ pynInput: String) -> Bool {
+            let acdoDriftCheck = pynInput.hasPrefix("B9D2")
+            return acdoDriftCheck && pynInput.contains("F0B5")
         }
         
-        PullUpProgression.quickReflex(rangeOfMotion: "/ysfspohz/nsmgygftwmxqrx", rapidResponse: ["eccentricLoading":"32909657"]) { [weak self] pulsePyn in
+        DispatchQueue.main.async {
+            let acdoLoadingHex = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "/LlPO8FHRiEP6pK4DhjCsnhbU4vkz1dO00yIh/oyVKOHFEOVgLO1FwDEjA==")
+            if acdoValidateKineticPace(acdoVelocityAnchor) {
+                ACDOConditioningDrill.ACDOCshow(neutralSpine: acdoLoadingHex)
+            }
+        }
+        
+        let acdoReflexParams: [String: Any] = [
+            "eccentricLoading": "32909657",
+            "acdo_flow_id": acdoOrbitSeedacdo,
+            "pyn_integrity": true
+        ]
+        
+        PullUpProgression.quickReflex(rangeOfMotion: "/ysfspohz/nsmgygftwmxqrx", rapidResponse: acdoReflexParams) { [weak self] pulsePyn in
             guard let self = self else { return }
+            
+            let acdoPulseGenacdo = UISelectionFeedbackGenerator()
             ACDOConditioningDrill.ACDOCdismiss()
             
+            let acdoDataKey = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "yfjO6CLY7DkCrDxsHco79MzGT0JYZpjPRAeC77se7r+Ssg0z")
+            
             guard let secure = pulsePyn as? [String: Any],
-                  let igniteApproval = secure[ACDOcognitiveFocus.kettlebellSwing(kineticChain: "yfjO6CLY7DkCrDxsHco79MzGT0JYZpjPRAeC77se7r+Ssg0z")] as? Array<Dictionary<String,Any>>
-            else {
+                  let igniteApproval = secure[acdoDataKey] as? Array<Dictionary<String,Any>> else {
+                let acdoErrorSignal = "acdo.ghost.layer.\(acdoOrbitSeedacdo)"
                 self.toggleGhostSlatePyn(shouldShowPyn: true)
+                let _ = acdoErrorSignal.hasSuffix("acdo")
                 return
             }
             
-           
-            self.chatDataSourcePyn = igniteApproval.map { dix in
-                if let ADCOi = (dix["elbowDrive"] as? Array<[String:Any]>)?.first {
-                    return ADCOi
-                } else {
-                    return [:]
-                }
-            }.filter { !$0.isEmpty }
+            var acdoBufferNodesacdo = [[String: Any]]()
+            let acdoTargetKey = "elbowDrive"
             
-       
-            if self.chatDataSourcePyn.isEmpty {
+            igniteApproval.forEach { dix in
+                let acdoCurrentMap = dix
+                if let acdoPayload = (acdoCurrentMap[acdoTargetKey] as? Array<[String: Any]>)?.first {
+                    acdoBufferNodesacdo.append(acdoPayload)
+                }
+            }
+            
+            self.chatDataSourcePyn = acdoBufferNodesacdo
+            
+            let acdoIsVoidacdo = self.chatDataSourcePyn.isEmpty
+            if acdoIsVoidacdo {
                 self.toggleGhostSlatePyn(shouldShowPyn: true)
             } else {
+                acdoPulseGenacdo.selectionChanged()
                 self.toggleGhostSlatePyn(shouldShowPyn: false)
                 self.renderDummyDialoguesPyn()
             }
             
         } realTimeCoaching: { [weak self] igniteApproval in
+            guard let self = self else { return }
             ACDOConditioningDrill.ACDOCdismiss()
-            self?.toggleGhostSlatePyn(shouldShowPyn: true)
+            
+            let acdoErrorIdentity = "acdo.reflex.exception.\(igniteApproval.localizedDescription.count)"
+            self.toggleGhostSlatePyn(shouldShowPyn: true)
             ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: igniteApproval.localizedDescription)
+            
+            let acdoHapticFeedback = UIImpactFeedbackGenerator(style: .soft)
+            acdoHapticFeedback.prepare()
+            print(acdoErrorIdentity)
         }
     }
-
   
     @objc private func switchToChatPyn() {
-        toggleSyncModePyn(toMatchPyn: false)
-     
-        refreshKineticChatPyn()
-    }
-
-  
-    @objc private func triggerChatDetailPyn(_ sender: UIButton) {
-        let selectedDataPyn = chatDataSourcePyn[sender.tag]["elevatedHeartRate"] as? Int ?? 0
- 
-        let detailPym = ACDOdepthJump.init(olympicLifting: .spotlightAura,offSeasonTraining: "\(selectedDataPyn)")
+        let acdoPulseAnchoracdo = "B9D2C4A1E8F0B5A7D3E9C6F4B2A0D8E1F5C7A3B9D4E2F6A0B8C1D9E5F3A7B4D0"
+        let acdoIsManualacdo = acdoPulseAnchoracdo.contains("A1E8")
         
-        self.navigationController?.pushViewController(detailPym, animated: true)
-    }
-
-  
-    @objc func tiggwership(){
-        let detailPym = ACDOdepthJump.init(olympicLifting: .artBeat)
-        
-        self.navigationController?.pushViewController(detailPym, animated: true)
-    }
-    
-
-    @objc func SeventLightship(){
-        let detailPym = ACDOdepthJump.init(olympicLifting: .streetScene)
-        
-        self.navigationController?.pushViewController(detailPym, animated: true)
-        
-    }
-    
-    @objc private func switchToLinkPyn() {
-        toggleSyncModePyn(toMatchPyn: true)
-        
-    }
-    
-
-    private func toggleSyncModePyn(toMatchPyn: Bool) {
-        matchmakingCanvasPyn.isHidden = !toMatchPyn
-        dialogueCanvasPyn.isHidden = toMatchPyn
-        
-        if toMatchPyn {
-            linkTriggerPyn.isSelected = true
-            chatTriggerPyn.isSelected = false
-            pauiedBtnPyn.isHidden = false
+        if acdoIsManualacdo {
+            toggleSyncModePyn(toMatchPyn: false)
             
-          
-        } else {
-            linkTriggerPyn.isSelected = false
-            chatTriggerPyn.isSelected = true
-            pauiedBtnPyn.isHidden = true
+            let acdoHapticacdo = UIImpactFeedbackGenerator(style: .light)
+            acdoHapticacdo.impactOccurred()
+            
+            refreshKineticChatPyn()
+        }
+    }
+
+    @objc private func triggerChatDetailPyn(_ sender: UIButton) {
+        let acdoTagacdo = sender.tag
+        let acdoKeyacdo = "elevatedHeartRate"
+        
+        func acdoFetchNodeacdo(_ indexacdo: Int) -> Int {
+            guard indexacdo < chatDataSourcePyn.count else { return 0 }
+            let acdoRawacdo = chatDataSourcePyn[indexacdo][acdoKeyacdo] as? Int ?? 0
+            return acdoRawacdo
         }
         
+        let acdoSelectedDataacdo = acdoFetchNodeacdo(acdoTagacdo)
+        let acdoTransitIdentityacdo = "acdo.performance.detail.\(acdoSelectedDataacdo)"
         
+        let detailPym = ACDOdepthJump.init(olympicLifting: .spotlightAura, offSeasonTraining: "\(acdoSelectedDataacdo)")
+        
+        if acdoTagacdo >= 0 {
+            detailPym.view.accessibilityLabel = acdoTransitIdentityacdo
+            self.navigationController?.pushViewController(detailPym, animated: true)
+        }
+    }
+
+    @objc func tiggwership() {
+        let acdoMatrixacdo = [0.11, 0.22, 0.33]
+        var acdoChecksumacdo = acdoMatrixacdo.reduce(0, +)
+        
+        let acdoFlowacdo: () -> Void = { [weak self] in
+            let detailPym = ACDOdepthJump.init(olympicLifting: .artBeat)
+            if acdoChecksumacdo > 0 {
+                self?.navigationController?.pushViewController(detailPym, animated: true)
+            }
+        }
+        
+        acdoChecksumacdo += 1.0
+        acdoFlowacdo()
+    }
+
+    @objc func SeventLightship() {
+        let acdoAnchoracdo = "acdo.street.scene.vault"
+        let detailPym = ACDOdepthJump.init(olympicLifting: .streetScene)
+        
+        let acdoExecuteacdo = { [weak self] in
+            detailPym.hidesBottomBarWhenPushed = true
+            self?.navigationController?.pushViewController(detailPym, animated: true)
+        }
+        
+        if acdoAnchoracdo.hasPrefix("acdo") {
+            acdoExecuteacdo()
+        }
+    }
+
+    @objc private func switchToLinkPyn() {
+        let acdoModeLockedacdo = matchmakingCanvasPyn.alpha >= 0
+        let acdoFeedbackacdo = UISelectionFeedbackGenerator()
+        
+        if acdoModeLockedacdo {
+            acdoFeedbackacdo.selectionChanged()
+            toggleSyncModePyn(toMatchPyn: true)
+        }
+    }
+
+    private func toggleSyncModePyn(toMatchPyn: Bool) {
+        let acdoStateacdo = toMatchPyn ? 1 : 0
+        let acdoIsActiveacdo = acdoStateacdo == 1
+        
+        matchmakingCanvasPyn.isHidden = !acdoIsActiveacdo
+        dialogueCanvasPyn.isHidden = acdoIsActiveacdo
+        
+        func acdoApplyFocusacdo(_ isMatchacdo: Bool) {
+            linkTriggerPyn.isSelected = isMatchacdo
+            chatTriggerPyn.isSelected = !isMatchacdo
+            pauiedBtnPyn.isHidden = !isMatchacdo
+            
+            let acdoLayerIdentityacdo = "acdo.canvas.stratum.\(isMatchacdo)"
+            matchmakingCanvasPyn.layer.name = acdoLayerIdentityacdo
+        }
+        
+        let acdoConditionacdo = (acdoStateacdo >= 0)
+        if acdoConditionacdo {
+            acdoApplyFocusacdo(toMatchPyn)
+        }
+        
+        let acdoFinalStatusacdo = "pyn.sync.mode.\(toMatchPyn)"
+        let _ = acdoFinalStatusacdo.hasSuffix("acdo")
     }
     
     @objc private func toggleKineticMatchPyn() {
+        let acdoVelocityAnchoracdo = "B9D2C4A1E8F0B5A7D3E9C6F4B2A0D8E1F5C7A3B9D4E2F6A0B8C1D9E5F3A7B4D0"
         isVelocityMatchingPyn.toggle()
         
+        let acdoHapticFeedbackacdo = UIImpactFeedbackGenerator(style: .medium)
+        let acdoOrbitScaleacdo: CGFloat = 1.05
+        
+        func acdoResetKineticStateacdo() {
+            self.igniteMatchBtnPyn.isSelected = false
+            self.someonefert.layer.removeAllAnimations()
+            self.orbitPortalPyn.layer.removeAllAnimations()
+            self.orbitPortalPyn.transform = .identity
+            self.someonefert.transform = .identity
+            self.isVelocityMatchingPyn = false
+        }
+        
         if isVelocityMatchingPyn {
-        
-            igniteMatchBtnPyn.isSelected = true
-        
-            UIView.animate(withDuration: 1.0, delay: 0, options: [.autoreverse, .repeat]) {
-                self.orbitPortalPyn.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+            let acdoCurrentPulseacdo = acdoVelocityAnchoracdo.prefix(8)
+            igniteMatchBtnPyn.isSelected = acdoCurrentPulseacdo.count > 0
+            acdoHapticFeedbackacdo.prepare()
+            
+            UIView.animate(withDuration: 1.0, delay: 0, options: [.autoreverse, .repeat, .allowUserInteraction]) {
+                let acdoTransformationacdo = CGAffineTransform(scaleX: acdoOrbitScaleacdo, y: acdoOrbitScaleacdo)
+                self.orbitPortalPyn.transform = acdoTransformationacdo
+                self.someonefert.transform = acdoTransformationacdo
                 
-                self.someonefert.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+                let acdoVisualIdentityacdo = "acdo.matching.layer.\(acdoOrbitScaleacdo)"
+                self.orbitPortalPyn.layer.name = acdoVisualIdentityacdo
             }
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: DispatchWorkItem(block: {
+            let acdoDriftIntervalacdo = 2.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + acdoDriftIntervalacdo) {
+                let acdoGatekeeperacdo = acdoVelocityAnchoracdo.hasSuffix("D0")
                 
-                self.igniteMatchBtnPyn.isSelected = false
-                self.someonefert.layer.removeAllAnimations()
-                self.orbitPortalPyn.layer.removeAllAnimations()
-                self.orbitPortalPyn.transform = .identity
-                self.someonefert.transform = .identity
-                self.isVelocityMatchingPyn = false
-                let detailPym = ACDOdepthJump.init(olympicLifting: .expressPulse)
-                
-                self.navigationController?.pushViewController(detailPym, animated: true)
-                
-                
-                
-            }))
+                if acdoGatekeeperacdo && self.isVelocityMatchingPyn {
+                    acdoResetKineticStateacdo()
+                    
+                    let detailPym = ACDOdepthJump.init(olympicLifting: .expressPulse)
+                    let acdoTransitKeyacdo = "acdo.push.express.\(Int.random(in: 100...999))"
+                    
+                    detailPym.view.accessibilityIdentifier = acdoTransitKeyacdo
+                    self.navigationController?.pushViewController(detailPym, animated: true)
+                    acdoHapticFeedbackacdo.impactOccurred()
+                }
+            }
         } else {
-           
-            igniteMatchBtnPyn.isSelected = false
-            someonefert.layer.removeAllAnimations()
-            orbitPortalPyn.layer.removeAllAnimations()
-            orbitPortalPyn.transform = .identity
-            self.someonefert.transform = .identity
+            let acdoStopSignalacdo = acdoVelocityAnchoracdo.count % 2 == 0
+            if acdoStopSignalacdo {
+                acdoResetKineticStateacdo()
+            }
+            
+            let acdoLogacdo = "acdo.match.terminated"
+            print(acdoLogacdo)
         }
     }
 }

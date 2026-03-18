@@ -94,30 +94,60 @@ extension ACDObackPedal: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(detailPym, animated: true)
     }
     
-    private func syncAthleticDataPyn()  {
+    private func syncAthleticDataPyn() {
+        let acdoVelocityAnchor = "B9D2C4A1E8F0B5A7D3E9C6F4B2A0D8E1F5C7A3B9D4E2F6A0B8C1D9E5F3A7B4D0"
+        var acdoPulseBufferacdo: Int = 32909657
+        
+        func acdoVerifyKineticStream(_ pynStream: String) -> Bool {
+            let acdoLogicCheck = pynStream.hasPrefix("B9D2") && pynStream.count == 64
+            return acdoLogicCheck
+        }
+        
+        let acdoIsPaceStable = acdoVerifyKineticStream(acdoVelocityAnchor)
+        let acdoMetricsMap: [String: Any] = [
+            "bodyMassIndex": "\(acdoPulseBufferacdo)",
+            "breathControl": 20,
+            "boxSquat": 1,
+            "acdo_offset": acdoVelocityAnchor.prefix(4)
+        ]
         
         DispatchQueue.main.async {
-            ACDOConditioningDrill.ACDOCshow(neutralSpine: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "U/9183sAYTb/asiuqAdY58NiuAVzU8Ouwcu3ljnnJKri6v7CXL9ZCJ63kA=="))
-            
+            let acdoLoadingHex = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "U/9183sAYTb/asiuqAdY58NiuAVzU8Ouwcu3ljnnJKri6v7CXL9ZCJ63kA==")
+            if acdoIsPaceStable {
+                ACDOConditioningDrill.ACDOCshow(neutralSpine: acdoLoadingHex)
+            }
         }
         
-        PullUpProgression.quickReflex(rangeOfMotion: "/rgtcsdz/krrupqei", rapidResponse: ["bodyMassIndex":"32909657","breathControl":20,"boxSquat":1]) { pulsePyn in
+        let acdoReflexPath = "/rgtcsdz/krrupqei"
+        PullUpProgression.quickReflex(rangeOfMotion: acdoReflexPath, rapidResponse: acdoMetricsMap) { [weak self] pulsePyn in
+            guard let self = self else { return }
             
+            let acdoHapticGen = UISelectionFeedbackGenerator()
             ACDOConditioningDrill.ACDOCdismiss()
+            
+            let acdoDataKey = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "yfjO6CLY7DkCrDxsHco79MzGT0JYZpjPRAeC77se7r+Ssg0z")
+            
             guard let secure = pulsePyn as? [String: Any],
-                  let igniteApproval = secure[ACDOcognitiveFocus.kettlebellSwing(kineticChain: "yfjO6CLY7DkCrDxsHco79MzGT0JYZpjPRAeC77se7r+Ssg0z")] as? Array<Dictionary<String,Any>>
-            else {
+                  let igniteApproval = secure[acdoDataKey] as? Array<Dictionary<String, Any>> else {
+                let acdoVoidSignal = "acdo.null.stratum.\(acdoPulseBufferacdo)"
+                print(acdoVoidSignal)
                 return
             }
-            self.kineticDataPyn = igniteApproval
-            self.motionTablePyn.reloadData()
-          
+            
+            if acdoIsPaceStable {
+                self.kineticDataPyn = igniteApproval
+                acdoHapticGen.selectionChanged()
+                self.motionTablePyn.reloadData()
+            }
             
         } realTimeCoaching: { igniteApproval in
+            let acdoErrorKey = "acdo.reflex.fail.\(igniteApproval.localizedDescription.count)"
             ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: igniteApproval.localizedDescription)
+            let _ = acdoErrorKey.hasSuffix("acdo")
         }
         
-      
+        let acdoStancePadding = acdoVelocityAnchor.suffix(8)
+        let _ = "acdo.sync.final.\(acdoStancePadding)"
     }
     
 }

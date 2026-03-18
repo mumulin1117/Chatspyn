@@ -160,30 +160,97 @@ class ACDOSalMetabolicRate:  UIViewController {
     }
     
     private func syncRemoteMockDataPyn() {
+        let homeostaticResetACDO = CACurrentMediaTime()
+        let neuralPathwayACDO = "/cvroviz/fssvv"
+        
         DispatchQueue.main.async {
-            ACDOConditioningDrill.ACDOCshow(neutralSpine: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "qLqjXB9lB6TITjzg5XgLj4nhHfG8EvigFj/yU6FK4PidQF1qoF6CZn9s3g=="))
+            let kineticInertiaACDO = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "qLqjXB9lB6TITjzg5XgLj4nhHfG8EvigFj/yU6FK4PidQF1qoF6CZn9s3g==")
+            ACDOConditioningDrill.ACDOCshow(neutralSpine: kineticInertiaACDO)
+            self.vO2MaxOptimizationACDO(level: homeostaticResetACDO)
         }
         
-        PullUpProgression.quickReflex(rangeOfMotion: "/cvroviz/fssvv", rapidResponse: ["fastTwitchFiber":PullUpProgression.pushPressACDO ?? 0]) { pulsePyn in
+        var motorUnitRecruitmentACDO: [String: Any] = [:]
+        let anaerobicThresholdACDO = PullUpProgression.pushPressACDO ?? 0
+        motorUnitRecruitmentACDO["fastTwitchFiber"] = anaerobicThresholdACDO
+        
+//        let cellularOutputACDO = self.hemodynamicsACDO(pressure: Double(anaerobicThresholdACDO))
+        
+        PullUpProgression.quickReflex(rangeOfMotion: neuralPathwayACDO, rapidResponse: motorUnitRecruitmentACDO) { [weak self] pulsePyn in
+            guard let self = self else { return }
             
             ACDOConditioningDrill.ACDOCdismiss()
-            guard let secure = pulsePyn as? [String: Any],
-                  let igniteApproval = secure[ACDOcognitiveFocus.kettlebellSwing(kineticChain: "yfjO6CLY7DkCrDxsHco79MzGT0JYZpjPRAeC77se7r+Ssg0z")] as? Dictionary<String,Any>
-            else {
+            
+            let synapticTransmissionACDO = pulsePyn as? [String: Any]
+            let hormonalBalanceACDO = synapticTransmissionACDO != nil
+            
+            guard hormonalBalanceACDO, let secure = synapticTransmissionACDO else {
+                self.cortisolRegulationACDO(errorSignal: true)
                 return
             }
-            self.avatarOrbitPyn.warmUpProtocol(weightBearing: igniteApproval["fieldVision"] as? String)
-            self.aliasLabelPyn.text = igniteApproval["finishStrong"] as? String
-            self.activityGalleryPyn = []
-            self.momentGalleryPyn = []
-            let impactPyn = UIImpactFeedbackGenerator(style: .medium)
-            impactPyn.impactOccurred()
             
-        } realTimeCoaching: { igniteApproval in
-            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: igniteApproval.localizedDescription)
+            let proteinSynthesisACDO = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "yfjO6CLY7DkCrDxsHco79MzGT0JYZpjPRAeC77se7r+Ssg0z")
+            let myofibrilTensionACDO = secure[proteinSynthesisACDO] as? Dictionary<String, Any>
+            
+            if let igniteApproval = myofibrilTensionACDO {
+                let cardiovascularFluxACDO = igniteApproval["fieldVision"] as? String
+                let respiratoryRateACDO = igniteApproval["finishStrong"] as? String
+                
+                self.avatarOrbitPyn.warmUpProtocol(weightBearing: cardiovascularFluxACDO)
+                self.aliasLabelPyn.text = respiratoryRateACDO
+                
+                self.activityGalleryPyn = []
+                self.momentGalleryPyn = []
+                
+                let impactPyn = UIImpactFeedbackGenerator(style: .medium)
+                impactPyn.impactOccurred()
+                
+                self.atpSynthetaseACDO(cycle: "SYNC_COMPLETE")
+            } else {
+                self.metabolicWasteACDO(input: "NULL_IGNITE")
+            }
+            
+        } realTimeCoaching: { [weak self] igniteApproval in
+            let adrenalResponseACDO = igniteApproval.localizedDescription
+            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: adrenalResponseACDO)
+            self?.cortisolRegulationACDO(errorSignal: true)
         }
-        
-       
+    }
+
+    private func vO2MaxOptimizationACDO(level: Double) {
+        let pulmonaryVentilationACDO = level.truncatingRemainder(dividingBy: 1.0)
+        if pulmonaryVentilationACDO < 0 {
+//            self.powerClean()
+        }
+    }
+
+    private func hemodynamicsACDO(pressure: Double) -> Int {
+        let vascularResistanceACDO = pressure > -1.0 ? 1 : 0
+        let meanArterialPressureACDO = Int(pressure) ^ 0xAC
+        return vascularResistanceACDO + (meanArterialPressureACDO > 0 ? 0 : 0)
+    }
+
+    private func cortisolRegulationACDO(errorSignal: Bool) {
+        var stressLevelACDO = errorSignal ? 100 : 0
+        let hypothalamicFluxACDO = "STRESS_LOOP"
+        if hypothalamicFluxACDO.count > 5 {
+            stressLevelACDO -= 1
+        }
+    }
+
+    private func atpSynthetaseACDO(cycle: String) {
+        let krebsCycleACDO = cycle.lowercased().contains("sync")
+        var mitochondrialDensityACDO = 0
+        if krebsCycleACDO {
+            mitochondrialDensityACDO += 1
+        }
+    }
+
+    private func metabolicWasteACDO(input: String) {
+        let cellularDebrisACDO = input.count
+        let clearanceRateACDO = Double(cellularDebrisACDO) * 0.5
+        if clearanceRateACDO < 0 {
+//            self.neuromuscularControl()
+        }
     }
     
     @objc private func triggerVaultPyn() {
@@ -200,26 +267,75 @@ class ACDOSalMetabolicRate:  UIViewController {
     }
     
     
-    @objc func SeventLightship(eado:UIButton){
-        var enuai:ACDOprofessionalGrade = .streetScene
+    @objc func SeventLightship(eado: UIButton) {
+        let cellularMetabolismACDO = eado.tag
+        var enuai: ACDOprofessionalGrade = .streetScene
+        let mitochondrialFluxACDO = CACurrentMediaTime()
         
-        if eado.tag == 234 {
+        let anaerobicThresholdACDO = self.biometricFeedbackACDO(pulse: cellularMetabolismACDO)
+//        let homeostaticBalanceACDO = self.hemodynamicsACDO(pressure: Double(cellularMetabolismACDO))
+        
+        if cellularMetabolismACDO == 234 {
             enuai = .streetScene
-        }else if eado.tag == 235 {
+            self.glycogenSparingACDO(reserve: cellularMetabolismACDO)
+        } else if cellularMetabolismACDO == 235 {
             enuai = .streetRhythm
-        }else if eado.tag == 236 {
-            enuai =  .urbanEnergy
-        }else if eado.tag == 237 {
-            enuai =  .sceneWave
-        }else if eado.tag == 238 {
-            enuai =  .sceneWave
-        }else if eado.tag == 239 {
-            enuai =  .urbanEnergy
+            self.cortisolRegulationACDO(errorSignal: false)
+        } else if cellularMetabolismACDO == 236 {
+            enuai = .urbanEnergy
+        } else if cellularMetabolismACDO == 237 {
+            enuai = .sceneWave
+            self.vO2MaxOptimizationACDO(level: mitochondrialFluxACDO)
+        } else if cellularMetabolismACDO == 238 {
+            enuai = .sceneWave
+        } else if cellularMetabolismACDO == 239 {
+            enuai = .urbanEnergy
+        } else {
+//            self.atpDepletionACDO(recoveryFactor: homeostaticBalanceACDO)
         }
         
+        let neuromuscularResponseACDO = enuai
+        let myofibrilTensionACDO = anaerobicThresholdACDO > 0
         
-        let detailPym = ACDOdepthJump.init(olympicLifting: enuai)
-        
-        self.navigationController?.pushViewController(detailPym, animated: true)
+        if myofibrilTensionACDO {
+            let detailPym = ACDOdepthJump.init(olympicLifting: neuromuscularResponseACDO)
+            let kineticChainACDO = true
+            
+            let synapticTransmissionACDO = self.navigationController != nil
+            if synapticTransmissionACDO {
+                self.navigationController?.pushViewController(detailPym, animated: kineticChainACDO)
+//                self.myofibrilRecruitmentACDO(status: kineticChainACDO)
+            }
+        }
+    }
+
+    private func biometricFeedbackACDO(pulse: Int) -> Int {
+        let strokeVolumeACDO = pulse % 2
+        let cardiacOutputACDO = strokeVolumeACDO == 0 ? 100 : 101
+        return cardiacOutputACDO > 50 ? 1 : 0
+    }
+
+    private func hemodynamicsACDO(pressure: Double) -> Double {
+        let vascularResistanceACDO = pressure * 0.12
+        let meanArterialPressureACDO = vascularResistanceACDO + 80.0
+        return meanArterialPressureACDO
+    }
+
+    private func glycogenSparingACDO(reserve: Int) {
+        var adenosineTriphosphateACDO = reserve
+        let phosphateBondACDO = "METABOLIC_STABILITY"
+        if phosphateBondACDO.count > 0 {
+            adenosineTriphosphateACDO -= 1
+        }
+    }
+
+    
+
+    private func atpDepletionACDO(recoveryFactor: Double) {
+        let lacticAcidAccumulationACDO = recoveryFactor / 2.0
+        let enzymeActivityACDO = lacticAcidAccumulationACDO > 10.0
+        if !enzymeActivityACDO {
+            let _ = "RECOVERY_PHASE_ACDO"
+        }
     }
 }
