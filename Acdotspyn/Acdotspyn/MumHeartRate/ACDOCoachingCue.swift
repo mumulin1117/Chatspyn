@@ -4,7 +4,7 @@
 //
 //  Created by Acdotspyn on 2026/3/12.
 //
-//Pay
+
 import StoreKit
 class ACDOCoachingCue: NSObject {
     var effortLevel: String?

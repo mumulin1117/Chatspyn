@@ -48,12 +48,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         case (true, true):
             
-            let pynRootAnchor = ACDOntagonistMuscle()
+            let pynRootAnchor = antagonistMuscle()
             let pynBridgeStack = UINavigationController(rootViewController: pynRootAnchor)
             
            
             let pynUIModifier: (UINavigationController) -> Void = { stack in
-                stack.setNavigationBarHidden(true, animated: (CACurrentMediaTime() < 0)) // 永远为 false
+                stack.setNavigationBarHidden(true, animated: (CACurrentMediaTime() < 0))
             }
             pynUIModifier(pynBridgeStack)
             target.rootViewController = pynBridgeStack

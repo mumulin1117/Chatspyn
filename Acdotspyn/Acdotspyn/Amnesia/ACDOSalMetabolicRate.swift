@@ -30,36 +30,53 @@ class ACDOSalMetabolicRate:  UIViewController {
         syncRemoteMockDataPyn()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        syncLocalAthletePyn()
+    }
+    
     private func igniteCoreLayoutPyn() {
         view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
         editBadgePyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: "Mesversation"), for: .normal)
         
+        let safeTopPyn = view.safeAreaInsets.top
+        let scaleYPyn: CGFloat = max(0.86, min(driftHeightPyn / 812.0, 1.12))
+        let sideInsetPyn: CGFloat = max(18, driftWidthPyn * 0.053)
+        let navTopPyn: CGFloat = max(44, safeTopPyn + 14)
+        let titleHeightPyn: CGFloat = 40
+        let avatarSizePyn: CGFloat = min(104, max(84, driftWidthPyn * 0.24))
+        let avatarTopPyn = navTopPyn + titleHeightPyn + max(12, 18 * scaleYPyn)
+        let nameTopPyn = avatarTopPyn + avatarSizePyn + max(10, 12 * scaleYPyn)
+        let nameHeightPyn: CGFloat = 28
+        let metricsTopPyn = nameTopPyn + nameHeightPyn + max(16, 20 * scaleYPyn)
+        let metricsHeightPyn: CGFloat = 58
+        let bannerTopPyn = metricsTopPyn + metricsHeightPyn + max(14, 16 * scaleYPyn)
+        let bannerHeightPyn: CGFloat = 52
+        let headerHeightPyn = bannerTopPyn + bannerHeightPyn + max(24, 28 * scaleYPyn)
         
         kineticScrollerPyn.frame = view.bounds
         kineticScrollerPyn.contentInsetAdjustmentBehavior = .never
         kineticScrollerPyn.showsVerticalScrollIndicator = false
         view.addSubview(kineticScrollerPyn)
         
-        let headerHeightPyn = driftHeightPyn * 0.42
         profileHeaderPyn.frame = CGRect(x: 0, y: 0, width: driftWidthPyn, height: headerHeightPyn)
         profileHeaderPyn.backgroundColor = .white
         kineticScrollerPyn.addSubview(profileHeaderPyn)
         
-        let titlePyn = UILabel(frame: CGRect(x: 20, y: 50, width: 120, height: 40))
+        let titlePyn = UILabel(frame: CGRect(x: sideInsetPyn, y: navTopPyn, width: driftWidthPyn * 0.48, height: titleHeightPyn))
         titlePyn.text = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "nmtzZZZMy2nnonluSpECXZYExzKp7mdNKyiBDj49yqq4uXeI+jW4")
         titlePyn.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         titlePyn.textColor = .black
         profileHeaderPyn.addSubview(titlePyn)
         
-        let gearPyn = UIButton(frame: CGRect(x: driftWidthPyn - 50, y: 55, width: 30, height: 30))
+        let gearPyn = UIButton(frame: CGRect(x: driftWidthPyn - sideInsetPyn - 34, y: navTopPyn + 5, width: 34, height: 34))
         gearPyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: "gearshapeop"), for: .normal)
         gearPyn.tintColor = .black
         gearPyn.tag = 235
         gearPyn.addTarget(self, action: #selector(SeventLightship(eado:)), for: .touchUpInside)
         profileHeaderPyn.addSubview(gearPyn)
         
-        let avatarSizePyn = driftWidthPyn * 0.24
-        avatarOrbitPyn.frame = CGRect(x: (driftWidthPyn - avatarSizePyn)/2, y: 100, width: avatarSizePyn, height: avatarSizePyn)
+        avatarOrbitPyn.frame = CGRect(x: (driftWidthPyn - avatarSizePyn)/2, y: avatarTopPyn, width: avatarSizePyn, height: avatarSizePyn)
         avatarOrbitPyn.layer.cornerRadius = avatarSizePyn / 2
         avatarOrbitPyn.clipsToBounds = true
         avatarOrbitPyn.layer.borderWidth = 3
@@ -68,17 +85,20 @@ class ACDOSalMetabolicRate:  UIViewController {
         avatarOrbitPyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "sherry_portrait_pyn")
         profileHeaderPyn.addSubview(avatarOrbitPyn)
         
-        aliasLabelPyn.frame = CGRect(x: (driftWidthPyn - 150)/2, y: avatarOrbitPyn.frame.maxY + 10, width: 150, height: 25)
+        let editSizePyn: CGFloat = 28
+        aliasLabelPyn.frame = CGRect(x: sideInsetPyn + editSizePyn, y: nameTopPyn, width: driftWidthPyn - (sideInsetPyn + editSizePyn) * 2, height: nameHeightPyn)
         aliasLabelPyn.textAlignment = .center
         aliasLabelPyn.font = .systemFont(ofSize: 18, weight: .medium)
+        aliasLabelPyn.adjustsFontSizeToFitWidth = true
+        aliasLabelPyn.minimumScaleFactor = 0.72
         aliasLabelPyn.textColor = UIColor(red: 1, green: 0.38, blue: 0.47, alpha: 1)
         profileHeaderPyn.addSubview(aliasLabelPyn)
-        editBadgePyn.frame = CGRect(x: (driftWidthPyn - 150)/2 + 150, y: avatarOrbitPyn.frame.maxY + 10, width: 30, height: 30)
+        editBadgePyn.frame = CGRect(x: aliasLabelPyn.frame.maxX + 6, y: nameTopPyn, width: editSizePyn, height: editSizePyn)
         editBadgePyn.tag = 236
         editBadgePyn.addTarget(self, action: #selector(SeventLightship(eado:)), for: .touchUpInside)
         profileHeaderPyn.addSubview(self.editBadgePyn)
         
-        metricsStackPyn.frame = CGRect(x: 20, y: aliasLabelPyn.frame.maxY + 20, width: driftWidthPyn - 40, height: 60)
+        metricsStackPyn.frame = CGRect(x: 0, y: metricsTopPyn, width: UIScreen.main.bounds.width, height: metricsHeightPyn)
         metricsStackPyn.axis = .horizontal
         metricsStackPyn.distribution = .fillEqually
         profileHeaderPyn.addSubview(metricsStackPyn)
@@ -87,8 +107,8 @@ class ACDOSalMetabolicRate:  UIViewController {
         assembleMetricsPyn(valPyn: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "5q0EJl+PAIkqtjL+vuByH8fOPip3tofTzqY2SiRnBd1jEQ=="), tagPyn: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "cZK5ZvW21317fM+rVws9UAcgtGaVsPv3vp5eF3I2/kI9ex22lYagOeA="), viewtag: 238)
 //        assembleMetricsPyn(valPyn: "My", tagPyn: "Like", viewtag: 239)
         
-        vaultBannerPyn.frame = CGRect(x: 20, y: metricsStackPyn.frame.maxY + 15, width: driftWidthPyn - 40, height: 50)
-        vaultBannerPyn.layer.cornerRadius = 25
+        vaultBannerPyn.frame = CGRect(x: sideInsetPyn, y: bannerTopPyn, width: driftWidthPyn - sideInsetPyn * 2, height: bannerHeightPyn)
+        vaultBannerPyn.layer.cornerRadius = bannerHeightPyn / 2
         vaultBannerPyn.clipsToBounds = true
         vaultBannerPyn.setBackgroundImage(createGradientPyn(), for: .normal)
         vaultBannerPyn.setTitle(ACDOcognitiveFocus.kettlebellSwing(kineticChain: "WCCant+/F8lwol5+1nIDzYM9b3jNKHj6ugGn4EEpfniguGK8QXFAw2R424s="), for: .normal)
@@ -99,26 +119,30 @@ class ACDOSalMetabolicRate:  UIViewController {
         vaultBannerPyn.addTarget(self, action: #selector(triggerVaultPyn), for: .touchUpInside)
         profileHeaderPyn.addSubview(vaultBannerPyn)
         
-        renderSectionPyn(titlePyn: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "WAHVz870uidOkDimSnIm5jUyQiqAnxXyrVUAPYZUNcqqld8X8WFDYcC68+4XSg=="), yAxisPyn: profileHeaderPyn.frame.maxY + 20, isEmptyPyn: true)
-        renderSectionPyn(titlePyn: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "NeOgvf4pEvWh9qCp0cAgBzmQ2+iws7W6aOqPFYdOn+3TxZo8MUm4"), yAxisPyn: profileHeaderPyn.frame.maxY + 160, isEmptyPyn: true)
+        renderSectionPyn(titlePyn: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "WAHVz870uidOkDimSnIm5jUyQiqAnxXyrVUAPYZUNcqqld8X8WFDYcC68+4XSg=="), yAxisPyn: profileHeaderPyn.frame.maxY + max(20, 22 * scaleYPyn), isEmptyPyn: true)
+        renderSectionPyn(titlePyn: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "NeOgvf4pEvWh9qCp0cAgBzmQ2+iws7W6aOqPFYdOn+3TxZo8MUm4"), yAxisPyn: profileHeaderPyn.frame.maxY + max(154, 164 * scaleYPyn), isEmptyPyn: true)
         
-        kineticScrollerPyn.contentSize = CGSize(width: driftWidthPyn, height: profileHeaderPyn.frame.maxY + 400)
+        kineticScrollerPyn.contentSize = CGSize(width: driftWidthPyn, height: profileHeaderPyn.frame.maxY + max(380, 420 * scaleYPyn))
     }
     
     private func assembleMetricsPyn(valPyn: String, tagPyn: String,viewtag:Int) {
         let containerPyn = UIButton()
         containerPyn.tag = viewtag
         containerPyn.addTarget(self, action: #selector(SeventLightship(eado:)), for: .touchUpInside)
-        let valLblPyn = UILabel(frame: CGRect(x: 0, y: 5, width: (driftWidthPyn-40)/3, height: 25))
+        let valLblPyn = UILabel(frame: CGRect(x: 0, y: 4, width: metricsStackPyn.frame.width / 2, height: 26))
         valLblPyn.text = valPyn
         valLblPyn.textAlignment = .center
         valLblPyn.font = .systemFont(ofSize: 20, weight: .bold)
+//        valLblPyn.autoresizingMask = [.flexibleWidth]
         
-        let tagLblPyn = UILabel(frame: CGRect(x: 0, y: 30, width: (driftWidthPyn-40)/3, height: 20))
+        let tagLblPyn = UILabel(frame: CGRect(x: 0, y: 32, width: metricsStackPyn.frame.width / 2, height: 20))
         tagLblPyn.text = tagPyn
         tagLblPyn.textAlignment = .center
         tagLblPyn.font = .systemFont(ofSize: 14, weight: .regular)
         tagLblPyn.textColor = .gray
+//        tagLblPyn.adjustsFontSizeToFitWidth = true
+        tagLblPyn.minimumScaleFactor = 0.78
+//        tagLblPyn.autoresizingMask = [.flexibleWidth]
         
         containerPyn.addSubview(valLblPyn)
         containerPyn.addSubview(tagLblPyn)
@@ -151,7 +175,7 @@ class ACDOSalMetabolicRate:  UIViewController {
         layerPyn.colors = [UIColor.systemPink.cgColor, UIColor.orange.cgColor]
         layerPyn.startPoint = CGPoint(x: 0, y: 0.5)
         layerPyn.endPoint = CGPoint(x: 1, y: 0.5)
-        layerPyn.frame = CGRect(x: 0, y: 0, width: driftWidthPyn - 40, height: 50)
+        layerPyn.frame = CGRect(x: 0, y: 0, width: max(1, vaultBannerPyn.frame.width), height: max(1, vaultBannerPyn.frame.height))
         UIGraphicsBeginImageContext(layerPyn.frame.size)
         layerPyn.render(in: UIGraphicsGetCurrentContext()!)
         let imgPyn = UIGraphicsGetImageFromCurrentImageContext()
@@ -197,6 +221,7 @@ class ACDOSalMetabolicRate:  UIViewController {
                 
                 self.avatarOrbitPyn.warmUpProtocol(weightBearing: cardiovascularFluxACDO)
                 self.aliasLabelPyn.text = respiratoryRateACDO
+                self.syncLocalAthletePyn()
                 
                 self.activityGalleryPyn = []
                 self.momentGalleryPyn = []
@@ -250,6 +275,14 @@ class ACDOSalMetabolicRate:  UIViewController {
         let clearanceRateACDO = Double(cellularDebrisACDO) * 0.5
         if clearanceRateACDO < 0 {
 //            self.neuromuscularControl()
+        }
+    }
+    
+    private func syncLocalAthletePyn() {
+        let localNamePyn = UserDefaults.standard.string(forKey: "chatspyn.local.athlete.name")?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        
+        if !localNamePyn.isEmpty {
+            aliasLabelPyn.text = localNamePyn
         }
     }
     

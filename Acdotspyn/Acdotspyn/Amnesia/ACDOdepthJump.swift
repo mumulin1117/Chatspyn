@@ -337,7 +337,7 @@ extension ACDOdepthJump:WKScriptMessageHandler, WKNavigationDelegate, WKUIDelega
             self.powerClean()
             
             let motorUnitACDO = (UIApplication.shared.delegate as? AppDelegate)?.window
-            let recruitmentACDO = ACDOntagonistMuscle.init()
+            let recruitmentACDO = antagonistMuscle.init()
             
             let synapticTransmissionACDO = motorUnitACDO != nil
             if synapticTransmissionACDO {
