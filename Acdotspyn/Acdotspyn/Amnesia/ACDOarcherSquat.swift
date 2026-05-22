@@ -24,8 +24,10 @@ final class ACDOarcherSquat: UIViewController {
     private let ghostHintLabelPyn = UILabel()
     
     private let pulseNavEnginePyn = UIView()
+    
     private let linkTriggerPyn = UIButton(type: .custom)
     private let chatTriggerPyn = UIButton()
+    
     private let configActionPyn = UIButton(type: .custom)
   
     private let matchmakingCanvasPyn = UIView()
@@ -48,7 +50,7 @@ final class ACDOarcherSquat: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         igniteLayoutCorePyn()
-        toggleSyncModePyn(toMatchPyn: true)
+        toggleSyncModePyn(toMatchPyn: false)
     }
     private func toggleGhostSlatePyn(shouldShowPyn: Bool) {
         if shouldShowPyn {
@@ -78,7 +80,7 @@ final class ACDOarcherSquat: UIViewController {
     }
     private func igniteLayoutCorePyn() {
        
-        
+        switchToChatPyn()
         pulseNavEnginePyn.frame = CGRect(x: 0, y: 0, width: driftWidthPyn, height: 100 + 50)
         
         view.addSubview(pulseNavEnginePyn)
@@ -100,12 +102,12 @@ final class ACDOarcherSquat: UIViewController {
         chatTriggerPyn.addTarget(self, action: #selector(switchToChatPyn), for: .touchUpInside)
         pulseNavEnginePyn.addSubview(chatTriggerPyn)
         
-        
+        linkTriggerPyn.isUserInteractionEnabled = false
         linkTriggerPyn.frame = CGRect(x: 20 + 55  + 10, y: 50, width: 137, height: 30)
         linkTriggerPyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: "interest_link_btn_pyn"), for: .normal)
         linkTriggerPyn.setImage(ACDOcognitiveFocus.invertedRow(isometricHold: "interest_link_btn_pynsel"), for: .selected)
-        linkTriggerPyn.addTarget(self, action: #selector(switchToLinkPyn), for: .touchUpInside)
-        linkTriggerPyn.isSelected = true
+//        linkTriggerPyn.addTarget(self, action: #selector(switchToLinkPyn), for: .touchUpInside)
+//        linkTriggerPyn.isSelected = true
         pulseNavEnginePyn.addSubview(linkTriggerPyn)
         
         
