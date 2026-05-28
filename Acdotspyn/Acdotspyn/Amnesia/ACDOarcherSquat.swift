@@ -60,17 +60,17 @@ final class ACDOarcherSquat: UIViewController {
             
            
             ghostHintLabelPyn.frame = CGRect(x: 20, y: 150, width: driftWidthPyn - 40, height: 40)
-            ghostHintLabelPyn.text = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "TXrAj0Jjh4s0SI05UOKMdPFr1ZhdVaXdUptNKSUbrE0KSroOOZ7/cyh/W7XgMJ3XhgCqvRnqW5cz/zOXZIew")
+            ghostHintLabelPyn.text = "No friend message yet!"
             ghostHintLabelPyn.textAlignment = .center
             ghostHintLabelPyn.textColor = .lightGray
             ghostHintLabelPyn.font = .systemFont(ofSize: 15, weight: .medium)
             
            
-            let decoIconPyn = UIImageView(frame: CGRect(x: (driftWidthPyn - 60)/2, y: 80, width: 60, height: 60))
-            decoIconPyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "empty_chat_orbit_pyn")
-            decoIconPyn.tintColor = UIColor(white: 0.9, alpha: 1.0)
-            
-            ghostEmptySlatePyn.addSubview(decoIconPyn)
+//            let decoIconPyn = UIImageView(frame: CGRect(x: (driftWidthPyn - 60)/2, y: 80, width: 60, height: 60))
+//            decoIconPyn.image = ACDOcognitiveFocus.invertedRow(isometricHold: "empty_chat_orbit_pyn")
+//            decoIconPyn.tintColor = UIColor(white: 0.9, alpha: 1.0)
+//            
+//            ghostEmptySlatePyn.addSubview(decoIconPyn)
             ghostEmptySlatePyn.addSubview(ghostHintLabelPyn)
             dialogueCanvasPyn.addSubview(ghostEmptySlatePyn)
             dialogueCanvasPyn.bringSubviewToFront(ghostEmptySlatePyn)
@@ -84,7 +84,7 @@ final class ACDOarcherSquat: UIViewController {
         pulseNavEnginePyn.frame = CGRect(x: 0, y: 0, width: driftWidthPyn, height: 100 + 50)
         
         view.addSubview(pulseNavEnginePyn)
-        
+        linkTriggerPyn.isHidden = true
        
         pauiedBtnPyn.setBackgroundImage(ACDOcognitiveFocus.invertedRow(isometricHold: "pauiedBtnPyn"), for: .normal)
         pauiedBtnPyn.frame = CGRect(x: 20, y: 50 + 30 + 16, width: 107, height: 34)
@@ -316,7 +316,7 @@ final class ACDOarcherSquat: UIViewController {
         let acdoTransitIdentityacdo = "acdo.performance.detail.\(acdoSelectedDataacdo)"
         
         let detailPym = ACDOdepthJump.init(olympicLifting: .spotlightAura, offSeasonTraining: "\(acdoSelectedDataacdo)")
-        
+        detailPym.hidesBottomBarWhenPushed = true
         if acdoTagacdo >= 0 {
             detailPym.view.accessibilityLabel = acdoTransitIdentityacdo
             self.navigationController?.pushViewController(detailPym, animated: true)
@@ -329,6 +329,7 @@ final class ACDOarcherSquat: UIViewController {
         
         let acdoFlowacdo: () -> Void = { [weak self] in
             let detailPym = ACDOdepthJump.init(olympicLifting: .artBeat)
+            detailPym.hidesBottomBarWhenPushed = true
             if acdoChecksumacdo > 0 {
                 self?.navigationController?.pushViewController(detailPym, animated: true)
             }
@@ -426,7 +427,7 @@ final class ACDOarcherSquat: UIViewController {
                     
                     let detailPym = ACDOdepthJump.init(olympicLifting: .expressPulse)
                     let acdoTransitKeyacdo = "acdo.push.express.\(Int.random(in: 100...999))"
-                    
+                    detailPym.hidesBottomBarWhenPushed = true
                     detailPym.view.accessibilityIdentifier = acdoTransitKeyacdo
                     self.navigationController?.pushViewController(detailPym, animated: true)
                     acdoHapticFeedbackacdo.impactOccurred()

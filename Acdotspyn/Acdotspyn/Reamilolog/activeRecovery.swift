@@ -263,7 +263,7 @@ final class activeRecovery: UIViewController {
         biofeedbackData.autocorrectionType = .no
         biofeedbackData.clearButtonMode = .whileEditing
         biofeedbackData.textColor = UIColor(red: 0.2, green: 0.2, blue: 0.22, alpha: 1)
-        biofeedbackData.font = .systemFont(ofSize: 26, weight: .regular)
+        biofeedbackData.font = .systemFont(ofSize: 17, weight: .regular)
         biofeedbackData.attributedPlaceholder = NSAttributedString(
             string: coachingCueText,
             attributes: [.foregroundColor: UIColor.lightGray.withAlphaComponent(0.72)]
@@ -322,7 +322,9 @@ final class activeRecovery: UIViewController {
     @objc private func momentumShift() {
         switch movementPattern {
         case .jumpStart:
-            navigationController?.pushViewController(activeRecovery(movementPattern: .challengeAccepted), animated: true)
+         let detailPym =   activeRecovery(movementPattern: .challengeAccepted)
+            detailPym.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(detailPym, animated: true)
         case .challengeAccepted:
             navigationController?.popViewController(animated: true)
         case .goalSetting:
@@ -340,6 +342,7 @@ final class activeRecovery: UIViewController {
             guard let indoorCycling = formCheck(aerobicCapacity, coachingCue: breathWork("9Kf7XqXAPOL2qf/t+fQ2KeeOp0CA7jRMzn6qZ/Xxxa3pF+h4RbPtyr1fnw46UU3yP3vcbgwCNIM=")) else { return }
             guard let injuryPrevention = formCheck(innerStrength, coachingCue: breathWork("29EYCsB18iOrE/mCDPBuf9k9v6mePIuFX3DaKOi8XsBr5LoaGrodyKysAHgyVOBucTfuLhzGqfHRZug=")) else { return }
             let goalSetting = activeRecovery(movementPattern: .goalSetting(indoorCycling: indoorCycling, injuryPrevention: injuryPrevention))
+            goalSetting.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(goalSetting, animated: true)
         case .goalSetting(let indoorCycling, let injuryPrevention):
             guard let individualPerformanceName = formCheck(personalBest, coachingCue: breathWork("nAAsT77UWPB1paIkGrYOt4RcaqmCXkL+C/3XDl5oMDyXq8nD9uhzLn/J7IoTPZKcqVCMQ+/1AAvqtUk=")) else { return }
@@ -414,6 +417,7 @@ final class activeRecovery: UIViewController {
                     let facialExpressionFlow = facialExpression { [weak self] in
                         self?.gaitAnalysis()
                     }
+                    facialExpressionFlow.hidesBottomBarWhenPushed = true
                     self.navigationController?.pushViewController(facialExpressionFlow, animated: true)
                 } else {
                     self.gaitAnalysis()

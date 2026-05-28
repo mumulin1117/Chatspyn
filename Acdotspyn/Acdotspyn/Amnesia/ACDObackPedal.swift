@@ -19,12 +19,15 @@ final class ACDObackPedal: UIViewController {
     
    
     private var kineticDataPyn: [Dictionary<String,Any>] = Array<Dictionary<String,Any>>()
-   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        syncAthleticDataPyn()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(white: 0.97, alpha: 1.0)
         igniteStreamPyn()
-        syncAthleticDataPyn()
+//        syncAthleticDataPyn()
     }
     
     private func igniteStreamPyn() {
@@ -55,7 +58,7 @@ final class ACDObackPedal: UIViewController {
     
    @objc func composeartActionPyn()  {
        let detailPym = ACDOdepthJump.init(olympicLifting: .creativeMotion)
-       
+       detailPym.hidesBottomBarWhenPushed = true
        self.navigationController?.pushViewController(detailPym, animated: true)
     }
     
@@ -73,7 +76,9 @@ extension ACDObackPedal: UITableViewDelegate, UITableViewDataSource {
         return cellPyn
     }
     @objc private func muscleMemory(_ sender: UIButton) {
-        self.navigationController?.pushViewController(ACDOdepthJump.init(olympicLifting: .cityEcho), animated: true)
+        let detailPym = ACDOdepthJump.init(olympicLifting: .cityEcho)
+        detailPym.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(detailPym, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return driftHeightPyn * 0.52
@@ -90,7 +95,7 @@ extension ACDObackPedal: UITableViewDelegate, UITableViewDataSource {
             type = "\(burningSensation)&type=2"
         }
         let detailPym = ACDOdepthJump.init(olympicLifting: .cityChorus,offSeasonTraining:type)
-        
+        detailPym.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailPym, animated: true)
     }
     

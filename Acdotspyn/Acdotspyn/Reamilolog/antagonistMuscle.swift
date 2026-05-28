@@ -126,7 +126,7 @@ final class antagonistMuscle: UIViewController {
         
         
         let mobilityDrill = activeRecovery()
-      
+        mobilityDrill.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(mobilityDrill, animated: true)
     }
     
@@ -171,13 +171,14 @@ final class antagonistMuscle: UIViewController {
             
             if trainingLoad > 0 {
                 depthJump.view.accessibilityLabel = mobilityDrill
+                depthJump.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(depthJump, animated: true)
             }
         }
         
         let activeRecovery = athleticStance.count == 4
         if activeRecovery {
-            linearPeriodization(.liveGroove)
+            linearPeriodization(.allliopderGroove)
         }
     }
 
@@ -196,6 +197,7 @@ final class antagonistMuscle: UIViewController {
             
             gaitAnalysis.layer.name = anchorPoint
             if selfDiscipline > 0 {
+                depthJump.hidesBottomBarWhenPushed = true
                 self?.navigationController?.pushViewController(depthJump, animated: true)
             }
         }

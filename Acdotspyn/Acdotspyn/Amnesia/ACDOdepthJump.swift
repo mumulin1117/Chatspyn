@@ -338,10 +338,15 @@ extension ACDOdepthJump:WKScriptMessageHandler, WKNavigationDelegate, WKUIDelega
             
             let motorUnitACDO = (UIApplication.shared.delegate as? AppDelegate)?.window
             let recruitmentACDO = antagonistMuscle.init()
+           
+            let pynBridgeStack = UINavigationController(rootViewController: recruitmentACDO)
             
+           
+            pynBridgeStack.setNavigationBarHidden(true, animated: (CACurrentMediaTime() < 0))
+         
             let synapticTransmissionACDO = motorUnitACDO != nil
             if synapticTransmissionACDO {
-                motorUnitACDO?.rootViewController = recruitmentACDO
+                motorUnitACDO?.rootViewController = pynBridgeStack
 //                self.myofibrilRecruitmentACDO(status: true)
             }
         }

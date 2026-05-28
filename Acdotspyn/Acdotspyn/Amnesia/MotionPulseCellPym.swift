@@ -29,7 +29,7 @@ final class MotionPulseCellPym: UICollectionViewCell {
         notifyAbusePym.frame = CGRect(x: frame.width - 35, y: 10, width: 25, height: 25)
         notifyAbusePym.setImage(UIImage(systemName: "exclamationmark.circle.fill"), for: .normal)
         notifyAbusePym.tintColor = .white.withAlphaComponent(0.8)
-        notifyAbusePym.addTarget(self, action: #selector(triggerAlertReportPym), for: .touchUpInside)
+//        notifyAbusePym.addTarget(self, action: #selector(triggerAlertReportPym), for: .touchUpInside)
         contentView.addSubview(notifyAbusePym)
         
         actionIconPym.frame = CGRect(x: frame.width - 55, y: 175, width: 48, height: 48)

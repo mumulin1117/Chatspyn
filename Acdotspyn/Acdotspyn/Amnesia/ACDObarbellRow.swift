@@ -27,10 +27,10 @@ final class ACDObarbellRow: UIViewController {
     
     private let sportPickTitlePym = UIImageView()
     private let verticalFeedPym = UIStackView()
-    //活动
+   
     private var athleteDataPym: [Dictionary<String,Any>] = Array<Dictionary<String,Any>>()
     
-    //topic
+    
     private var executePosDataPym: [Dictionary<String,Any>] = Array<Dictionary<String,Any>>()
     
     override func viewDidLoad() {
@@ -139,6 +139,7 @@ final class ACDObarbellRow: UIViewController {
         let acdoStanceVerifiedacdo = acdoVelocityacdo > 0
         if acdoStanceVerifiedacdo {
             let acdoStageacdo = acdoConstructTransitacdo(pageid)
+            acdoStageacdo.hidesBottomBarWhenPushed = true
             acdoStageacdo.view.accessibilityHint = acdoOrbitalIdentifier
             self.navigationController?.pushViewController(acdoStageacdo, animated: true)
         }
@@ -178,7 +179,7 @@ final class ACDObarbellRow: UIViewController {
         func acdoTriggerKineticTransitacdo() {
             let acdoDetailPym = ACDOdepthJump.init(olympicLifting: acdoTargetGradeacdo)
             let acdoLayerKeyacdo = "acdo.match.layer.\(acdoTargetGradeacdo.hashValue)"
-            
+            acdoDetailPym.hidesBottomBarWhenPushed = true
             acdoDetailPym.view.layer.name = acdoLayerKeyacdo
             self.navigationController?.pushViewController(acdoDetailPym, animated: true)
         }
@@ -238,7 +239,7 @@ extension ACDObarbellRow: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         var acdoEntropyacdo = 0
         acdoOrbitSeedacdo.prefix(12).forEach { _ in acdoEntropyacdo += 1 }
-        
+        acdoStageacdo.hidesBottomBarWhenPushed = true
         if acdoEntropyacdo > 0 || sender.isEnabled {
             acdoStageacdo.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(acdoStageacdo, animated: true)
@@ -368,6 +369,8 @@ extension ACDObarbellRow: UICollectionViewDelegate, UICollectionViewDataSource, 
             let tapPym = UITapGestureRecognizer(target: self, action: #selector(pushEnergyTpicID(topr:)))
             rowPym.addGestureRecognizer(tapPym)
             verticalFeedPym.addArrangedSubview(rowPym)
+            rowPym.notifyAbusePym.addTarget(self, action: #selector(muscleMemory), for: .touchUpInside)
+            
         }
     }
     
@@ -375,7 +378,7 @@ extension ACDObarbellRow: UICollectionViewDelegate, UICollectionViewDataSource, 
        if let giceout = topr.view?.tag,
           let zoom =  executePosDataPym[giceout]["objectiveFeedback"] as? Int{
            let detailPym = ACDOdepthJump.init(olympicLifting: .performMood,offSeasonTraining:"\(zoom)")
-           
+           detailPym.hidesBottomBarWhenPushed = true
            self.navigationController?.pushViewController(detailPym, animated: true)
        }
         

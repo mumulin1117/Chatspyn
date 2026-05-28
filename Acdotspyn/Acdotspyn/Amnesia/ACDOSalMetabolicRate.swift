@@ -295,7 +295,7 @@ class ACDOSalMetabolicRate:  UIViewController {
         pulsePyn.toValue = 0.95
         vaultBannerPyn.layer.add(pulsePyn, forKey: nil)
         let detailPym = ACDOdepthJump.init(olympicLifting: .streetScene)
-        
+        detailPym.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailPym, animated: true)
     }
     
@@ -333,7 +333,7 @@ class ACDOSalMetabolicRate:  UIViewController {
         if myofibrilTensionACDO {
             let detailPym = ACDOdepthJump.init(olympicLifting: neuromuscularResponseACDO)
             let kineticChainACDO = true
-            
+            detailPym.hidesBottomBarWhenPushed = true
             let synapticTransmissionACDO = self.navigationController != nil
             if synapticTransmissionACDO {
                 self.navigationController?.pushViewController(detailPym, animated: kineticChainACDO)

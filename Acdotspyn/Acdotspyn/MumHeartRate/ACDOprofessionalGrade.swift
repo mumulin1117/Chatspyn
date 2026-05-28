@@ -20,7 +20,7 @@ enum ACDOprofessionalGrade: String {
     case streetRhythm = "qpqxdzCYdsDeYW7NA6cdHIEW6k6/0ZMNdYQPGH+YRyEtNtk4spowaRpi9tJe3nA2F9CKJw=="
     case urbanEnergy = "xvdMRKy67dRK5/upZaonC/CTHyaGDZ23EHL9mR4FJCiGQZXvseXouDqTY906tD7cX2z9L6nz8sY="
     case streetScene = "ivxxqTS2H52Y6f1aj1G46I15pCoyxoOtspc603tdl3NkLE3JGWeKGHeeO8o17Q6iHJRe"
-    case liveGroove = "itIG/D2nKy6jT0RaP+Jq/Vj3r5aCzB58lPTb0Eed/EcgMhAytC1LuJvf0wNjJiJCAf+nS6X0GwjZiv3E"
+    case allliopderGroove = "itIG/D2nKy6jT0RaP+Jq/Vj3r5aCzB58lPTb0Eed/EcgMhAytC1LuJvf0wNjJiJCAf+nS6X0GwjZiv3E"
     case openStage = "BCDJCJrWma/9v1mU+jb282pyv1ZIxIftGtToW8O28lBn7j9js+Ar4YOYlRXXfjfADdwTH27qdTtNutvq"
     case stageFlow = "wKbutuJddT5Z9L8rd6eMdWRexAhpaytTh6511Eip517xW7mivVXwdV3FIwgOevqS2Uehbhvss54Rnwvk1bEIUC4AXWYoklPs2KLl"
     case artBeat = "+5sGEQdkRy+RzihJWU+QJRgtZGso2HeIBNM8tRwwGwDeAbkK/ERgu3/X/LR9wRI88DCP"

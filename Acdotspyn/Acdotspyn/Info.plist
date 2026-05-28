@@ -18,7 +18,5 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Chatspyn needs camera access to take a selfie for identity verification.</string>
 </dict>
 </plist>

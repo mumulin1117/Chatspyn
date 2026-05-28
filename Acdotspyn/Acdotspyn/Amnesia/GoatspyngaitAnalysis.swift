@@ -17,6 +17,7 @@ class GoatspyngaitAnalysis: UITabBarController {
     private var athleticNodesPyn = [UIButton]()
     private let pulseIconsPyn = ["activeRecoverya", "activeRecoveryb", "activeRecoveryc", "activeRecoveryd"]
     private let kineticLabelsPyn = ["activeRecoverydd","activeRecoveryaa", "activeRecoverybb", "activeRecoverycc" ]
+    private var shouldShelterTrackPyn = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +27,14 @@ class GoatspyngaitAnalysis: UITabBarController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        suppressSystemTrackPyn()
         staminaTrackPyn.frame = CGRect(
             x: (view.bounds.width - flexWidthPyn) / 2,
-            y: view.bounds.height - flexHeightPyn - 34,
+            y: trackOriginYPyn(shouldShelterTrackPyn),
             width: flexWidthPyn,
             height: flexHeightPyn
         )
+        view.bringSubviewToFront(staminaTrackPyn)
     }
 
     private func igniteCoreViewPyn() {
@@ -51,7 +54,7 @@ class GoatspyngaitAnalysis: UITabBarController {
         })
         
         self.viewControllers = ownedvc
-        tabBar.isHidden = true
+        suppressSystemTrackPyn()
     }
 
     private func mountCustomTrackPyn() {
@@ -93,6 +96,7 @@ class GoatspyngaitAnalysis: UITabBarController {
     @objc private func switchMomentumPyn(_ sender: UIButton) {
         let targetIndexPyn = sender.tag
         selectedIndex = targetIndexPyn
+        refreshTrackForSelectedRoutePyn(animated: true)
         
         for (index, node) in athleticNodesPyn.enumerated() {
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseInOut) {
@@ -105,19 +109,65 @@ class GoatspyngaitAnalysis: UITabBarController {
             }
         }
     }
+    
+    private func refreshTrackForSelectedRoutePyn(animated: Bool) {
+        guard let selectedNavigationPyn = selectedViewController as? UINavigationController else {
+            updateTrackShelterPyn(false, animated: animated)
+            return
+        }
+        updateTrackShelterPyn(selectedNavigationPyn.viewControllers.count > 1, animated: animated)
+    }
+    
+    private func updateTrackShelterPyn(_ hidden: Bool, animated: Bool) {
+        shouldShelterTrackPyn = hidden
+        let changesPyn = {
+            self.staminaTrackPyn.frame.origin.y = self.trackOriginYPyn(hidden)
+            self.staminaTrackPyn.alpha = hidden ? 0 : 1
+        }
+        
+        guard animated else {
+            changesPyn()
+            self.view.bringSubviewToFront(self.staminaTrackPyn)
+            return
+        }
+        
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: changesPyn) { _ in
+            self.view.bringSubviewToFront(self.staminaTrackPyn)
+        }
+    }
+    
+    private func suppressSystemTrackPyn() {
+        let clearAppearancePyn = UITabBarAppearance()
+        clearAppearancePyn.configureWithTransparentBackground()
+        clearAppearancePyn.backgroundEffect = nil
+        clearAppearancePyn.backgroundColor = .clear
+        clearAppearancePyn.shadowColor = .clear
+        clearAppearancePyn.shadowImage = UIImage()
+        
+        tabBar.standardAppearance = clearAppearancePyn
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = clearAppearancePyn
+        }
+        tabBar.backgroundImage = UIImage()
+        tabBar.shadowImage = UIImage()
+        tabBar.isTranslucent = true
+        tabBar.alpha = 0
+        tabBar.isHidden = true
+        tabBar.isUserInteractionEnabled = false
+    }
+    
+    private func trackOriginYPyn(_ hidden: Bool) -> CGFloat {
+        hidden ? view.bounds.height + 20 : view.bounds.height - flexHeightPyn - 34
+    }
 }
 extension GoatspyngaitAnalysis: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        let shouldHidePyn = navigationController.viewControllers.count > 1
+        updateTrackShelterPyn(navigationController.viewControllers.count > 1, animated: animated)
+    }
     
-        let offScreenY = view.bounds.height + 20
-        let onScreenY = view.bounds.height - flexHeightPyn - 34
-        
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut) {
-            self.staminaTrackPyn.frame.origin.y = shouldHidePyn ? offScreenY : onScreenY
-            self.staminaTrackPyn.alpha = shouldHidePyn ? 0 : 1
-        }
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        updateTrackShelterPyn(navigationController.viewControllers.count > 1, animated: false)
     }
     
     

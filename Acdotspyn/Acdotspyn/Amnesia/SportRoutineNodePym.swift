@@ -10,7 +10,7 @@ import UIKit
 final class SportRoutineNodePym: UIView {
     
     private let driftWidthPym = UIScreen.main.bounds.width
-    
+    let notifyAbusePym = UIButton(type: .custom)
     private let thumbPym = UIImageView()
     private let categoryTagPym = UIImageView()
     private let summaryTextPym = UILabel()
@@ -50,7 +50,11 @@ final class SportRoutineNodePym: UIView {
         socialMetricStackPym.frame = CGRect(x: 140, y: 100, width: 200, height: 30)
         addSubview(socialMetricStackPym)
         
-        
+        notifyAbusePym.frame = CGRect(x: 12 + 116 + 40, y: 12, width: 25, height: 25)
+        notifyAbusePym.setImage(UIImage(systemName: "exclamationmark.circle.fill"), for: .normal)
+        notifyAbusePym.tintColor = .black.withAlphaComponent(0.8)
+//        notifyAbusePym.addTarget(self, action: #selector(triggerAlertReportPym), for: .touchUpInside)
+        addSubview(notifyAbusePym)
     }
     
     private func renderMetricNodePym(_ btnPym: UIButton, iconPym: String, countPym: String, colorPym: UIColor = .clear) {

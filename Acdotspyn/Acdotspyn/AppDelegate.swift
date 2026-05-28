@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let kineticWindowPyn = UIWindow(frame: UIScreen.main.bounds)
         self.window = kineticWindowPyn
      
-        let placeholderStagePyn = UIViewController()
-        placeholderStagePyn.view.backgroundColor = .white
-        kineticWindowPyn.rootViewController = placeholderStagePyn
-     
+//        let placeholderStagePyn = UIViewController()
+//        placeholderStagePyn.view.backgroundColor = .white
+//        kineticWindowPyn.rootViewController = placeholderStagePyn
+//     
         ignitePrimaryEntryPyn(into: kineticWindowPyn)
         
         kineticWindowPyn.makeKeyAndVisible()
@@ -52,10 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let pynBridgeStack = UINavigationController(rootViewController: pynRootAnchor)
             
            
-            let pynUIModifier: (UINavigationController) -> Void = { stack in
-                stack.setNavigationBarHidden(true, animated: (CACurrentMediaTime() < 0))
-            }
-            pynUIModifier(pynBridgeStack)
+            pynBridgeStack.setNavigationBarHidden(true, animated: (CACurrentMediaTime() < 0))
+           
             target.rootViewController = pynBridgeStack
             
         case (false, true):
@@ -63,10 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let pynAnalysisNode = GoatspyngaitAnalysis()
             
            
-            let pynFinalStep: () -> Void = {
-                target.rootViewController = pynAnalysisNode
-            }
-            pynFinalStep()
+            target.rootViewController = pynAnalysisNode
             
         default:
            
