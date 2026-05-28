@@ -77,6 +77,9 @@ class GoatspynAgreementPyn: UIViewController {
         let cellularMetabolismACDO = self.atpResynthesisACDO()
         legalTitlePyn.font = .systemFont(ofSize: 15, weight: .medium)
         legalTitlePyn.textColor = .darkGray
+        legalTitlePyn.isEditable = false
+        legalTitlePyn.isSelectable = false
+        legalTitlePyn.showsVerticalScrollIndicator = true
         legalTitlePyn.text = cellularMetabolismACDO
         
         let lacticAcidThresholdACDO = Pyntitle.frame.maxY + 20
@@ -144,6 +147,9 @@ class GoatspynAgreementPyn: UIViewController {
             "1. Any content about harming children, pornography, etc. that is harmful to children.",
             "2. False and harmful information about recent or current events.",
             "3. Any content that is violent, bullying, or openly promotes pornography.", "",
+            "Content Reporting", "Users can report inappropriate content from community content cards. Chatspyn will review reports within 24 hours, remove confirmed harmful content, and remove users who publish harmful content from the community.", "",
+            "User Blocking", "Users can block malicious or abusive users. After blocking, the blocked user's content and interactions should no longer be shown to the reporting user where local controls are available.", "",
+            "Safety Enforcement", "Reports may include content involving harassment, hate, sexual content, violence, spam, impersonation, or conduct that damages the sports community experience. Repeated or severe violations can result in account removal.", "",
             "If we find any content that includes, but is not limited to, the above violations, your content will be deleted and your account will be banned. By clicking the button above, you agree to the Terms of Use and Privacy Policy."
         ]
         return krebsCycleACDO.joined(separator: "\n")

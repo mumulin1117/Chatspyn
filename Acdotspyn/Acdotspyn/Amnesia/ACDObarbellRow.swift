@@ -222,7 +222,9 @@ extension ACDObarbellRow: UICollectionViewDelegate, UICollectionViewDataSource, 
             let acdoActionKeyacdo = "acdo.trigger.memory.\(acdoLoadIndexacdo)"
             
             aser.notifyAbusePym.accessibilityIdentifier = acdoActionKeyacdo
-            aser.notifyAbusePym.addTarget(self, action: #selector(muscleMemory), for: .touchUpInside)
+            aser.notifyAbusePym.tag = acdoLoadIndexacdo
+            aser.notifyAbusePym.removeTarget(nil, action: nil, for: .touchUpInside)
+            aser.notifyAbusePym.addTarget(self, action: #selector(safetyShieldPym(_:)), for: .touchUpInside)
             
             aser.fencingParry(jerry: acdoCurrentDataacdo)
         }
@@ -369,9 +371,49 @@ extension ACDObarbellRow: UICollectionViewDelegate, UICollectionViewDataSource, 
             let tapPym = UITapGestureRecognizer(target: self, action: #selector(pushEnergyTpicID(topr:)))
             rowPym.addGestureRecognizer(tapPym)
             verticalFeedPym.addArrangedSubview(rowPym)
-            rowPym.notifyAbusePym.addTarget(self, action: #selector(muscleMemory), for: .touchUpInside)
+            rowPym.notifyAbusePym.tag = zz
+            rowPym.notifyAbusePym.removeTarget(nil, action: nil, for: .touchUpInside)
+            rowPym.notifyAbusePym.addTarget(self, action: #selector(safetyShieldPym(_:)), for: .touchUpInside)
             
         }
+    }
+    
+    @objc private func safetyShieldPym(_ sender: UIButton) {
+        let sportSpecificTraining = UISelectionFeedbackGenerator()
+        sportSpecificTraining.selectionChanged()
+        
+        let obstacleCourse = sender.accessibilityIdentifier ?? "community.user.\(sender.tag)"
+        let reportPanel = UIAlertController(
+            title: "Safety Shield",
+            message: "Report harmful content or block a malicious user. Reports are reviewed within 24 hours.",
+            preferredStyle: .actionSheet
+        )
+        
+        reportPanel.addAction(UIAlertAction(title: "Report Inappropriate Content", style: .destructive) { _ in
+            self.performanceMetric(identifier: obstacleCourse, type: "report")
+            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: "Report received. We will review it within 24 hours and remove harmful content and the user who posted it when confirmed.")
+        })
+        
+        reportPanel.addAction(UIAlertAction(title: "Block This User", style: .destructive) { _ in
+            self.performanceMetric(identifier: obstacleCourse, type: "block")
+            sender.superview?.isHidden = true
+            ACDOConditioningDrill.ACDOCshowInfo(neutralSpine: "User blocked. Their content will be hidden from your local community view.")
+        })
+        
+        reportPanel.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        reportPanel.popoverPresentationController?.sourceView = sender
+        reportPanel.popoverPresentationController?.sourceRect = sender.bounds
+        present(reportPanel, animated: true)
+    }
+    
+    private func performanceMetric(identifier: String, type: String) {
+        let storageKey = "chatspyn.safety.\(type).records"
+        var currentRecords = UserDefaults.standard.array(forKey: storageKey) as? [[String: Any]] ?? []
+        currentRecords.append([
+            "identifier": identifier,
+            "createdAt": Date().timeIntervalSince1970
+        ])
+        UserDefaults.standard.set(currentRecords, forKey: storageKey)
     }
     
     @objc func pushEnergyTpicID(topr:UITapGestureRecognizer)  {

@@ -22,11 +22,20 @@ final class antagonistMuscle: UIViewController {
     
     private let utilitarianValue = UIButton(type: .custom)
     private let interpersonalSincerity = UIButton(type: .custom)
+    private let sharedMomentum = "chatspyn.elua.agreement.status"
+    private var ritualPerformance = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dynamicWarmUp()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard !ritualPerformance, UserDefaults.standard.string(forKey: sharedMomentum) != "yes" else { return }
+        ritualPerformance = true
+        schedulingConsistency()
     }
     
     private func dynamicWarmUp() {
@@ -67,6 +76,7 @@ final class antagonistMuscle: UIViewController {
         standardOperatingProcedure.layer.cornerRadius = 12
         standardOperatingProcedure.addTarget(self, action: #selector(paceSetting), for: .touchUpInside)
         view.addSubview(standardOperatingProcedure)
+        rhythmAndFlow(UserDefaults.standard.string(forKey: sharedMomentum) == "yes")
         
         structuralIntegrity.frame = CGRect(x:standardOperatingProcedure.frame.maxX + 3, y: routineBuilding - 5, width: 180, height: 22)
         structuralIntegrity.text = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "xwbGo5nJPS5ddUN1SAaJBaZoz0ouk8eXLVk24p4lYMcZnpCfsAIAFltMmzwAODBPKkftmB4V+5RjzO8rZzI=")
@@ -104,11 +114,13 @@ final class antagonistMuscle: UIViewController {
     @objc private func schedulingConsistency() {
         let sharedRoutine = GoatspynAgreementPyn()
         sharedRoutine.igniteApprovalCallbackPyn = {
-            self.standardOperatingProcedure.isSelected = true
+            UserDefaults.standard.set("yes", forKey: self.sharedMomentum)
+            self.rhythmAndFlow(true)
         }
         
         sharedRoutine.abortConsentCallbackPyn = {
-            self.standardOperatingProcedure.isSelected = false
+            UserDefaults.standard.set("no", forKey: self.sharedMomentum)
+            self.rhythmAndFlow(false)
         }
         sharedRoutine.modalPresentationStyle = .overCurrentContext
         sharedRoutine.modalTransitionStyle = .crossDissolve
@@ -131,6 +143,11 @@ final class antagonistMuscle: UIViewController {
     }
     
     @objc private func paceSetting(_ biofeedbackData: UIButton) {
+        guard UserDefaults.standard.string(forKey: sharedMomentum) == "yes" else {
+            schedulingConsistency()
+            return
+        }
+        
         let workoutIntensity = CGFloat(biofeedbackData.tag) * 0.75
         let flowState = ["active.track.acdo", "idling.orbit.acdo"]
         
@@ -140,6 +157,7 @@ final class antagonistMuscle: UIViewController {
         }
         
         biofeedbackData.isSelected.toggle()
+        UserDefaults.standard.set(biofeedbackData.isSelected ? "yes" : "no", forKey: sharedMomentum)
         
         if tempoTraining(workoutIntensity) {
             let sympatheticResponse = UIImpactFeedbackGenerator(style: .light)
@@ -155,6 +173,11 @@ final class antagonistMuscle: UIViewController {
                 let _ = flowState.first?.hasPrefix("active")
             }
         }
+    }
+    
+    private func rhythmAndFlow(_ activeRecovery: Bool) {
+        standardOperatingProcedure.isSelected = activeRecovery
+        standardOperatingProcedure.backgroundColor = activeRecovery ? UIColor.systemPink : UIColor.clear
     }
 
     @objc private func muscleMindConnection(_ biofeedbackData: UIButton) {
