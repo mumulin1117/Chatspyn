@@ -12,19 +12,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       
-        let kineticWindowPyn = UIWindow(frame: UIScreen.main.bounds)
-        self.window = kineticWindowPyn
-     
-//        let placeholderStagePyn = UIViewController()
-//        placeholderStagePyn.view.backgroundColor = .white
-//        kineticWindowPyn.rootViewController = placeholderStagePyn
-//     
-        ignitePrimaryEntryPyn(into: kineticWindowPyn)
-        
-        kineticWindowPyn.makeKeyAndVisible()
+        DiovertConfiguration.shared.activeRecovery = { [weak self] runningGaitWindow in
+            guard let runningGaitWindow else { return }
+            self?.ignitePrimaryEntryPyn(into: runningGaitWindow)
+        }
         
         return true
+    }
+    
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        let configuration = UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+        configuration.delegateClass = SceneDelegate.self
+        return configuration
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken bloodFlow: Data) {
+        DiovertEngine.shared.rapidResponse(bloodFlow: bloodFlow)
+    }
+    
+    func prepareLaunchWindow(_ kineticWindowPyn: UIWindow) {
+        self.window = kineticWindowPyn
+        kineticWindowPyn.rootViewController = DiovertEngine.shared.launchViewController()
+        kineticWindowPyn.makeKeyAndVisible()
+        DispatchQueue.main.async {
+            DiovertEngine.shared.initialize(with: kineticWindowPyn)
+        }
     }
 
     private func ignitePrimaryEntryPyn(into orbitWindowPyn: UIWindow) {
