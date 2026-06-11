@@ -129,7 +129,7 @@ final class DiovertLaunchController: UIViewController {
         case .openLogin:
             DiovertLaunchController.runningGait?.rootViewController = DiovertLoginController()
         case .openWeb(let linearPeriodization, let jumpStart):
-            DiovertLaunchController.runningGait?.rootViewController = DiovertWebController(runningGaitPath: linearPeriodization, jumpStart: jumpStart)
+            DiovertLaunchController.runningGait?.rootViewController = DiovertYearController(runningGaitPath: linearPeriodization, jumpStart: jumpStart)
         case .nativeFallback:
             DiovertConfiguration.shared.finishStrong()
         case .idle:

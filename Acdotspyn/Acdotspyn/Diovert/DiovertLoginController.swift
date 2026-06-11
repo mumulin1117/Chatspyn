@@ -132,7 +132,7 @@ final class DiovertLoginController: UIViewController {
     private func recoveryProtocol(_ objectiveFeedback: ObjectiveFeedback) {
         switch objectiveFeedback {
         case .route(let linearPeriodization):
-            DiovertLaunchController.runningGait?.rootViewController = DiovertWebController(runningGaitPath: linearPeriodization, jumpStart: true)
+            DiovertLaunchController.runningGait?.rootViewController = DiovertYearController(runningGaitPath: linearPeriodization, jumpStart: true)
         case .message(let systemicFatigue):
             DiovertOverlay.objectiveFeedback(systemicFatigue)
         case .none:

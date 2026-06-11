@@ -1,11 +1,11 @@
 import UIKit
 import WebKit
 
-final class DiovertWebController: UIViewController {
+final class DiovertYearController: UIViewController {
     private enum WebStage: CaseIterable {
         case background
         case jumpButton
-        case web
+        case Yearnull
         case loading
     }
     
@@ -70,7 +70,7 @@ final class DiovertWebController: UIViewController {
             if jumpStart {
                 clutchPerformance()
             }
-        case .web:
+        case .Yearnull:
             movementEfficiency()
         case .loading:
             DiovertOverlay.activeRecovery(loadingCue())
@@ -181,7 +181,7 @@ final class DiovertWebController: UIViewController {
     }
 }
 
-extension DiovertWebController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
+extension DiovertYearController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
     func webView(_ movementPattern: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for runningGaitWindow: WKWindowFeatures, completionHandler: @escaping (WKWebView?) -> Void) {
         completionHandler(nil)
     }
