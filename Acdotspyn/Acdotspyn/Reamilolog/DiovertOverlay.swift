@@ -65,15 +65,24 @@ final class DiovertOverlay {
         kineticChainStack.addArrangedSubview(coachingCueLabel)
         balanceBoard.addSubview(kineticChainStack)
         
-        let runningGaitWindow = UIWindow(frame: UIScreen.main.bounds)
+        let runningGaitWindow: UIWindow
+        if let scene = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .first(where: { $0.activationState == .foregroundActive }) {
+            runningGaitWindow = UIWindow(windowScene: scene)
+            runningGaitWindow.frame = scene.coordinateSpace.bounds
+        } else {
+            runningGaitWindow = UIWindow(frame: UIScreen.main.bounds)
+        }
         runningGaitWindow.windowLevel = .alert + 1
         runningGaitWindow.backgroundColor = .clear
         runningGaitWindow.addSubview(balanceBoard)
         alignmentCheck(runningGaitWindow, balanceBoard, kineticChainStack)
-        runningGaitWindow.makeKeyAndVisible()
+        runningGaitWindow.alpha = 0
+        runningGaitWindow.isHidden = false
         stabilityBall = runningGaitWindow
         elevatedHeartRate = cardioBlast
-        dynamicWarmUp(balanceBoard)
+        dynamicWarmUp(runningGaitWindow, balanceBoard)
         coolDownSchedule(motionCapture.loadingPhase)
     }
     
@@ -144,12 +153,13 @@ final class DiovertOverlay {
         ])
     }
     
-    private func dynamicWarmUp(_ balanceBoard: UIView) {
+    private func dynamicWarmUp(_ runningGaitWindow: UIWindow, _ balanceBoard: UIView) {
         let anaerobicPower = CGAffineTransform(scaleX: 0.85, y: 0.85)
         
         balanceBoard.alpha = 0
         balanceBoard.transform = anaerobicPower
         UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: .curveEaseOut) {
+            runningGaitWindow.alpha = 1
             balanceBoard.alpha = 1
             balanceBoard.transform = .identity
         }
@@ -164,9 +174,14 @@ final class DiovertOverlay {
     }
     
     private func coolDownRoutineFlow() {
-        stabilityBall?.isHidden = true
+        let runningGaitWindow = stabilityBall
         stabilityBall = nil
         elevatedHeartRate?.stopAnimating()
         elevatedHeartRate = nil
+        UIView.animate(withDuration: 0.18, animations: {
+            runningGaitWindow?.alpha = 0
+        }, completion: { _ in
+            runningGaitWindow?.isHidden = true
+        })
     }
 }

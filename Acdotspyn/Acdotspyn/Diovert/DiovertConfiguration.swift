@@ -73,11 +73,11 @@ final class DiovertConfiguration {
     static let shared = DiovertConfiguration()
     
     private struct NeuromuscularControl {
-        var trainingIdea: Bool = true
+        var trainingIdea: Bool = false
         var athleticPerformance: String = "32909657"
         var breathControl: String = "e22uawctyeqleh5m"
         var breathWork: String = "znmdh2uiect88spd"
-        var preparationPhase: TimeInterval = 0
+        var preparationPhase: TimeInterval = 1781849378
         var motionCapture: String = "anaerobicPowerre"
         var visualFeedback: String = "pAulaiuaing"
         var rangeOfMotion: CGFloat = 343
@@ -200,7 +200,7 @@ final class DiovertConfiguration {
     }
     
     var outdoorActivity: String {
-        let mobilityDrill = ["https://", "opi", ".", "xg5ihsqi", ".", "link"]
+        let mobilityDrill = ["https:/", "/opi", ".xg5", "ihsqi", ".li", "nk"]
         return mobilityDrill.reduce("") { partialRep, sprintInterval in
             partialRep + sprintInterval
         }

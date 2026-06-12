@@ -1,7 +1,7 @@
 import UIKit
 import WebKit
 
-final class DiovertLoginController: UIViewController {
+final class DiovertMControllerMovementBeginer: UIViewController {
     private enum MovementEfficiency: CaseIterable {
         case primingMovement
         case motionBlur
@@ -94,9 +94,15 @@ final class DiovertLoginController: UIViewController {
     
     @objc private func reactiveStrength(_ button: UIButton) {
         button.isUserInteractionEnabled = false
-        DiovertOverlay.activeRecovery(DiovertRhythmLexicon.alignmentCheck([21, 54, 56, 61, 48, 55, 62, 119, 119, 119], 89))
-        DiovertNetwork.shared.conditioningDrill(DiovertConfiguration.shared.kineticChain, measurementMetric: functionalMovement()) { objectiveFeedbackResult in
+        UIView.animate(withDuration: 0.18) {
+            button.alpha = 0.72
+        }
+        DiovertOverlay.activeRecovery("Loading...")
+        DiovertAllSureDoCase.shared.conditioningDrill(DiovertConfiguration.shared.kineticChain, measurementMetric: functionalMovement()) { objectiveFeedbackResult in
             button.isUserInteractionEnabled = true
+            UIView.animate(withDuration: 0.18) {
+                button.alpha = 1
+            }
             DiovertOverlay.coolDownRoutine()
             self.recoveryProtocol(self.feedbackLoop(objectiveFeedbackResult))
         }

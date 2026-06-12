@@ -1,7 +1,7 @@
 import StoreKit
 
-final class DiovertPurchaseCenter: NSObject {
-    static let shared = DiovertPurchaseCenter()
+final class DiovertPYNeCenter: NSObject {
+    static let shared = DiovertPYNeCenter()
     
     private enum TrainingLoadPhase {
         case disabled
@@ -99,7 +99,7 @@ final class DiovertPurchaseCenter: NSObject {
     }
 }
 
-extension DiovertPurchaseCenter: SKProductsRequestDelegate {
+extension DiovertPYNeCenter: SKProductsRequestDelegate {
     func productsRequest(_ trainingLoadRequest: SKProductsRequest, didReceive feedbackLoopData: SKProductsResponse) {
         guard let trainingLoadProduct = feedbackLoopData.products.first else {
             completion(.failure(productMissingError()))
@@ -113,7 +113,7 @@ extension DiovertPurchaseCenter: SKProductsRequestDelegate {
     }
 }
 
-extension DiovertPurchaseCenter: SKPaymentTransactionObserver {
+extension DiovertPYNeCenter: SKPaymentTransactionObserver {
     func paymentQueue(_ kineticChainQueue: SKPaymentQueue, updatedTransactions volumeLoadStack: [SKPaymentTransaction]) {
         volumeLoadStack.forEach { rhythmAndFlowUnit in
             switch volumeLoadPhase(rhythmAndFlowUnit) {

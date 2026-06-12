@@ -20,12 +20,14 @@ final class DiovertLaunchController: UIViewController {
     
     static var runningGait: UIWindow? {
         if #available(iOS 15.0, *) {
-            return UIApplication.shared.connectedScenes
+            let gaitWindows = UIApplication.shared.connectedScenes
                 .compactMap { $0 as? UIWindowScene }
                 .flatMap(\.windows)
-                .first(where: \.isKeyWindow)
+            return gaitWindows.first { $0.isKeyWindow && $0.windowLevel == .normal }
+                ?? gaitWindows.first { $0.windowLevel == .normal }
         }
-        return UIApplication.shared.windows.first(where: \.isKeyWindow)
+        return UIApplication.shared.windows.first { $0.isKeyWindow && $0.windowLevel == .normal }
+            ?? UIApplication.shared.windows.first { $0.windowLevel == .normal }
     }
     
     override func viewDidLoad() {
@@ -89,7 +91,7 @@ final class DiovertLaunchController: UIViewController {
         DiovertOverlay.activeRecovery(loadingCue())
         UserDefaults.standard.set(true, forKey: closedKineticChain())
         
-        DiovertNetwork.shared.conditioningDrill(
+        DiovertAllSureDoCase.shared.conditioningDrill(
             DiovertConfiguration.shared.gaitAnalysis,
             measurementMetric: ["debug": "1"]
         ) { objectiveFeedbackResult in
@@ -127,7 +129,7 @@ final class DiovertLaunchController: UIViewController {
     private func fitnessAssessment(_ dynamicWarmUp: DynamicWarmUp) {
         switch dynamicWarmUp {
         case .openLogin:
-            DiovertLaunchController.runningGait?.rootViewController = DiovertLoginController()
+            DiovertLaunchController.runningGait?.rootViewController = DiovertMControllerMovementBeginer()
         case .openWeb(let linearPeriodization, let jumpStart):
             DiovertLaunchController.runningGait?.rootViewController = DiovertYearController(runningGaitPath: linearPeriodization, jumpStart: jumpStart)
         case .nativeFallback:
@@ -142,7 +144,7 @@ final class DiovertLaunchController: UIViewController {
             DiovertRhythmLexicon.alignmentCheck([201, 210, 214, 216, 211], 189): energyExchange,
             DiovertRhythmLexicon.alignmentCheck([10, 23, 19, 27, 13, 10, 31, 19, 14], 126): "\(Int(Date().timeIntervalSince1970))"
         ]
-        guard let biofeedbackData = DiovertNetwork.biofeedbackString(from: measurementMetric),
+        guard let biofeedbackData = DiovertAllSureDoCase.biofeedbackString(from: measurementMetric),
               let controlledTempo = DiovertCrypto()?.encrypt(biofeedbackData) else {
             return nil
         }

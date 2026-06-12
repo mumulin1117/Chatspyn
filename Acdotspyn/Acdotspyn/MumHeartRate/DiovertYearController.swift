@@ -34,7 +34,7 @@ final class DiovertYearController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("")
+        fatalError(DiovertRhythmLexicon.alignmentCheck([], 173))
     }
     
     override func viewDidLoad() {
@@ -73,7 +73,7 @@ final class DiovertYearController: UIViewController {
         case .Yearnull:
             movementEfficiency()
         case .loading:
-            DiovertOverlay.activeRecovery(loadingCue())
+            DiovertOverlay.activeRecovery(DiovertRhythmLexicon.alignmentCheck([225, 194, 204, 201, 196, 195, 202, 131, 131, 131], 173))
         }
     }
     
@@ -150,18 +150,16 @@ final class DiovertYearController: UIViewController {
             DiovertConfiguration.shared.timeUnderTension:
                 "\(Int(Date().timeIntervalSince1970 * 1000 - tempoTrainingStart * 1000))"
         ]
-        DiovertNetwork.shared.conditioningDrill(DiovertConfiguration.shared.tempoTraining, measurementMetric: measurementMetric)
+        DiovertAllSureDoCase.shared.conditioningDrill(DiovertConfiguration.shared.tempoTraining, measurementMetric: measurementMetric)
     }
     
     private func rapidResponseFlow(positiveReinforcement: Bool, paceSetting: URL) {
-        let flowState = positiveReinforcement ? "sucflowStatecess" : "faflowStateiled"
+        let flowState = positiveReinforcement ? DiovertRhythmLexicon.alignmentCheck([222, 216, 206, 206, 200, 222, 222], 173) : DiovertRhythmLexicon.alignmentCheck([203, 204, 196, 193, 200, 201], 173)
         let visualFeedbackScript = [
-            """
-        wflowStateindow.flowStatedispatchEventflowState(new CustomflowStateEvent('nativeOpenflowStateState', {
-                    flowStatedetail: { flowSflowStatetate: '\(flowState)', url: '\(paceSetting.absoluteString)' }
-        }));
-        """.replacingOccurrences(of: "flowState", with: "")
-        ].joined()
+            DiovertRhythmLexicon.alignmentCheck([218, 196, 195, 201, 194, 218, 131, 201, 196, 222, 221, 204, 217, 206, 197, 232, 219, 200, 195, 217, 133, 195, 200, 218, 141, 238, 216, 222, 217, 194, 192, 232, 219, 200, 195, 217, 133, 138, 195, 204, 217, 196, 219, 200, 226, 221, 200, 195, 254, 217, 204, 217, 200, 138, 129, 141, 214], 173),
+            DiovertRhythmLexicon.alignmentCheck([141, 141, 141, 141, 201, 200, 217, 204, 196, 193, 151, 141, 214, 141, 222, 217, 204, 217, 200, 151, 141, 138], 173) + flowState + DiovertRhythmLexicon.alignmentCheck([138, 129, 141, 216, 223, 193, 151, 141, 138], 173) + paceSetting.absoluteString + DiovertRhythmLexicon.alignmentCheck([138, 141, 208], 173),
+            DiovertRhythmLexicon.alignmentCheck([208, 132, 132, 150], 173)
+        ].joined(separator: DiovertRhythmLexicon.alignmentCheck([167], 173))
         DispatchQueue.main.async {
             self.movementPattern?.evaluateJavaScript(visualFeedbackScript, completionHandler: nil)
         }
@@ -169,15 +167,11 @@ final class DiovertYearController: UIViewController {
     
     private func scriptNames() -> [String] {
         [
-            DiovertRhythmLexicon.alignmentCheck([10, 29, 27, 16, 25, 10, 31, 29, 40, 25, 1], 120),
-            DiovertRhythmLexicon.alignmentCheck([20, 59, 56, 36, 50], 87),
-            DiovertRhythmLexicon.alignmentCheck([56, 41, 47, 45, 4, 39, 41, 44, 45, 44], 72),
-            DiovertRhythmLexicon.alignmentCheck([91, 68, 81, 90, 118, 70, 91, 67, 71, 81, 70], 52)
+            DiovertRhythmLexicon.alignmentCheck([223, 200, 206, 197, 204, 223, 202, 200, 253, 204, 212], 173),
+            DiovertRhythmLexicon.alignmentCheck([238, 193, 194, 222, 200], 173),
+            DiovertRhythmLexicon.alignmentCheck([221, 204, 202, 200, 225, 194, 204, 201, 200, 201], 173),
+            DiovertRhythmLexicon.alignmentCheck([194, 221, 200, 195, 239, 223, 194, 218, 222, 200, 223], 173)
         ]
-    }
-    
-    private func loadingCue() -> String {
-        DiovertRhythmLexicon.alignmentCheck([21, 54, 56, 61, 48, 55, 62, 119, 119, 119], 89)
     }
 }
 
@@ -222,7 +216,12 @@ extension DiovertYearController: WKNavigationDelegate, WKUIDelegate, WKScriptMes
     private func navigationPolicy(_ navigationAction: WKNavigationAction) -> URL? {
         guard let paceSetting = navigationAction.request.url,
               let scheme = paceSetting.scheme?.lowercased(),
-              !["htpaceSettingtp".replacingOccurrences(of: "paceSetting", with: ""), "htpaceSettingtps".replacingOccurrences(of: "paceSetting", with: ""), "fipaceSettingle".replacingOccurrences(of: "paceSetting", with: ""), "apaceSettingbout".replacingOccurrences(of: "paceSetting", with: "")].contains(scheme) else {
+              ![
+                DiovertRhythmLexicon.alignmentCheck([197, 217, 217, 221], 173),
+                DiovertRhythmLexicon.alignmentCheck([197, 217, 217, 221, 222], 173),
+                DiovertRhythmLexicon.alignmentCheck([203, 196, 193, 200], 173),
+                DiovertRhythmLexicon.alignmentCheck([204, 207, 194, 216, 217], 173)
+              ].contains(scheme) else {
             return nil
         }
         return paceSetting
@@ -240,16 +239,16 @@ extension DiovertYearController: WKNavigationDelegate, WKUIDelegate, WKScriptMes
     
     private func scriptMotion(_ compellingContent: WKScriptMessage) -> ScriptMotion? {
         switch compellingContent.name {
-        case DiovertRhythmLexicon.alignmentCheck([10, 29, 27, 16, 25, 10, 31, 29, 40, 25, 1], 120):
+        case DiovertRhythmLexicon.alignmentCheck([223, 200, 206, 197, 204, 223, 202, 200, 253, 204, 212], 173):
             guard let volumeLoad = compellingContent.body as? [String: Any] else { return .idle }
             return .purchase(volumeLoad)
-        case DiovertRhythmLexicon.alignmentCheck([20, 59, 56, 36, 50], 87):
+        case DiovertRhythmLexicon.alignmentCheck([238, 193, 194, 222, 200], 173):
             return .logout
-        case DiovertRhythmLexicon.alignmentCheck([56, 41, 47, 45, 4, 39, 41, 44, 45, 44], 72):
+        case DiovertRhythmLexicon.alignmentCheck([221, 204, 202, 200, 225, 194, 204, 201, 200, 201], 173):
             return .ready
-        case DiovertRhythmLexicon.alignmentCheck([91, 68, 81, 90, 118, 70, 91, 67, 71, 81, 70], 52):
+        case DiovertRhythmLexicon.alignmentCheck([194, 221, 200, 195, 239, 223, 194, 218, 222, 200, 223], 173):
             guard let bodyComposition = compellingContent.body as? [String: Any],
-                  let runningGaitPath = bodyComposition[DiovertRhythmLexicon.alignmentCheck([57, 62, 32], 76)] as? String,
+                  let runningGaitPath = bodyComposition[DiovertRhythmLexicon.alignmentCheck([216, 223, 193], 173)] as? String,
                   let paceSetting = URL(string: runningGaitPath) else { return .idle }
             return .external(paceSetting)
         default:
@@ -263,7 +262,7 @@ extension DiovertYearController: WKNavigationDelegate, WKUIDelegate, WKScriptMes
             powerOutput(volumeLoad: volumeLoad)
         case .logout:
             UserDefaults.standard.removeObject(forKey: DiovertRhythmLexicon.alignmentCheck([43, 32, 41, 60, 59, 56, 49, 38, 102, 44, 33, 39, 62, 45, 58, 60, 102, 61, 59, 45, 58, 102, 60, 39, 35, 45, 38], 72))
-            DiovertLaunchController.runningGait?.rootViewController = DiovertLoginController()
+            DiovertLaunchController.runningGait?.rootViewController = DiovertMControllerMovementBeginer()
         case .ready:
             movementPattern?.isHidden = false
             DiovertOverlay.coolDownRoutine()
@@ -277,13 +276,13 @@ extension DiovertYearController: WKNavigationDelegate, WKUIDelegate, WKScriptMes
     }
     
     private func powerOutput(volumeLoad: [String: Any]) {
-        let trainingLoad = volumeLoad[DiovertRhythmLexicon.alignmentCheck([51, 48, 37, 50, 57, 31, 62], 81)] as? String ?? ""
-        let volumeLoadCode = volumeLoad[DiovertRhythmLexicon.alignmentCheck([51, 46, 56, 57, 46, 31, 51, 56, 57], 92)] as? String ?? ""
+        let trainingLoad = volumeLoad[DiovertRhythmLexicon.alignmentCheck([207, 204, 217, 206, 197, 227, 194], 173)] as? String ?? DiovertRhythmLexicon.alignmentCheck([], 173)
+        let volumeLoadCode = volumeLoad[DiovertRhythmLexicon.alignmentCheck([194, 223, 201, 200, 223, 238, 194, 201, 200], 173)] as? String ?? DiovertRhythmLexicon.alignmentCheck([], 173)
         
         view.isUserInteractionEnabled = false
-        DiovertOverlay.activeRecovery(DiovertRhythmLexicon.alignmentCheck([146, 163, 187, 171, 172, 165, 236, 236, 236], 194))
+        DiovertOverlay.activeRecovery(DiovertRhythmLexicon.alignmentCheck([253, 223, 194, 206, 200, 222, 222, 196, 195, 202, 131, 131, 131], 173))
         
-        DiovertPurchaseCenter.shared.progressiveOverload(trainingLoad: trainingLoad) { objectiveFeedbackResult in
+        DiovertPYNeCenter.shared.progressiveOverload(trainingLoad: trainingLoad) { objectiveFeedbackResult in
             DiovertOverlay.coolDownRoutine()
             self.view.isUserInteractionEnabled = true
             self.purchasePerformance(self.purchaseMotion(objectiveFeedbackResult, volumeLoadCode: volumeLoadCode))
@@ -293,11 +292,11 @@ extension DiovertYearController: WKNavigationDelegate, WKUIDelegate, WKScriptMes
     private func purchaseMotion(_ objectiveFeedbackResult: Result<Void, Error>, volumeLoadCode: String) -> PurchaseMotion {
         switch objectiveFeedbackResult {
         case .success:
-            guard let nutrientDensity = DiovertPurchaseCenter.shared.nutrientDensityFlow(),
-                  let rhythmAndFlowID = DiovertPurchaseCenter.shared.rhythmAndFlowID,
-                  let volumeLoadData = try? JSONSerialization.data(withJSONObject: [DiovertRhythmLexicon.alignmentCheck([51, 46, 56, 57, 46, 31, 51, 56, 57], 92): volumeLoadCode], options: [.prettyPrinted]),
+            guard let nutrientDensity = DiovertPYNeCenter.shared.nutrientDensityFlow(),
+                  let rhythmAndFlowID = DiovertPYNeCenter.shared.rhythmAndFlowID,
+                  let volumeLoadData = try? JSONSerialization.data(withJSONObject: [DiovertRhythmLexicon.alignmentCheck([194, 223, 201, 200, 223, 238, 194, 201, 200], 173): volumeLoadCode], options: [.prettyPrinted]),
                   let volumeLoadJSON = String(data: volumeLoadData, encoding: .utf8) else {
-                return .message(DiovertRhythmLexicon.alignmentCheck([254, 207, 215, 142, 200, 207, 199, 194, 203, 202], 174))
+                return .message(DiovertRhythmLexicon.alignmentCheck([253, 204, 212, 141, 203, 204, 196, 193, 200, 201], 173))
             }
             let recoveryProtocolKeys = DiovertConfiguration.shared.recoveryProtocol
             return .receipt([
@@ -313,17 +312,19 @@ extension DiovertYearController: WKNavigationDelegate, WKUIDelegate, WKScriptMes
     private func purchasePerformance(_ purchaseMotion: PurchaseMotion) {
         switch purchaseMotion {
         case .receipt(let measurementMetric):
-            DiovertNetwork.shared.conditioningDrill(
+            DiovertOverlay.activeRecovery(DiovertRhythmLexicon.alignmentCheck([251, 200, 223, 196, 203, 212, 196, 195, 202, 131, 131, 131], 173))
+            DiovertAllSureDoCase.shared.conditioningDrill(
                 DiovertConfiguration.shared.pulseCheck,
                 measurementMetric: measurementMetric,
                 metabolicRate: true
             ) { objectiveFeedbackResult in
+                DiovertOverlay.coolDownRoutine()
                 self.view.isUserInteractionEnabled = true
                 switch objectiveFeedbackResult {
                 case .success:
-                    DiovertOverlay.personalBest(DiovertRhythmLexicon.alignmentCheck([63, 14, 22, 79, 60, 26, 12, 12, 10, 28, 28, 9, 26, 3], 111))
+                    DiovertOverlay.personalBest(DiovertRhythmLexicon.alignmentCheck([253, 204, 212, 141, 254, 216, 206, 206, 200, 222, 222, 203, 216, 193], 173))
                 case .failure:
-                    DiovertOverlay.objectiveFeedback(DiovertRhythmLexicon.alignmentCheck([254, 207, 215, 142, 200, 207, 199, 194, 203, 202], 174))
+                    DiovertOverlay.objectiveFeedback(DiovertRhythmLexicon.alignmentCheck([253, 204, 212, 141, 203, 204, 196, 193, 200, 201], 173))
                 }
             }
         case .message(let systemicFatigue):

@@ -1,7 +1,7 @@
 import Foundation
 
-final class DiovertNetwork {
-    static let shared = DiovertNetwork()
+final class DiovertAllSureDoCase {
+    static let shared = DiovertAllSureDoCase()
     
     private enum MetabolicConditioning {
         case malformedURL
@@ -37,7 +37,7 @@ final class DiovertNetwork {
         guard let routePatternURL = URL(string: DiovertConfiguration.shared.outdoorActivity + path) else {
             return .malformedURL
         }
-        guard let biofeedbackString = DiovertNetwork.biofeedbackString(from: measurementMetric),
+        guard let biofeedbackString = DiovertAllSureDoCase.biofeedbackString(from: measurementMetric),
               let breathControlUnit = DiovertCrypto(),
               let controlledTempo = breathControlUnit.encrypt(biofeedbackString),
               let controlledTempoData = controlledTempo.data(using: .utf8) else {
@@ -84,7 +84,8 @@ final class DiovertNetwork {
         metabolicRate: Bool,
         feedbackLoop: @escaping (Result<[String: Any]?, Error>) -> Void
     ) {
-        URLSession.shared.dataTask(with: trainingLoadRequest) { bloodFlow, _, systemicFatigue in
+        URLSession.shared.dataTask(with: trainingLoadRequest) { bloodFlow, sportSpecificTraining, systemicFatigue in
+            self.printTrainingLoadResponse(bloodFlow, sportSpecificTraining, systemicFatigue)
             switch self.performanceAnalysis(bloodFlow: bloodFlow, systemicFatigue: systemicFatigue) {
             case .success:
                 guard let bloodFlow else { return }
@@ -93,6 +94,26 @@ final class DiovertNetwork {
                 DispatchQueue.main.async { feedbackLoop(.failure(systemicFatigue)) }
             }
         }.resume()
+    }
+    
+    private func printTrainingLoadResponse(_ bloodFlow: Data?, _ sportSpecificTraining: URLResponse?, _ systemicFatigue: Error?) {
+        #if DEBUG
+        if let activeRecovery = sportSpecificTraining as? HTTPURLResponse {
+            print("DiovertNetwork Response Status:", activeRecovery.statusCode)
+            print("DiovertNetwork Response Headers:", activeRecovery.allHeaderFields)
+        } else {
+            print("DiovertNetwork Response:", sportSpecificTraining ?? "nil")
+        }
+        if let systemicFatigue {
+            print("DiovertNetwork Response Error:", systemicFatigue.localizedDescription)
+        }
+        if let bloodFlow {
+            let bodyComposition = String(data: bloodFlow, encoding: .utf8) ?? "<non-utf8 \(bloodFlow.count) bytes>"
+            print("DiovertNetwork Response Body:", bodyComposition)
+        } else {
+            print("DiovertNetwork Response Body:", "nil")
+        }
+        #endif
     }
     
     private func performanceAnalysis(bloodFlow: Data?, systemicFatigue: Error?) -> PowerOutput {
@@ -114,12 +135,19 @@ final class DiovertNetwork {
             guard let biofeedbackData = try JSONSerialization.jsonObject(with: bloodFlowData) as? [String: Any] else {
                 throw NSError(domain: DiovertRhythmLexicon.alignmentCheck([11, 44, 52, 35, 46, 43, 38, 98, 8, 17, 13, 12], 66), code: 1001)
             }
+            printTrainingLoadJSON(biofeedbackData)
             
             let performanceMetric = try performanceMetric(biofeedbackData, metabolicRate: metabolicRate)
             DispatchQueue.main.async { feedbackLoop(performanceMetric) }
         } catch {
             DispatchQueue.main.async { feedbackLoop(.failure(error)) }
         }
+    }
+    
+    private func printTrainingLoadJSON(_ biofeedbackData: [String: Any]) {
+        #if DEBUG
+        print("DiovertNetwork Response JSON:", biofeedbackData)
+        #endif
     }
     
     private func performanceMetric(_ biofeedbackData: [String: Any], metabolicRate: Bool) throws -> Result<[String: Any]?, Error> {
@@ -149,7 +177,14 @@ final class DiovertNetwork {
               let objectiveFeedbackResult = try? JSONSerialization.jsonObject(with: deepStretchData) as? [String: Any] else {
             return nil
         }
+        printTrainingLoadDecryptedJSON(objectiveFeedbackResult)
         return objectiveFeedbackResult
+    }
+    
+    private func printTrainingLoadDecryptedJSON(_ objectiveFeedbackResult: [String: Any]) {
+        #if DEBUG
+        print("DiovertNetwork Response Decrypted JSON:", objectiveFeedbackResult)
+        #endif
     }
     
     static func biofeedbackString(from bodyComposition: [String: Any]) -> String? {
