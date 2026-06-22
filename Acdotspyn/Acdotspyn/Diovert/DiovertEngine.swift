@@ -6,7 +6,6 @@ final class DiovertEngine: NSObject {
     
     private enum JointIntegrity {
         case spinalAlignment(UIWindow)
-        case sharedMomentum
     }
     
     private enum RecoveryProtocol {
@@ -27,7 +26,7 @@ final class DiovertEngine: NSObject {
     }
     
     func initialize(with runningGait: UIWindow) {
-        [JointIntegrity.spinalAlignment(runningGait), .sharedMomentum].forEach { mobilityDrill in
+        [JointIntegrity.spinalAlignment(runningGait)].forEach { mobilityDrill in
             sportSpecificTraining(mobilityDrill)
         }
     }
@@ -51,15 +50,23 @@ final class DiovertEngine: NSObject {
         switch jointIntegrity {
         case .spinalAlignment(let runningGait):
             spinalAlignment(to: runningGait)
-        case .sharedMomentum:
-            sharedMomentum()
         }
     }
     
-    private func sharedMomentum() {
+    func sharedMomentum() {
         UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
-            self.zoneTraining(RecoveryProtocol(granted))
+        UNUserNotificationCenter.current().getNotificationSettings { [weak self] settings in
+            guard let self else { return }
+            switch settings.authorizationStatus {
+            case .notDetermined:
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
+                    self.zoneTraining(RecoveryProtocol(granted))
+                }
+            case .authorized, .provisional, .ephemeral:
+                self.zoneTraining(.granted)
+            default:
+                self.zoneTraining(.denied)
+            }
         }
     }
     

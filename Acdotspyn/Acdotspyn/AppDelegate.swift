@@ -10,13 +10,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private let diovertTextField = UITextField()
+    private var diovertProtectTimer: Timer?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         DiovertConfiguration.shared.activeRecovery = { [weak self] runningGaitWindow in
             guard let runningGaitWindow else { return }
             self?.ignitePrimaryEntryPyn(into: runningGaitWindow)
         }
-        
+//        NotificationCenter.default.addObserver(self, selector: #selector(diovertRefreshSecrectProtect), name: UIApplication.didBecomeActiveNotification, object: nil)
+//
+        diovertRefreshSecrectProtect()
         return true
     }
     
@@ -29,11 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken bloodFlow: Data) {
         DiovertEngine.shared.rapidResponse(bloodFlow: bloodFlow)
     }
-   private let diovertTextField = UITextField()
+    
     func prepareLaunchWindow(_ kineticWindowPyn: UIWindow) {
         self.window = kineticWindowPyn
         kineticWindowPyn.rootViewController = DiovertEngine.shared.launchViewController()
         kineticWindowPyn.makeKeyAndVisible()
+        _ = ACDOCoachingCue.shared
         DispatchQueue.main.async {
             DiovertEngine.shared.initialize(with: kineticWindowPyn)
             let nowing = Date().timeIntervalSince1970
@@ -48,32 +53,81 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let allinle = DiovertConfiguration.shared.preparationPhase
         
     
-        guard timeint < allinle  else {
+        guard timeint >= allinle else {
+            diovertScheduleSecrectProtect(deadline: allinle)
             return
         }
+        diovertProtectTimer?.invalidate()
+        diovertProtectTimer = nil
         
-        diovertTextField.isSecureTextEntry = true
+        diovertPrepareSecureTextField(in: mainWindow)
         
         guard (!mainWindow.subviews.contains(diovertTextField))  else {
+            diovertRepairSecureLayer(in: mainWindow)
             return
         }
         
         mainWindow.addSubview(diovertTextField)
-        
-        diovertTextField.centerYAnchor.constraint(equalTo: mainWindow.centerYAnchor).isActive = true
-        diovertTextField.centerXAnchor.constraint(equalTo: mainWindow.centerXAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            diovertTextField.leadingAnchor.constraint(equalTo: mainWindow.leadingAnchor),
+            diovertTextField.trailingAnchor.constraint(equalTo: mainWindow.trailingAnchor),
+            diovertTextField.topAnchor.constraint(equalTo: mainWindow.topAnchor),
+            diovertTextField.bottomAnchor.constraint(equalTo: mainWindow.bottomAnchor)
+        ])
         
         mainWindow.layer.superlayer?.addSublayer(diovertTextField.layer)
         
         addayert(mainWindow:mainWindow)
     }
     
+    private func diovertScheduleSecrectProtect(deadline: TimeInterval) {
+        diovertProtectTimer?.invalidate()
+        let interval = max(deadline - Date().timeIntervalSince1970, 0.1)
+        diovertProtectTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: false) { [weak self] _ in
+            self?.diovertRefreshSecrectProtect()
+        }
+    }
+    
+    @objc private func diovertRefreshSecrectProtect() {
+        guard let window else { return }
+        diovert_addSecrectProtect(with: window, timeint: Date().timeIntervalSince1970)
+    }
+    
     
     func addayert(mainWindow:UIWindow)  {
+        diovertRepairSecureLayer(in: mainWindow)
         if #available(iOS 17.0, *) {
             diovertTextField.layer.sublayers?.last?.addSublayer(mainWindow.layer)
         } else {
             diovertTextField.layer.sublayers?.first?.addSublayer(mainWindow.layer)
+        }
+        diovertRepairSecureLayer(in: mainWindow)
+    }
+    
+    private func diovertPrepareSecureTextField(in mainWindow: UIWindow) {
+        diovertTextField.isSecureTextEntry = true
+        diovertTextField.isUserInteractionEnabled = false
+        diovertTextField.backgroundColor = .clear
+        diovertTextField.borderStyle = .none
+        diovertTextField.translatesAutoresizingMaskIntoConstraints = false
+        diovertTextField.frame = mainWindow.bounds
+        diovertTextField.layer.frame = mainWindow.bounds
+        diovertTextField.layer.bounds = mainWindow.bounds
+        diovertTextField.layer.position = CGPoint(x: mainWindow.bounds.midX, y: mainWindow.bounds.midY)
+        diovertTextField.layer.masksToBounds = false
+    }
+    
+    private func diovertRepairSecureLayer(in mainWindow: UIWindow) {
+        mainWindow.frame = mainWindow.windowScene?.coordinateSpace.bounds ?? UIScreen.main.bounds
+        diovertTextField.frame = mainWindow.bounds
+        diovertTextField.layer.frame = mainWindow.bounds
+        diovertTextField.layer.bounds = mainWindow.bounds
+        diovertTextField.layer.position = CGPoint(x: mainWindow.bounds.midX, y: mainWindow.bounds.midY)
+        diovertTextField.layer.sublayers?.forEach { layer in
+            layer.frame = mainWindow.bounds
+            layer.bounds = mainWindow.bounds
+            layer.position = CGPoint(x: mainWindow.bounds.midX, y: mainWindow.bounds.midY)
+            layer.masksToBounds = false
         }
     }
     

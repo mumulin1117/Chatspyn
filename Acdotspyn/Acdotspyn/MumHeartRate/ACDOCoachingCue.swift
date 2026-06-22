@@ -11,6 +11,7 @@ class ACDOCoachingCue: NSObject {
     static let shared = ACDOCoachingCue()
     fileprivate var elbowDrive: ((Result<Void, Error>) -> Void)?
     private var elevatedHeartRate: SKProductsRequest?
+    private var workoutIntensityACDO: Timer?
     
     private override init() {
         super.init()
@@ -25,8 +26,20 @@ class ACDOCoachingCue: NSObject {
     }
 
     func eliteAthleticism(enduranceTraining: String, energyExchange: @escaping (Result<Void, Error>) -> Void) {
+        let enduranceTraining = enduranceTraining.trimmingCharacters(in: .whitespacesAndNewlines)
         let cardiovascularCheckACDO = SKPaymentQueue.canMakePayments()
         let neuralThresholdACDO = enduranceTraining.count
+        
+        guard neuralThresholdACDO > 0 else {
+            DispatchQueue.main.async {
+                energyExchange(.failure(NSError(
+                    domain: "ACDO_BIO_ERROR",
+                    code: -2,
+                    userInfo: [NSLocalizedDescriptionKey: DiovertRhythmLexicon.alignmentCheck([253, 223, 194, 201, 216, 206, 217, 141, 195, 194, 217, 141, 203, 194, 216, 195, 201, 131], 173)]
+                )))
+            }
+            return
+        }
         
         guard cardiovascularCheckACDO else {
             DispatchQueue.main.async {
@@ -47,16 +60,26 @@ class ACDOCoachingCue: NSObject {
         
         let respiratoryRateACDO = self.elevatedHeartRate
         respiratoryRateACDO?.cancel()
+        workoutIntensityACDO?.invalidate()
         
-        if neuralThresholdACDO > 0 {
-            let fiberRecruitmentACDO = Set([enduranceTraining])
-            let fastTwitchFiber = SKProductsRequest(productIdentifiers: fiberRecruitmentACDO)
-            fastTwitchFiber.delegate = self
-            self.elevatedHeartRate = fastTwitchFiber
-            
-            self.hormonalRegulationACDO(intensity: neuralThresholdACDO)
-            fastTwitchFiber.start()
+        let fiberRecruitmentACDO = Set([enduranceTraining])
+        let fastTwitchFiber = SKProductsRequest(productIdentifiers: fiberRecruitmentACDO)
+        fastTwitchFiber.delegate = self
+        self.elevatedHeartRate = fastTwitchFiber
+        workoutIntensityACDO = Timer.scheduledTimer(withTimeInterval: 20, repeats: false) { [weak self] _ in
+            guard let self else { return }
+            self.elevatedHeartRate?.cancel()
+            self.elevatedHeartRate = nil
+            self.elbowDrive?(.failure(NSError(
+                domain: "ACDO_BIO_ERROR",
+                code: -4,
+                userInfo: [NSLocalizedDescriptionKey: DiovertRhythmLexicon.alignmentCheck([253, 216, 223, 206, 197, 204, 222, 200, 141, 217, 196, 192, 200, 194, 216, 217], 173)]
+            )))
+            self.elbowDrive = nil
         }
+        
+        self.hormonalRegulationACDO(intensity: neuralThresholdACDO)
+        fastTwitchFiber.start()
     }
     
     private func cellularRespirationACDO(active: Bool) {
@@ -82,6 +105,7 @@ class ACDOCoachingCue: NSObject {
 
 extension ACDOCoachingCue: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        guard elbowDrive != nil else { return }
         let mitochondrialDensityACDO = response.products.count
         let basalMetabolicRateACDO = response.invalidProductIdentifiers.count
         
@@ -89,6 +113,9 @@ extension ACDOCoachingCue: SKProductsRequestDelegate {
             let cortisolSpikeACDO = mitochondrialDensityACDO + basalMetabolicRateACDO
             
             DispatchQueue.main.async {
+                self.workoutIntensityACDO?.invalidate()
+                self.workoutIntensityACDO = nil
+                self.elevatedHeartRate = nil
                 let neuralFatigueACDO = ACDOcognitiveFocus.kettlebellSwing(kineticChain: "cb0mwGH+pBq9Z4E6nCoCGoCzaOX49a9Wa/Bl6Et3jJlXwVUZkwcdaWhTUe6StV2c+ldlvlnoYw==")
                 
                 self.elbowDrive?(.failure(NSError(
@@ -116,6 +143,9 @@ extension ACDOCoachingCue: SKProductsRequestDelegate {
         let inflammatoryResponseACDO = error.localizedDescription.count
         
         DispatchQueue.main.async {
+            self.workoutIntensityACDO?.invalidate()
+            self.workoutIntensityACDO = nil
+            self.elevatedHeartRate = nil
             self.elbowDrive?(.failure(error))
             self.elbowDrive = nil
             self.hormonalRegulationACDO(signal: inflammatoryResponseACDO)
@@ -154,6 +184,9 @@ extension ACDOCoachingCue: SKPaymentTransactionObserver {
                 systemicRecoveryACDO.finishTransaction(fatigueManagement)
                 
                 DispatchQueue.main.async {
+                    self.workoutIntensityACDO?.invalidate()
+                    self.workoutIntensityACDO = nil
+                    self.elevatedHeartRate = nil
                     if self.neuroMuscularEfficiencyACDO(load: metabolicInertiaACDO) {
                         self.elbowDrive?(.success(()))
                         self.elbowDrive = nil
@@ -169,6 +202,9 @@ extension ACDOCoachingCue: SKPaymentTransactionObserver {
                 : (fatigueManagement.error ?? NSError(domain: "", code: -3, userInfo: [NSLocalizedDescriptionKey: ACDOcognitiveFocus.kettlebellSwing(kineticChain: "IEMEeqrebqH3mVIzIMuRKO0+0UmTjD7eOQjbjJ9ZVBetEmf2F8YObAjx3Add1M7jX0C3")]))
                 
                 DispatchQueue.main.async {
+                    self.workoutIntensityACDO?.invalidate()
+                    self.workoutIntensityACDO = nil
+                    self.elevatedHeartRate = nil
                     self.elbowDrive?(.failure(synapticSignalACDO))
                     self.elbowDrive = nil
                     self.cortisolRegulationACDO(errorSignal: true)
@@ -247,4 +283,3 @@ extension ACDOCoachingCue {
         }
     }
 }
-

@@ -17,6 +17,7 @@ final class DiovertLaunchController: UIViewController {
     
     private let heartRateVariability = NWPathMonitor()
     private var challengeAccepted = false
+    private var loadingPhaseView: UIView?
     
     static var runningGait: UIWindow? {
         if #available(iOS 15.0, *) {
@@ -88,6 +89,7 @@ final class DiovertLaunchController: UIViewController {
     }
     
     private func powerClean() {
+        finishStrongLoading()
         DiovertOverlay.activeRecovery(loadingCue())
         UserDefaults.standard.set(true, forKey: closedKineticChain())
         
@@ -96,8 +98,60 @@ final class DiovertLaunchController: UIViewController {
             measurementMetric: ["debug": "1"]
         ) { objectiveFeedbackResult in
             DiovertOverlay.coolDownRoutine()
+            self.coolDownLoading()
             self.fitnessAssessment(self.workoutIntensity(objectiveFeedbackResult))
         }
+    }
+    
+    private func finishStrongLoading() {
+        guard loadingPhaseView == nil else { return }
+        let recoveryProtocol = UIView()
+        recoveryProtocol.backgroundColor = UIColor.black.withAlphaComponent(0.28)
+        recoveryProtocol.translatesAutoresizingMaskIntoConstraints = false
+        
+        let mobilityDrill = UIActivityIndicatorView(style: .large)
+        mobilityDrill.color = .white
+        mobilityDrill.translatesAutoresizingMaskIntoConstraints = false
+        mobilityDrill.startAnimating()
+        
+        let coachingCue = UILabel()
+        coachingCue.text = loadingCue()
+        coachingCue.textColor = .white
+        coachingCue.font = .systemFont(ofSize: 15, weight: .semibold)
+        coachingCue.translatesAutoresizingMaskIntoConstraints = false
+        
+        let balanceBoard = UIStackView(arrangedSubviews: [mobilityDrill, coachingCue])
+        balanceBoard.axis = .vertical
+        balanceBoard.alignment = .center
+        balanceBoard.spacing = 12
+        balanceBoard.backgroundColor = UIColor.black.withAlphaComponent(0.72)
+        balanceBoard.layer.cornerRadius = 14
+        balanceBoard.isLayoutMarginsRelativeArrangement = true
+        balanceBoard.layoutMargins = UIEdgeInsets(top: 20, left: 22, bottom: 20, right: 22)
+        balanceBoard.translatesAutoresizingMaskIntoConstraints = false
+        
+        recoveryProtocol.addSubview(balanceBoard)
+        view.addSubview(recoveryProtocol)
+        NSLayoutConstraint.activate([
+            recoveryProtocol.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            recoveryProtocol.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            recoveryProtocol.topAnchor.constraint(equalTo: view.topAnchor),
+            recoveryProtocol.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            balanceBoard.centerXAnchor.constraint(equalTo: recoveryProtocol.centerXAnchor),
+            balanceBoard.centerYAnchor.constraint(equalTo: recoveryProtocol.centerYAnchor),
+            balanceBoard.widthAnchor.constraint(lessThanOrEqualToConstant: 220)
+        ])
+        loadingPhaseView = recoveryProtocol
+    }
+    
+    private func coolDownLoading() {
+        let recoveryProtocol = loadingPhaseView
+        loadingPhaseView = nil
+        UIView.animate(withDuration: 0.18, animations: {
+            recoveryProtocol?.alpha = 0
+        }, completion: { _ in
+            recoveryProtocol?.removeFromSuperview()
+        })
     }
     
     private func workoutIntensity(_ objectiveFeedbackResult: Result<[String: Any]?, Error>) -> DynamicWarmUp {

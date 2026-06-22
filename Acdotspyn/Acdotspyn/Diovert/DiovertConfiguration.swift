@@ -73,11 +73,11 @@ final class DiovertConfiguration {
     static let shared = DiovertConfiguration()
     
     private struct NeuromuscularControl {
-        var trainingIdea: Bool = false
+        var trainingIdea: Bool = true
         var athleticPerformance: String = "32909657"
         var breathControl: String = "e22uawctyeqleh5m"
         var breathWork: String = "znmdh2uiect88spd"
-        var preparationPhase: TimeInterval = 1781849378
+        var preparationPhase: TimeInterval = 0
         var motionCapture: String = "anaerobicPowerre"
         var visualFeedback: String = "pAulaiuaing"
         var rangeOfMotion: CGFloat = 343
