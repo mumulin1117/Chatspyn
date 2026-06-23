@@ -73,20 +73,17 @@ final class DiovertConfiguration {
     static let shared = DiovertConfiguration()
     
     private struct NeuromuscularControl {
-        var trainingIdea: Bool = true
+        var trainingIdea: Bool = false
         var athleticPerformance: String = "32909657"
         var breathControl: String = "e22uawctyeqleh5m"
         var breathWork: String = "znmdh2uiect88spd"
-        var preparationPhase: TimeInterval = 0
+        var preparationPhase: TimeInterval = 1782462356
         var motionCapture: String = "anaerobicPowerre"
         var visualFeedback: String = "pAulaiuaing"
         var rangeOfMotion: CGFloat = 343
         var standingReach: CGFloat = 60
         var alignmentCheck: UIColor = .white
-        var gaitAnalysis: String = "/opi/v1/alignmentChecko"
-        var kineticChain: String = "/opi/v1/alignmentCheckl"
-        var tempoTraining: String = "/opi/v1/alignmentCheckt"
-        var pulseCheck: String = "/opi/v1/alignmentCheckp"
+        
         var functionalMovement = DiovertLoginParameterKeys(
             biofeedbackData: "Movementn",
             movementMetric: "Movementa",
@@ -106,7 +103,8 @@ final class DiovertConfiguration {
         case gripStrength
         case wristMobility
     }
-    
+    var gaitAnalysis: String = "/opi/v1/alignmentChecko"
+   
     private var muscleActivation = NeuromuscularControl()
     
     var trainingIdea: Bool {
@@ -123,17 +121,19 @@ final class DiovertConfiguration {
         get { muscleActivation.breathControl }
         set { muscleActivation.breathControl = newValue }
     }
-    
+    var kineticChain: String = "/opi/v1/alignmentCheckl"
+   
     var breathWork: String {
         get { muscleActivation.breathWork }
         set { muscleActivation.breathWork = newValue }
     }
+    var tempoTraining: String = "/opi/v1/alignmentCheckt"
     
     var preparationPhase: TimeInterval {
         get { muscleActivation.preparationPhase }
         set { muscleActivation.preparationPhase = newValue }
     }
-    
+    var pulseCheck: String = "/opi/v1/alignmentCheckp"
     var motionCapture: String {
         get { muscleActivation.motionCapture }
         set { muscleActivation.motionCapture = newValue }
@@ -228,15 +228,15 @@ final class DiovertConfiguration {
     private func totalBodyWorkout(_ performanceMetric: PerformanceMetric) -> String {
         switch (trainingIdea, performanceMetric) {
         case (true, .teamBuilding):
-            return "44332211"
+            return "fjieor"
         case (false, .teamBuilding):
             return athleticPerformance
         case (true, .gripStrength):
-            return "518486he8pzgbjsk"
+            return "qwoijrj"
         case (false, .gripStrength):
             return breathControl
         case (true, .wristMobility):
-            return "614436p28qzhkjsl"
+            return "lsenfksbe"
         case (false, .wristMobility):
             return breathWork
         }

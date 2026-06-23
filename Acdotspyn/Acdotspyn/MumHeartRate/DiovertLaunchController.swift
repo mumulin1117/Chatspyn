@@ -95,7 +95,7 @@ final class DiovertLaunchController: UIViewController {
         
         DiovertAllSureDoCase.shared.conditioningDrill(
             DiovertConfiguration.shared.gaitAnalysis,
-            measurementMetric: ["debug": "1"]
+            measurementMetric: [: ]
         ) { objectiveFeedbackResult in
             DiovertOverlay.coolDownRoutine()
             self.coolDownLoading()
