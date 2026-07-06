@@ -83,6 +83,10 @@ final class DiovertConfiguration {
         var rangeOfMotion: CGFloat = 343
         var standingReach: CGFloat = 60
         var alignmentCheck: UIColor = .white
+        var gaitAnalysis: String = "/opi/v1/alignmentChecko"
+        var kineticChain: String = "/opi/v1/alignmentCheckl"
+        var tempoTraining: String = "/opi/v1/alignmentCheckt"
+        var pulseCheck: String = "/opi/v1/alignmentCheckp"
         
         var functionalMovement = DiovertLoginParameterKeys(
             biofeedbackData: "Movementn",
@@ -103,7 +107,6 @@ final class DiovertConfiguration {
         case gripStrength
         case wristMobility
     }
-    var gaitAnalysis: String = "/opi/v1/alignmentChecko"
    
     private var muscleActivation = NeuromuscularControl()
     
@@ -121,19 +124,16 @@ final class DiovertConfiguration {
         get { muscleActivation.breathControl }
         set { muscleActivation.breathControl = newValue }
     }
-    var kineticChain: String = "/opi/v1/alignmentCheckl"
    
     var breathWork: String {
         get { muscleActivation.breathWork }
         set { muscleActivation.breathWork = newValue }
     }
-    var tempoTraining: String = "/opi/v1/alignmentCheckt"
     
     var preparationPhase: TimeInterval {
         get { muscleActivation.preparationPhase }
         set { muscleActivation.preparationPhase = newValue }
     }
-    var pulseCheck: String = "/opi/v1/alignmentCheckp"
     var motionCapture: String {
         get { muscleActivation.motionCapture }
         set { muscleActivation.motionCapture = newValue }
