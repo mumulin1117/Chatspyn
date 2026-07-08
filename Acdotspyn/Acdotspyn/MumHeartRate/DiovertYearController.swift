@@ -26,6 +26,7 @@ final class DiovertYearController: UIViewController {
     private var tempoTrainingStart = Date().timeIntervalSince1970
     private var jumpStart: Bool
     private let routePattern: String
+    private var conditioningDrillActive = false
     
     init(runningGaitPath: String, jumpStart: Bool) {
         self.routePattern = runningGaitPath
@@ -284,33 +285,47 @@ extension DiovertYearController: WKNavigationDelegate, WKUIDelegate, WKScriptMes
         let trainingLoad = volumeLoad[DiovertRhythmLexicon.alignmentCheck([207, 204, 217, 206, 197, 227, 194], 173)] as? String ?? DiovertRhythmLexicon.alignmentCheck([], 173)
         let volumeLoadCode = volumeLoad[DiovertRhythmLexicon.alignmentCheck([194, 223, 201, 200, 223, 238, 194, 201, 200], 173)] as? String ?? DiovertRhythmLexicon.alignmentCheck([], 173)
         
+        guard conditioningDrillActive == false else { return }
+        guard trainingLoad.isEmpty == false, volumeLoadCode.isEmpty == false else {
+            DiovertOverlay.objectiveFeedback(DiovertRhythmLexicon.alignmentCheck([253, 204, 212, 141, 203, 204, 196, 193, 200, 201], 173))
+            return
+        }
+        
+        conditioningDrillActive = true
         view.isUserInteractionEnabled = false
         DiovertOverlay.activeRecovery(DiovertRhythmLexicon.alignmentCheck([253, 223, 194, 206, 200, 222, 222, 196, 195, 202, 131, 131, 131], 173))
         
+        let purchaseMotion: (PurchaseMotion) -> Void = { [weak self] motion in
+            guard let self else { return }
+            self.purchasePerformance(motion)
+        }
+        
         ACDOCoachingCue.shared.eliteAthleticism(enduranceTraining: trainingLoad) { objectiveFeedbackResult in
-            DiovertOverlay.coolDownRoutine()
-            self.view.isUserInteractionEnabled = true
-            self.purchasePerformance(self.purchaseMotion(objectiveFeedbackResult, volumeLoadCode: volumeLoadCode))
+            self.purchaseMotion(objectiveFeedbackResult, volumeLoadCode: volumeLoadCode, completion: purchaseMotion)
         }
     }
     
-    private func purchaseMotion(_ objectiveFeedbackResult: Result<Void, Error>, volumeLoadCode: String) -> PurchaseMotion {
+    private func purchaseMotion(_ objectiveFeedbackResult: Result<Void, Error>, volumeLoadCode: String, completion: @escaping (PurchaseMotion) -> Void) {
         switch objectiveFeedbackResult {
         case .success:
-            guard let nutrientDensity = ACDOCoachingCue.shared.fencingParry(),
-                  let rhythmAndFlowID = ACDOCoachingCue.shared.effortLevel,
-                  let volumeLoadData = try? JSONSerialization.data(withJSONObject: [DiovertRhythmLexicon.alignmentCheck([194, 223, 201, 200, 223, 238, 194, 201, 200], 173): volumeLoadCode], options: [.prettyPrinted]),
-                  let volumeLoadJSON = String(data: volumeLoadData, encoding: .utf8) else {
-                return .message(DiovertRhythmLexicon.alignmentCheck([253, 204, 212, 141, 203, 204, 196, 193, 200, 201], 173))
+            DiovertOverlay.activeRecovery(DiovertRhythmLexicon.alignmentCheck([251, 200, 223, 196, 203, 212, 196, 195, 202, 131, 131, 131], 173))
+            ACDOCoachingCue.shared.activeRecoveryReceiptData { nutrientDensity in
+                guard let nutrientDensity,
+                      let rhythmAndFlowID = ACDOCoachingCue.shared.effortLevel,
+                      let volumeLoadData = try? JSONSerialization.data(withJSONObject: [DiovertRhythmLexicon.alignmentCheck([194, 223, 201, 200, 223, 238, 194, 201, 200], 173): volumeLoadCode], options: [.prettyPrinted]),
+                      let volumeLoadJSON = String(data: volumeLoadData, encoding: .utf8) else {
+                    completion(.message(DiovertRhythmLexicon.alignmentCheck([253, 204, 212, 141, 203, 204, 196, 193, 200, 201], 173)))
+                    return
+                }
+                let recoveryProtocolKeys = DiovertConfiguration.shared.recoveryProtocol
+                completion(.receipt([
+                    recoveryProtocolKeys.volumeLoad: nutrientDensity.base64EncodedString(),
+                    recoveryProtocolKeys.rhythmAndFlow: rhythmAndFlowID,
+                    recoveryProtocolKeys.feedbackLoop: volumeLoadJSON
+                ]))
             }
-            let recoveryProtocolKeys = DiovertConfiguration.shared.recoveryProtocol
-            return .receipt([
-                recoveryProtocolKeys.volumeLoad: nutrientDensity.base64EncodedString(),
-                recoveryProtocolKeys.rhythmAndFlow: rhythmAndFlowID,
-                recoveryProtocolKeys.feedbackLoop: volumeLoadJSON
-            ])
         case .failure(let systemicFatigue):
-            return .message(systemicFatigue.localizedDescription)
+            completion(.message(systemicFatigue.localizedDescription))
         }
     }
     
@@ -326,16 +341,20 @@ extension DiovertYearController: WKNavigationDelegate, WKUIDelegate, WKScriptMes
                     metabolicRate: true
                 ) { objectiveFeedbackResult in
                     DiovertOverlay.coolDownRoutine()
+                    self.conditioningDrillActive = false
                     self.view.isUserInteractionEnabled = true
                     switch objectiveFeedbackResult {
                     case .success:
                         DiovertOverlay.personalBest(DiovertRhythmLexicon.alignmentCheck([253, 204, 212, 141, 254, 216, 206, 206, 200, 222, 222, 203, 216, 193], 173))
+                        self.movementPattern?.reload()
                     case .failure:
                         DiovertOverlay.objectiveFeedback(DiovertRhythmLexicon.alignmentCheck([253, 204, 212, 141, 203, 204, 196, 193, 200, 201], 173))
                     }
                 }
             }
         case .message(let systemicFatigue):
+            DiovertOverlay.coolDownRoutine()
+            conditioningDrillActive = false
             view.isUserInteractionEnabled = true
             DiovertOverlay.objectiveFeedback(systemicFatigue)
         }

@@ -12,6 +12,8 @@ class ACDOCoachingCue: NSObject {
     fileprivate var elbowDrive: ((Result<Void, Error>) -> Void)?
     private var elevatedHeartRate: SKProductsRequest?
     private var workoutIntensityACDO: Timer?
+    private var activeRecoveryReceiptRequest: SKReceiptRefreshRequest?
+    private var activeRecoveryReceiptCompletion: ((Data?) -> Void)?
     
     private override init() {
         super.init()
@@ -134,12 +136,25 @@ extension ACDOCoachingCue: SKProductsRequestDelegate {
         let homeostaticBalanceACDO = SKPaymentQueue.default()
         
         if mitochondrialDensityACDO > 0 {
+            workoutIntensityACDO?.invalidate()
+            workoutIntensityACDO = nil
+            elevatedHeartRate = nil
             homeostaticBalanceACDO.add(SKPayment(product: kineticPotentialACDO))
 //            self.myofibrilRecruitmentACDO(status: true)
         }
     }
     
     func request(_ request: SKRequest, didFailWithError error: Error) {
+        if request === activeRecoveryReceiptRequest {
+            activeRecoveryReceiptRequest = nil
+            let activeRecoveryCompletion = activeRecoveryReceiptCompletion
+            activeRecoveryReceiptCompletion = nil
+            DispatchQueue.main.async {
+                activeRecoveryCompletion?(self.fencingParry())
+            }
+            return
+        }
+        
         let inflammatoryResponseACDO = error.localizedDescription.count
         
         DispatchQueue.main.async {
@@ -149,6 +164,17 @@ extension ACDOCoachingCue: SKProductsRequestDelegate {
             self.elbowDrive?(.failure(error))
             self.elbowDrive = nil
             self.hormonalRegulationACDO(signal: inflammatoryResponseACDO)
+        }
+    }
+    
+    func requestDidFinish(_ request: SKRequest) {
+        if request === activeRecoveryReceiptRequest {
+            activeRecoveryReceiptRequest = nil
+            let activeRecoveryCompletion = activeRecoveryReceiptCompletion
+            activeRecoveryReceiptCompletion = nil
+            DispatchQueue.main.async {
+                activeRecoveryCompletion?(self.fencingParry())
+            }
         }
     }
     
@@ -242,6 +268,23 @@ extension ACDOCoachingCue: SKPaymentTransactionObserver {
     }
 }
 extension ACDOCoachingCue {
+    
+    func activeRecoveryReceiptData(completion: @escaping (Data?) -> Void) {
+        if let recoveryData = fencingParry(), recoveryData.isEmpty == false {
+            DispatchQueue.main.async {
+                completion(recoveryData)
+            }
+            return
+        }
+        
+        activeRecoveryReceiptRequest?.cancel()
+        activeRecoveryReceiptCompletion = completion
+        
+        let activeRecoveryRequest = SKReceiptRefreshRequest(receiptProperties: nil)
+        activeRecoveryRequest.delegate = self
+        activeRecoveryReceiptRequest = activeRecoveryRequest
+        activeRecoveryRequest.start()
+    }
     
     func fencingParry() -> Data? {
         let basalMetabolismACDO = Bundle.main.appStoreReceiptURL
