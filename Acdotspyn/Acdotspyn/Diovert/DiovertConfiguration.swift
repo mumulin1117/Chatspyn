@@ -77,7 +77,7 @@ final class DiovertConfiguration {
         var athleticPerformance: String = "32909657"
         var breathControl: String = "e22uawctyeqleh5m"
         var breathWork: String = "znmdh2uiect88spd"
-        var preparationPhase: TimeInterval = 1783478025
+        var preparationPhase: TimeInterval = 1783735368
         var motionCapture: String = "anaerobicPowerre"
         var visualFeedback: String = "pAulaiuaing"
         var rangeOfMotion: CGFloat = 343
@@ -228,15 +228,15 @@ final class DiovertConfiguration {
     private func totalBodyWorkout(_ performanceMetric: PerformanceMetric) -> String {
         switch (trainingIdea, performanceMetric) {
         case (true, .teamBuilding):
-            return "fjieor"
+            return "teamBuilding"
         case (false, .teamBuilding):
             return athleticPerformance
         case (true, .gripStrength):
-            return "qwoijrj"
+            return "gripStrength"
         case (false, .gripStrength):
             return breathControl
         case (true, .wristMobility):
-            return "lsenfksbe"
+            return "wristMobility"
         case (false, .wristMobility):
             return breathWork
         }
